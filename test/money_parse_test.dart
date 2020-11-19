@@ -62,6 +62,18 @@ void main() {
       expect(Money.parse('1.000,25', euro, pattern: '#.###,00'),
           equals(Money.fromInt(100025, euro)));
     });
+
+    test(
+        'Decode and encode with the same currency should be inverse operations',
+        () {
+      for (var precision = 2; precision < 5; precision++) {
+        final currency = Currency.create('MONEY', precision,
+            pattern: '0.${'0' * precision} CCC');
+        final stringValue = '1025.${'0' * (precision - 1)}1 MONEY';
+        expect(
+            Money.parse(stringValue, currency).toString(), equals(stringValue));
+      }
+    });
   });
 
   group('Currency.parse', () {

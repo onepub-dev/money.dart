@@ -31,10 +31,12 @@ void main() {
   final euro = Currency.create('EUR', 2,
       symbol: '€', invertSeparators: true, pattern: 'S0,00');
   final long = Currency.create('LONG', 2);
+  final bitcoin = Currency.create('BTC', 8);
 
   final usd10d25 = Money.fromInt(1025, usd);
   final usd10 = Money.fromInt(1000, usd);
   final long1000d90 = Money.fromInt(100090, long);
+  final btc1satoshi = Money.fromInt(1, bitcoin);
 
   group('format', () {
     test('Simple Number', () {
@@ -48,6 +50,7 @@ void main() {
       expect(usd10d25.format('###,000.##'), equals('010.25'));
       expect(usd10d25.format('##.##'), equals('10.25'));
       expect(usd10d25.format('##'), equals('10'));
+      expect(btc1satoshi.format('0.00000000'), equals('0.00000001'));
     });
 
     test('Inverted Decimal Separator', () {

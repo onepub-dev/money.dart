@@ -58,7 +58,7 @@ class Currency {
 
   /// The factor of 10 to divide a minor value by to get the intended
   /// currency value.
-  ///  e.g. if minorDigits is 1 then this value will be 100.
+  ///  e.g. if minorDigits is 2 then this value will be 100.
   final BigInt minorDigitsFactor;
 
   /// the default pattern used to format and parse monetary amounts for this
