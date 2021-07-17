@@ -99,6 +99,9 @@ class Currencies {
   /// Maps a currency 'code' to its associated currency.
   final Map<String, Currency> _directory = {};
 
+  /// Maps a currency 'code' pair to its associated exchange rate.
+  final Map<String, num> _exchangeRate = {};
+
   ///
   /// Parses a string containing a money amount including a currency code.
   ///
@@ -285,6 +288,34 @@ class Currencies {
     }
 
     return monetaryValue.substring(matches.first.start, matches.first.end);
+  }
+
+  /// Set exchange rate by specificing [from] and [to] currency code pair
+  void setExchangeRate({required String from, required String to}, num rate) {
+    if (find(from) == null) {
+      throw UnknownCurrencyException(from);
+    }
+    if (find(to) == null) {
+      throw UnknownCurrencyException(to);
+    }
+    if (rate <= 0) {
+      throw FormatException('Rate cannot be negative or zero');
+    }
+    _exchangeRate['$from>$to'] = rate;
+  }
+
+  /// Get exchange rate by specificing [from] and [to] currency code pair
+  num getExchangeRate({required String from, required String to}) {
+    if (find(from) == null) {
+      throw UnknownCurrencyException(from);
+    }
+    if (find(to) == null) {
+      throw UnknownCurrencyException(to);
+    }
+    if (_exchangeRate['$from>$to'] == null) {
+      throw Exception('Currency pair not found');
+    }
+    return _exchangeRate['$from>$to'];
   }
 }
 
