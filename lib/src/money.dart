@@ -293,7 +293,7 @@ class Money implements Comparable<Money> {
   /// Money auToUsExchangeRate = Money.fromInt(68, usd);
   /// Money usdAmount = invoiceAmount.exchangeTo(auToUsExchangeRate);
   /// ```
-  Money exchangeTo(Money exchangeRate) {
+  Money _exchangeTo(Money exchangeRate) {
     /// convertedUnits now has this.precision + exchangeRate.precision
     /// precision.
     var convertedUnits =
@@ -306,6 +306,13 @@ class Money implements Comparable<Money> {
 
     return Money._from(MinorUnits.from(convertedUnits), exchangeRate._currency);
   }
+
+  Money exchangeTo(String to) => _exchangeTo(Currencies().getExchangeRate(
+    from: this._currency.code,
+    to: to,
+  ));
+
+  // todo: Money exchangeToWithCurrency(Currency currency) => 
 
   /* Internal constructor *****************************************************/
 
