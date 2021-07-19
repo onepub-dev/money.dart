@@ -100,7 +100,7 @@ class Currencies {
   final Map<String, Currency> _directory = {};
 
   /// Maps a currency 'code' pair to its associated exchange rate.
-  final Map<String, num> _exchangeRate = {};
+  final Map<String, Money> _exchangeRate = {};
 
   ///
   /// Parses a string containing a money amount including a currency code.
@@ -291,21 +291,21 @@ class Currencies {
   }
 
   /// Set exchange rate by specificing [from] and [to] currency code pair
-  void setExchangeRate({required String from, required String to}, num rate) {
+  void setExchangeRate({required String from, required String to}, Money exchangeRate) {
     if (find(from) == null) {
       throw UnknownCurrencyException(from);
     }
     if (find(to) == null) {
       throw UnknownCurrencyException(to);
     }
-    if (rate <= 0) {
-      throw FormatException('Rate cannot be negative or zero');
+    if (exchangeRate.isNegative) {
+      throw FormatException('Exchange rate cannot be negative or zero');
     }
-    _exchangeRate['$from>$to'] = rate;
+    _exchangeRate['$from>$to'] = exchangeRate;
   }
 
   /// Get exchange rate by specificing [from] and [to] currency code pair
-  num getExchangeRate({required String from, required String to}) {
+  Money getExchangeRate({required String from, required String to}) {
     if (find(from) == null) {
       throw UnknownCurrencyException(from);
     }
