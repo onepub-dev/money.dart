@@ -298,7 +298,7 @@ class Currencies {
     if (find(to) == null) {
       throw UnknownCurrencyException(to);
     }
-    if (exchangeRate.isNegative) {
+    if (exchangeRate.isZero || exchangeRate.isNegative) {
       throw FormatException('Exchange rate cannot be negative or zero');
     }
     _exchangeRate['$from>$to'] = exchangeRate;
