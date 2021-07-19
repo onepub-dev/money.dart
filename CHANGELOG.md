@@ -1,3 +1,6 @@
+# 3.0.0-beta.4
+- reverted meta to 1.3 as flutter_test isn't compatible with meta 1.7 Fixes: #47
+
 # 3.0.0-beta.3
 - upgraded to latest meta.
 - moved to lints package.
