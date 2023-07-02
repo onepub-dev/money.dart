@@ -41,7 +41,7 @@ void main() {
 
   group('Money', () {
     test('encoding', () {
-      final fiveDollars = Money.fromIntWithCurrency(500, usd);
+      final fiveDollars = Money.fromIntMinUnitWithCurrency(500, usd);
 
       expect(fiveDollars.encodedBy(_TestEncoder()), equals('USD 500'));
     });
@@ -50,7 +50,7 @@ void main() {
       final money = Money.decoding(
           MoneyData.from(Fixed.fromNum(500, scale: 2), usd), _TestDecoder());
 
-      expect(money, equals(Money.fromIntWithCurrency(50000, usd)));
+      expect(money, equals(Money.fromIntMinUnitWithCurrency(50000, usd)));
     });
 
     group('round trip', () {
@@ -63,7 +63,7 @@ void main() {
       });
 
       test('multi-character symbol', () {
-        final m1 = Money.fromIntWithCurrency(0, CommonCurrencies().brl);
+        final m1 = Money.fromIntMinUnitWithCurrency(0, CommonCurrencies().brl);
         final m2 =
             Money.parseWithCurrency(m1.toString(), CommonCurrencies().brl);
 

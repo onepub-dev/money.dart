@@ -11,10 +11,10 @@ void main() {
     test('Exchange Rates', () {
       final aud = Currency.create('AUD', 2);
       final usd = Currency.create('USD', 2);
-      final invoiceAmount = Money.fromIntWithCurrency(1000, aud);
+      final invoiceAmount = Money.fromIntMinUnitWithCurrency(1000, aud);
       final auToUsExchangeRate = ExchangeRate.fromMinorUnits(68,
           scale: 2, fromCode: 'AUD', toCode: 'USD');
-      final us680 = Money.fromIntWithCurrency(680, usd);
+      final us680 = Money.fromIntMinUnitWithCurrency(680, usd);
 
       expect(invoiceAmount.exchangeTo(auToUsExchangeRate), equals(us680));
     });
@@ -23,7 +23,7 @@ void main() {
       final twd = Currency.create('TWD', 0, symbol: r'NT$');
       //final Currency usd = Currency.create('USD', 2);
 
-      final twdM = Money.fromIntWithCurrency(1000, twd);
+      final twdM = Money.fromIntMinUnitWithCurrency(1000, twd);
       expect(twdM.toString(), equals(r'NT$1000.00'));
 
       final twdToUsdRate = ExchangeRate.fromMinorUnits(3,

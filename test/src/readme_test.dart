@@ -17,7 +17,7 @@ void main() {
     final usdCurrency = Currency.create('USD', 2);
 
 // Create money from an int.
-    final costPrice = Money.fromIntWithCurrency(1000, usdCurrency);
+    final costPrice = Money.fromIntMinUnitWithCurrency(1000, usdCurrency);
     expect(costPrice.toString(), equals(r'$10.00'));
 
     final taxInclusive = costPrice * 1.1;

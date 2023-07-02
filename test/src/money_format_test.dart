@@ -10,11 +10,11 @@ import 'package:test/test.dart';
 void main() {
   Currencies().register(Currency.create('LONG', 2));
 
-  final usd10d25 = Money.fromInt(1025, code: 'USD');
-  final usd10 = Money.fromInt(1000, code: 'USD');
-  final long1000d90 = Money.fromInt(100090, code: 'LONG');
-  final usd20cents = Money.fromInt(20, code: 'USD');
-  final btc1satoshi = Money.fromInt(1, code: 'BTC');
+  final usd10d25 = Money.fromIntMinUnit(1025, code: 'USD');
+  final usd10 = Money.fromIntMinUnit(1000, code: 'USD');
+  final long1000d90 = Money.fromIntMinUnit(100090, code: 'LONG');
+  final usd20cents = Money.fromIntMinUnit(20, code: 'USD');
+  final btc1satoshi = Money.fromIntMinUnit(1, code: 'BTC');
 
   group('format', () {
     test('Simple Number', () {
@@ -48,8 +48,8 @@ void main() {
     });
 
     test('Inverted Decimal Separator', () {
-      final eurolarge = Money.fromInt(10000000, code: 'EUR');
-      final euroSmall = Money.fromInt(1099, code: 'EUR');
+      final eurolarge = Money.fromIntMinUnit(10000000, code: 'EUR');
+      final euroSmall = Money.fromIntMinUnit(1099, code: 'EUR');
       expect(eurolarge.toString(), equals('100000,00€'));
       expect(euroSmall.format('S#'), equals('€10'));
       expect(euroSmall.format('#,#'), equals('10,9'));
@@ -60,13 +60,14 @@ void main() {
       expect(euroSmall.format('##'), equals('10'));
     });
     test('Lead zero USD', () {
-      expect(
-          Money.fromInt(310, code: 'USD').format('000.00'), equals('003.10'));
-      expect(Money.fromInt(310, code: 'USD').format('000.##'), equals('003.1'));
-      expect(
-          Money.fromInt(301, code: 'USD').format('000.00'), equals('003.01'));
-      expect(
-          Money.fromInt(301, code: 'USD').format('000.##'), equals('003.01'));
+      expect(Money.fromIntMinUnit(310, code: 'USD').format('000.00'),
+          equals('003.10'));
+      expect(Money.fromIntMinUnit(310, code: 'USD').format('000.##'),
+          equals('003.1'));
+      expect(Money.fromIntMinUnit(301, code: 'USD').format('000.00'),
+          equals('003.01'));
+      expect(Money.fromIntMinUnit(301, code: 'USD').format('000.##'),
+          equals('003.01'));
       expect(usd10d25.format('000.##'), equals('010.25'));
       expect(usd10d25.format('000'), equals('010'));
     });
@@ -74,22 +75,26 @@ void main() {
     test('trailing zero USD', () {
       expect(usd10d25.format('##.000'), equals('10.250'));
       expect(usd10d25.format('000'), equals('010'));
-      expect(
-          Money.fromInt(301, code: 'USD').format('000.000'), equals('003.010'));
+      expect(Money.fromIntMinUnit(301, code: 'USD').format('000.000'),
+          equals('003.010'));
     });
 
     test('trailing zero when pattern have trailing symbol', () {
       final usdt = Currency.create('USDT', 2, pattern: '#,##0.## CCC');
-      expect(Money.fromIntWithCurrency(01, usdt).toString(), '0.01 USDT');
-      expect(Money.fromIntWithCurrency(301, usdt).toString(), '3.01 USDT');
-      expect(Money.fromIntWithCurrency(3010, usdt).toString(), '30.1 USDT');
-      expect(Money.fromIntWithCurrency(100, usdt).toString(), '1 USDT');
-      expect(Money.fromIntWithCurrency(1000, usdt).toString(), '10 USDT');
+      expect(
+          Money.fromIntMinUnitWithCurrency(01, usdt).toString(), '0.01 USDT');
+      expect(
+          Money.fromIntMinUnitWithCurrency(301, usdt).toString(), '3.01 USDT');
+      expect(
+          Money.fromIntMinUnitWithCurrency(3010, usdt).toString(), '30.1 USDT');
+      expect(Money.fromIntMinUnitWithCurrency(100, usdt).toString(), '1 USDT');
+      expect(
+          Money.fromIntMinUnitWithCurrency(1000, usdt).toString(), '10 USDT');
     });
 
     test('less than 10 cents USD in minor units', () {
-      expect(Money.fromInt(01, code: 'USD').toString(), r'$0.01');
-      expect(Money.fromInt(301, code: 'USD').toString(), r'$3.01');
+      expect(Money.fromIntMinUnit(01, code: 'USD').toString(), r'$0.01');
+      expect(Money.fromIntMinUnit(301, code: 'USD').toString(), r'$3.01');
       expect(Money.fromNum(3.01, code: 'USD').toString(), r'$3.01');
     });
 
@@ -121,7 +126,7 @@ void main() {
     test('Exchange rates', () {
       final cur1 = Currency.create('CUR1', 2);
 
-      final sendAmount = Money.fromIntWithCurrency(123, cur1);
+      final sendAmount = Money.fromIntMinUnitWithCurrency(123, cur1);
       Currencies().register(cur1);
 
       expect('$sendAmount', equals(r'$1.23'));
@@ -164,84 +169,84 @@ void main() {
 
     test('Pattern sizes', () {
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   1, Currency.create('AU', 2, pattern: '0.00'))
               .toString(),
           equals('0.01'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   10, Currency.create('AU', 2, pattern: '0.00'))
               .toString(),
           equals('0.10'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   100, Currency.create('AU', 2, pattern: '0.00'))
               .toString(),
           equals('1.00'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   1000, Currency.create('AU', 2, pattern: '0.00'))
               .toString(),
           equals('10.00'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   10000, Currency.create('AU', 2, pattern: '0.00'))
               .toString(),
           equals('100.00'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   100000, Currency.create('AU', 2, pattern: '0.00'))
               .toString(),
           equals('1000.00'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   100000, Currency.create('AU', 2, pattern: '#,000.00'))
               .toString(),
           equals('1,000.00'));
 
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   1, Currency.create('AU', 3, pattern: '0.00'))
               .toString(),
           equals('0.00'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   10, Currency.create('AU', 3, pattern: '0.00'))
               .toString(),
           equals('0.01'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   100, Currency.create('AU', 3, pattern: '0.00'))
               .toString(),
           equals('0.10'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   1000, Currency.create('AU', 3, pattern: '0.00'))
               .toString(),
           equals('1.00'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   10000, Currency.create('AU', 3, pattern: '0.00'))
               .toString(),
           equals('10.00'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   100000, Currency.create('AU', 3, pattern: '0.00'))
               .toString(),
           equals('100.00'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   100000, Currency.create('AU', 3, pattern: '#,000.00'))
               .toString(),
           equals('100.00'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   1000000, Currency.create('AU', 3, pattern: '#,000.00'))
               .toString(),
           equals('1,000.00'));
 
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   1000000, Currency.create('AU', 3, pattern: '#,000.00'))
               .toString(),
           equals('1,000.00'));
@@ -249,49 +254,49 @@ void main() {
 
     test('large patterns', () {
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   1, Currency.create('AU', 2, pattern: '0.000000'))
               .toString(),
           equals('0.010000'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   10, Currency.create('AU', 2, pattern: '0.000000'))
               .toString(),
           equals('0.100000'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   100, Currency.create('AU', 2, pattern: '0.000000'))
               .toString(),
           equals('1.000000'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   1000, Currency.create('AU', 2, pattern: '0.000000'))
               .toString(),
           equals('10.000000'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   10000, Currency.create('AU', 2, pattern: '0.000000'))
               .toString(),
           equals('100.000000'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   100000, Currency.create('AU', 2, pattern: '0.000000'))
               .toString(),
           equals('1000.000000'));
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   100000, Currency.create('AU', 2, pattern: '#,000.000000'))
               .toString(),
           equals('1,000.000000'));
 
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   35231, Currency.create('AU', 6, pattern: '#,##0.000000'))
               .toString(),
           equals('0.035231'));
 
       expect(
-          Money.fromIntWithCurrency(
+          Money.fromIntMinUnitWithCurrency(
                   35231, Currency.create('AU', 6, pattern: 'S0.000000'))
               .toString(),
           equals(r'$0.035231'));

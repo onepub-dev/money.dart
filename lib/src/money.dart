@@ -62,7 +62,7 @@ class Money implements Comparable<Money> {
   /// ******************************************
 
   /// Creates an instance of [Money] from a [num] holding the monetary value.
-  /// Unlike [Money.fromBigInt] the amount is in dollars and cents
+  /// Unlike [Money.fromBigIntMinUnit] the amount is in dollars and cents
   ///   (not just cents).
   ///
   /// This means that you can intiate a Money value from a double or int
@@ -102,7 +102,7 @@ class Money implements Comparable<Money> {
 
   /// Creates an instance of [Money] from a num holding the monetary value.
   ///
-  /// Unlike [Money.fromBigInt] the amount is in dollars and cents
+  /// Unlike [Money.fromBigIntMinUnit] the amount is in dollars and cents
   ///   (not just cents).
   /// This means that you can intiate a Money value from a double or int
   /// as follows:
@@ -145,14 +145,15 @@ class Money implements Comparable<Money> {
   /// registered via [Currencies.register].
   /// Throws an [UnknownCurrencyException] if the [code] is not a registered
   /// code.
-  factory Money.fromBigInt(BigInt minorUnits,
+  factory Money.fromBigIntMinUnit(BigInt minorUnits,
       {required String code, int? scale}) {
     final currency = Currencies().find(code);
     if (currency == null) {
       throw UnknownCurrencyException(code);
     }
 
-    return Money.fromBigIntWithCurrency(minorUnits, currency, scale: scale);
+    return Money.fromBigIntMinUnitWithCurrency(minorUnits, currency,
+        scale: scale);
   }
 
   /// Creates an instance of [Money] from an amount represented by
@@ -166,13 +167,44 @@ class Money implements Comparable<Money> {
   /// 500 cents is $5 USD.
   /// let fiveDollars = Money.fromBigIntWithCurrency(BigInt.from(500), usd);
   ///
-  factory Money.fromBigIntWithCurrency(BigInt minorUnits, Currency currency,
-          {int? scale}) =>
+  factory Money.fromBigIntMinUnitWithCurrency(
+          BigInt minorUnits, Currency currency, {int? scale}) =>
       Money._from(Fixed.fromBigInt(minorUnits, scale: scale ?? currency.scale),
           currency);
 
   /// ******************************************
-  /// Money.fromInt
+  /// Money.fromInteger
+  /// ******************************************
+
+  /// Creates an instance of [Money] from an integer.
+  /// And I mean real int, not a confusing minorUnit punk *** convertor
+  /// [code] - the currency code of the [minorUnits]. This must be either one
+  /// of the [CommonCurrencies] or a currency you have
+  /// registered via [Currencies.register].
+  /// Throws an [UnknownCurrencyException] if the [code] is not a registered
+  /// code.
+  factory Money.fromInteger(int val, {required String code}) {
+    final currency = Currencies().find(code);
+    if (currency == null) {
+      throw UnknownCurrencyException(code);
+    }
+
+    return Money.fromIntegerWithCurrency(val, currency);
+  }
+
+  /// Creates an instance of [Money] from an integer.
+  /// The amount passed is like in real life
+  /// When I need 2 dollars, I mean 2 and not 200
+  /// So just use 2
+  factory Money.fromIntegerWithCurrency(int val, Currency currency) =>
+      // reverting the computation to keep money from int simple
+      Money._from(
+          Fixed.fromInt(val * BigInt.from(10).pow(currency.scale).toInt()),
+          currency);
+
+  ///
+  /// ******************************************
+  /// Money.fromIntMinUnit
   /// ******************************************
 
   /// Creates an instance of [Money] from an integer.
@@ -184,19 +216,20 @@ class Money implements Comparable<Money> {
   ///
   /// Throws an [UnknownCurrencyException] if the [code] is not a registered
   /// code.
-  factory Money.fromInt(int minorUnits, {required String code, int? scale}) {
+  factory Money.fromIntMinUnit(int minorUnits,
+      {required String code, int? scale}) {
     final currency = Currencies().find(code);
     if (currency == null) {
       throw UnknownCurrencyException(code);
     }
 
-    return Money.fromIntWithCurrency(minorUnits, currency, scale: scale);
+    return Money.fromIntMinUnitWithCurrency(minorUnits, currency, scale: scale);
   }
 
   /// Creates an instance of [Money] from an integer.
   ///
   /// [minorUnits] - the no. minorUnits of the [currency], e.g (cents).
-  factory Money.fromIntWithCurrency(int minorUnits, Currency currency,
+  factory Money.fromIntMinUnitWithCurrency(int minorUnits, Currency currency,
           {int? scale}) =>
       Money._from(
           Fixed.fromInt(minorUnits, scale: scale ?? currency.scale), currency);

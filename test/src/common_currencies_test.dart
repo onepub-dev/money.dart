@@ -14,18 +14,18 @@ void main() {
       expect(Currencies().find('USD'), equals(CommonCurrencies().usd));
 
       var value = Currencies().parse(r'$USD10.50');
-      expect(value, equals(Money.fromInt(1050, code: 'USD')));
+      expect(value, equals(Money.fromIntMinUnit(1050, code: 'USD')));
 
       // register all common currencies.
       value = Currencies().parse(r'$NZD10.50');
-      expect(value, equals(Money.fromInt(1050, code: 'NZD')));
+      expect(value, equals(Money.fromIntMinUnit(1050, code: 'NZD')));
 
       //Test for newly added currency
       value = Currencies().parse('₦NGN4.50');
-      expect(value, equals(Money.fromInt(450, code: 'NGN')));
+      expect(value, equals(Money.fromIntMinUnit(450, code: 'NGN')));
 
       value = Currencies().parse('₵GHS4.50');
-      expect(value, equals(Money.fromInt(450, code: 'GHS')));
+      expect(value, equals(Money.fromIntMinUnit(450, code: 'GHS')));
     });
 
     test('Test Default Formats', () {

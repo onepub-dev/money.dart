@@ -24,7 +24,7 @@ void main() {
   ///   monetary value.
   /// So $10.00 is 1000 cents.
   ///
-  final costPrice = Money.fromInt(1000, code: 'USD');
+  final costPrice = Money.fromIntMinUnit(1000, code: 'USD');
 
   print(costPrice);
   // > $10.00
@@ -104,7 +104,7 @@ void main() {
   ///      0 - force at least a single digit in the output.
   ///
   final jpy = Currency.create('JPY', 0, symbol: '¥', pattern: 'S0');
-  final jpyMoney = Money.fromIntWithCurrency(500, jpy);
+  final jpyMoney = Money.fromIntMinUnitWithCurrency(500, jpy);
   print(jpyMoney);
   // > ¥500
 
@@ -120,7 +120,7 @@ void main() {
   final euro = Currency.create('EUR', 2,
       symbol: '€', invertSeparators: true, pattern: '#.##0,00 S');
 
-  final bmwPrice = Money.fromIntWithCurrency(10025090, euro);
+  final bmwPrice = Money.fromIntMinUnitWithCurrency(10025090, euro);
   print(bmwPrice);
   // > 100.250,90 €
 
@@ -130,7 +130,7 @@ void main() {
   ///
 
   // 100,345.30 usd
-  final teslaPrice = Money.fromInt(10034530, code: 'USD');
+  final teslaPrice = Money.fromIntMinUnit(10034530, code: 'USD');
 
   print(teslaPrice.format('###,###'));
   // > 100,345
@@ -142,7 +142,7 @@ void main() {
   // > US100,345.30
 
   // 100,345.30 EUR
-  final euroCostPrice = Money.fromInt(10034530, code: 'EUR');
+  final euroCostPrice = Money.fromIntMinUnit(10034530, code: 'EUR');
   print(euroCostPrice.format('###.###'));
   // > 100.345
 
@@ -164,7 +164,7 @@ void main() {
   // the currency code that the currency was created with.
   final usDollar = Currencies().find('USD');
 
-  final invoicePrice = Money.fromIntWithCurrency(1000, usDollar!);
+  final invoicePrice = Money.fromIntMinUnitWithCurrency(1000, usDollar!);
 
   ///
   print(invoicePrice.format('SCCC 0.00'));

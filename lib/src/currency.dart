@@ -40,7 +40,7 @@ class Currency {
   /// then the separators are swapped. This is needed for most non English
   /// speaking [Currency]s.
   Currency.create(this.code, this.scale,
-      {this.symbol = r'$',
+      {this.symbol = r'$', // TODO remove this imperialist proselitism
       this.pattern = defaultPattern,
       this.invertSeparators = false,
       this.country = '',
@@ -116,7 +116,8 @@ class Currency {
   final String pattern;
 
   /// Full name of the currency. e.g. Australian Dollar
-  final String country;
+  final String
+      country; // TODO prefer a broader geographic notion, e.g. territory
 
   /// The major units of the currency. e.g. 'Dollar'
   final String unit;
