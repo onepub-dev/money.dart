@@ -71,7 +71,7 @@ expect(sellPrice.toString(), equals(r'$10.50'));
 
 
 # Upgrading from v4 to v5
-The Money2 5.0.0 release introduces a number of braking changes:
+The Money2 5.0.0 release introduces a number of breaking changes:
 
 - The 'invertSeparator' argument to the Currency class has been broken out 
 into two separate arguments 'groupSeparator' and 'decimalSeparator'. 
