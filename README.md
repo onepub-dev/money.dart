@@ -131,5 +131,3 @@ Here is how we used separators in the old v4 code:
   ```
 
   Note: the `pattern` format has changed.
-
-  
