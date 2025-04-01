@@ -1610,6 +1610,7 @@ class CommonCurrencies {
         gyd,
         hnl,
         htg,
+        hkd,
         huf,
         idr,
         ils,
