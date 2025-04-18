@@ -41,33 +41,35 @@ Money2 is sponsored by OnePub, the Dart private package repository.
 
 # Examples
 
-Example 2
 
 ```dart
 import 'money2.dart';
-Currency usdCurrency = Currency.create('USD', 2);
+import 'package:test/test.dart';
+    final usdCurrency = Currency.create('USD', 2);
 
-// Create money from an int.
-Money costPrice = Money.fromIntWithCurrency(1000, usdCurrency);
-expect(costPrice.toString(), equals(r'$10.00'));
+    /// Create money from an int.
+    final costPrice = Money.fromIntWithCurrency(1000, usdCurrency);
+    expect(costPrice.toString(), equals(r'$10.00'));
 
-final taxInclusive = costPrice * 1.1;
-expect(taxInclusive.toString(), equals(r'$11.00'));
+    final taxInclusive = costPrice * 1.1;
+    expect(taxInclusive.toString(), equals(r'$11.00'));
 
-expect(taxInclusive.format('SCC #.00'), equals(r'$US 11.00'));
+    expect(taxInclusive.format('SCC #.00'), equals(r'$US 11.00'));
 
-// Create money from an String using the `Currency` instance.
-Money parsed = usdCurrency.parse(r'$10.00');
-expect(parsed.format('SCCC 0.00'), equals(r'$USD 10.00'));
+    /// Create money from an String using the `Currency` instance.
+    final parsed = usdCurrency.parse(r'$10.00');
+    expect(parsed.format('SCCC 0.00'), equals(r'$USD 10.00'));
 
-// Create money from an int which contains the MajorUnit (e.g dollars)
-Money buyPrice = Money.fromNum(10, isoCode: 'AUD');
-expect(buyPrice.toString(), equals(r'$10.00'));
+    /// Create money from an int which contains the MajorUnit (e.g dollars)
+    final buyPrice = Money.fromNum(10, isoCode: 'AUD');
+    expect(buyPrice.toString(), equals(r'$10.00'));
 
-// Create money from a double which contains Major and Minor units (e.g. dollars and cents)
-// We don't recommend transporting money as a double as you will get rounding errors.
-Money sellPrice = Money.fromNum(10.50, isoCode: 'AUD');
-expect(sellPrice.toString(), equals(r'$10.50'));
+    /// Create money from a double which contains Major and Minor units
+    /// (e.g. dollars and cents)
+    /// We don't recommend transporting money as a double as you will get
+    /// rounding errors.
+    final sellPrice = Money.fromNum(10.50, isoCode: 'AUD');
+    expect(sellPrice.toString(), equals(r'$10.50'));
 ```
 
 
@@ -93,7 +95,6 @@ need to modifiy any custom patterns from '#.###,##' to '#,###.##'.
 Note the change in the separators!
 
 
-- For methods that take a 'code' it has been renamed 'isoCode' to make the
 correct use of the code more apparent.
 
 - renamed PatterDecoder.isCode to isIsoCode
