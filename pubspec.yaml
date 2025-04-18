@@ -8,12 +8,11 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 dependencies:
   decimal: ^3.0.0
-  fixed: ^5.3.3
-  intl: ^0.20.2
+  fixed: ^5.3.4
   meta: ^1.9.0
   strings: ^3.2.0
 dev_dependencies:
-  # lint_hard: ^6.0.0
+  lint_hard: ^5.0.0
   test: ^1.17.10
 
 platforms:

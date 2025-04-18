@@ -1,3 +1,7 @@
+# 6.0.0-beta.3.5
+Breaking: Money operator * now returns the same decimalDigits as the original
+Money instance. Previously we use the Currencies decimal Digits.
+
 # 6.0.0-beta.3
 BREAKING: change fromCode and toCode to fromIsoCode and toIsoCode in the ExchangeRate.fromMinorUnits and ExchangeRate.fromNum methods to bring it in line with other methods.
 Change how ExchangeRates are stored to json to bring it in line with how we store money as json.
@@ -20,7 +24,7 @@ Change how ExchangeRates are stored to json to bring it in line with how we stor
         'toIsoCode': 'USD',
         'toDecimals': 3,
 ```
-Note that 'minoorUnits' is a string to avoid overflow error when javascript parses the json.
+Note that 'minoorUnits' is a string to avoid overflow issues when javascript parses the json and the integer is larger than a javascript num.
 
 # 6.0.0-beta.2
  BREAKING: the 'precision' argument to Currencies.copyWith has been renamed from
