@@ -1,6 +1,12 @@
-# 6.0.0-beta.3.5
-Breaking: Money operator * now returns the same decimalDigits as the original
-Money instance. Previously we use the Currencies decimal Digits.
+# 6.0.0-beta.4
+- Breaking: Money operator * now returns the same decimalDigits as the original
+   Money instance. Previously we use the Currencies decimal Digits.
+- upgraded to fixed 5.3.4
+- Fixed broken examples in the readme and the main doco site.
+- Fixed a bug in operator * which truncated the scale of doubles. We now default to 16 digits. 
+- Added a new method multiplyByNum to allow the user to expliclity control the scale.
+- created tests for all examples.
+- Added missing hkd from list of common currencies. Thanks to @hwh97 for raising the issue.
 
 # 6.0.0-beta.3
 BREAKING: change fromCode and toCode to fromIsoCode and toIsoCode in the ExchangeRate.fromMinorUnits and ExchangeRate.fromNum methods to bring it in line with other methods.
