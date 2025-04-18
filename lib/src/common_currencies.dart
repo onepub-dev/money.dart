@@ -1608,6 +1608,7 @@ class CommonCurrencies {
         gnf,
         gtq,
         gyd,
+        hkd,
         hnl,
         htg,
         huf,
