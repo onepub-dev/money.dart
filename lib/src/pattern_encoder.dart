@@ -36,8 +36,8 @@ const String patternGroupSeparator = ',';
 ///   – Currency placeholders (S or C) may appear only as a contiguous prefix
 ///      or suffix (not both)
 ///     and only one occurrence is allowed.
-///   – A negative sign '-' may appear at most once in the numeric portion
-///      and must be either the first or last character there.
+///   – A negative symbol '-' or '+' may appear at most once in the numeric
+///     portion and must be either the first or last character there.
 ///
 /// This implementation processes the major part by iterating right-to-left
 ///   and the minor part left-to-right.

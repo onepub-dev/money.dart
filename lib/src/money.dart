@@ -463,6 +463,19 @@ class Money implements Comparable<Money> {
   /// and trailing zeros.
   ///   * , (comma) a placeholder for the grouping separator
   ///   * . (period) a place holder for the decimal separator
+  ///   * '-' indicates the location to display the '-' character if the amount
+  ///         is -ve.
+  ///   * '+' indicates the location to display the '-' character if the amount
+  ///       is -ve or a '+' if the
+  ///       amount is +ve.
+  ///
+  /// In addition:
+  ///   – Currency placeholders (S or C) may appear only as a contiguous prefix
+  ///      or suffix (not both)
+  ///     and only one occurrence is allowed.
+  ///   – A negative symbol '-' or '+' may appear at most once in the numeric portion
+  ///      and must be either the first or last character there.
+  ///
   ///
   /// Note: even if you use the groupSeparator or decimalSeparator
   /// to use alternate separators the pattern must still use ',' and '.'
@@ -712,9 +725,8 @@ class Money implements Comparable<Money> {
   /// we treated it as if it has 16 decimal places.
   /// Use [multiplyByNum] if want to explicitly control the number of
   /// decimal places considered in [multiplier].
-  Money operator *(num multiplier) => _withAmount(amount
-      .multiply(multiplier, scale: 16)
-      .copyWith(scale: decimalDigits));
+  Money operator *(num multiplier) => _withAmount(
+      amount.multiply(multiplier, scale: 16).copyWith(scale: decimalDigits));
 
   Money multiplyByNum(num multiplier, [int? decimalDigits = 16]) =>
       _withAmount(amount
