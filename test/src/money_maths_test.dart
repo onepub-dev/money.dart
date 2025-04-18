@@ -56,10 +56,9 @@ void main() {
       expect(onehundred.multipliedByPercentage(threePercent!), equals(three));
     });
 
-    test('Multiply by doube', () {
+    test('Multiply by double', () {
       final kr = Currency.create('KR', 0);
       final amount = Money.parseWithCurrency('100', kr, pattern: 'S0');
-      print(amount);
       final halfish = amount * 0.4;
       expect(halfish, equals(Money.fromIntWithCurrency(40, kr)));
     });
