@@ -708,14 +708,18 @@ class Money implements Comparable<Money> {
   }
 
   /// Returns [Money] multiplied by [multiplier], using schoolbook rounding.
-  Money operator *(num multiplier) {
-    print(multiplier);
-    print(amount.multiply(multiplier));
-    print(amount.multiply(multiplier).copyWith(scale: currency.decimalDigits));
+  /// As we have no information about the scale of the [multiplier]
+  /// we treated it as if it has 16 decimal places.
+  /// Use [multiplyByNum] if want to explicitly control the number of
+  /// decimal places considered in [multiplier].
+  Money operator *(num multiplier) => _withAmount(amount
+      .multiply(multiplier, scale: 16)
+      .copyWith(scale: decimalDigits));
 
-    return _withAmount(
-        amount.multiply(multiplier).copyWith(scale: currency.decimalDigits));
-  }
+  Money multiplyByNum(num multiplier, [int? decimalDigits = 16]) =>
+      _withAmount(amount
+          .multiply(multiplier, scale: decimalDigits)
+          .copyWith(scale: decimalDigits));
 
   /// Returns [Money] divided by [divisor], using schoolbook rounding.
   Money operator /(num divisor) => _withAmount(
