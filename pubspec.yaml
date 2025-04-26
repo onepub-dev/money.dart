@@ -1,5 +1,5 @@
 name: money2
-version: 6.0.0-beta.4
+version: 6.0.0
 homepage: https://money2.onepub.dev
 documentation: https://money2.onepub.dev
 description: Money and Currency classes with fixed precision maths, parsing and formatting. (Money.parse('$2010.00') * 10).format('S CC#,##0') -> $ US20,100
@@ -8,7 +8,7 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 dependencies:
   decimal: ^3.0.0
-  fixed: ^5.3.4
+  fixed: ^6.0.0
   meta: ^1.9.0
   strings: ^3.2.0
 dev_dependencies:
