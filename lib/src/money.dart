@@ -473,8 +473,8 @@ class Money implements Comparable<Money> {
   ///   – Currency placeholders (S or C) may appear only as a contiguous prefix
   ///      or suffix (not both)
   ///     and only one occurrence is allowed.
-  ///   – A negative symbol '-' or '+' may appear at most once in the numeric portion
-  ///      and must be either the first or last character there.
+  ///   – A negative symbol '-' or '+' may appear at most once in the numeric
+  ///   portion and must be either the first or last character there.
   ///
   ///
   /// Note: even if you use the groupSeparator or decimalSeparator
