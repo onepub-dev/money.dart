@@ -61,12 +61,12 @@ void main() {
     );
     expect(privateNetWealthMoney.amount.integerPart, equals(privateNetWealth));
     expect(privateNetWealthMoney.amount.decimalPart, equals(decimalPart));
-    expect(privateNetWealthMoney.amount.scale, equals(largeScale));
+    expect(privateNetWealthMoney.amount.decimalDigits, equals(largeScale));
 
     final reconstructed = Money.fromJson(privateNetWealthMoney.toJson());
     expect(reconstructed.amount.integerPart, equals(privateNetWealth));
     expect(reconstructed.amount.decimalPart, equals(decimalPart));
-    expect(reconstructed.amount.scale, equals(largeScale));
+    expect(reconstructed.amount.decimalDigits, equals(largeScale));
     expect(reconstructed, equals(privateNetWealthMoney));
   });
 }

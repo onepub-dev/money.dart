@@ -81,7 +81,7 @@ class ExchangeRate {
       required this.toCurrency,
       this.toDecimalDigits})
       : exchangeRate =
-            Fixed.fromInt(exchangeRateMinorUnits, scale: decimalDigits);
+            Fixed.fromInt(exchangeRateMinorUnits, decimalDigits: decimalDigits);
 
   /// Create an exchange rate from an integer or decimal holding major units
   ///
@@ -111,7 +111,7 @@ class ExchangeRate {
       ExchangeRate.fromFixed(
         Fixed.fromBigInt(
           BigInt.parse(json['minorUnits'] as String),
-          scale: json['decimals'] as int,
+          decimalDigits: json['decimals'] as int,
         ),
         fromIsoCode: json['fromIsoCode'] as String,
         toIsoCode: json['toIsoCode'] as String,
@@ -132,7 +132,7 @@ class ExchangeRate {
     required this.toCurrency,
     this.toDecimalDigits,
   }) {
-    exchangeRate = Fixed.fromNum(rateAsNum, scale: decimalDigits);
+    exchangeRate = Fixed.fromNum(rateAsNum, decimalDigits: decimalDigits);
   }
 
   /// Create an exchange rate from an BigInt holding minor units
@@ -160,7 +160,7 @@ class ExchangeRate {
     this.toDecimalDigits,
   }) {
     exchangeRate =
-        Fixed.fromBigInt(exchangeRateMinorUnits, scale: decimalDigits);
+        Fixed.fromBigInt(exchangeRateMinorUnits, decimalDigits: decimalDigits);
   }
 
   /// The Currency that we are converting from.
@@ -210,7 +210,7 @@ class ExchangeRate {
     return Money.fromFixedWithCurrency(
         amount.amount *
             Fixed.fromNum(1,
-                scale: toDecimalDigits ?? toCurrency.decimalDigits) /
+                decimalDigits: toDecimalDigits ?? toCurrency.decimalDigits) /
             exchangeRate,
         fromCurrency,
         decimalDigits: toDecimalDigits ?? toCurrency.decimalDigits);
@@ -238,7 +238,7 @@ class ExchangeRate {
   /// instance using the [ExchangeRate.fromJson] factory.
   Map<String, dynamic> toJson() => {
         'minorUnits': '${exchangeRate.minorUnits.toInt()}',
-        'decimals': exchangeRate.scale,
+        'decimals': exchangeRate.decimalDigits,
         'fromIsoCode': fromCurrency.isoCode,
         'toIsoCode': toCurrency.isoCode,
         'toDecimals': toDecimalDigits,

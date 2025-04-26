@@ -67,7 +67,7 @@ class Money implements Comparable<Money> {
   // }) {
   //   return Money._from(
   //       Fixed.copyWith(data.amount,
-  //           scale: decimalDigits ?? currency.decimalDigits),
+  //           decimalDigits: decimalDigits ?? currency.decimalDigits),
   //       currency);
   // }
 
@@ -140,7 +140,8 @@ class Money implements Comparable<Money> {
   factory Money.fromNumWithCurrency(num amount, Currency currency,
           {int? decimalDigits}) =>
       Money._from(
-          Fixed.fromNum(amount, scale: decimalDigits ?? currency.decimalDigits),
+          Fixed.fromNum(amount,
+              decimalDigits: decimalDigits ?? currency.decimalDigits),
           currency);
 
   /// ******************************************
@@ -189,7 +190,7 @@ class Money implements Comparable<Money> {
           {int? decimalDigits}) =>
       Money._from(
           Fixed.fromBigInt(minorUnits,
-              scale: decimalDigits ?? currency.decimalDigits),
+              decimalDigits: decimalDigits ?? currency.decimalDigits),
           currency);
 
   /// ******************************************
@@ -224,7 +225,7 @@ class Money implements Comparable<Money> {
           {int? decimalDigits}) =>
       Money._from(
           Fixed.fromInt(minorUnits,
-              scale: decimalDigits ?? currency.decimalDigits),
+              decimalDigits: decimalDigits ?? currency.decimalDigits),
           currency);
 
   /// Creates a Money from a [Fixed] [amount].
@@ -251,7 +252,8 @@ class Money implements Comparable<Money> {
   factory Money.fromFixedWithCurrency(Fixed amount, Currency currency,
           {int? decimalDigits}) =>
       Money._from(
-          amount.copyWith(scale: decimalDigits ?? currency.decimalDigits),
+          amount.copyWith(
+              decimalDigits: decimalDigits ?? currency.decimalDigits),
           currency);
 
   /// Creates a Money from a [Decimal] [amount].
@@ -275,7 +277,7 @@ class Money implements Comparable<Money> {
           {int? decimalDigits}) =>
       Money._from(
           Fixed.fromDecimal(amount,
-              scale: decimalDigits ?? currency.decimalDigits),
+              decimalDigits: decimalDigits ?? currency.decimalDigits),
           currency);
 
   /// ******************************************
@@ -352,7 +354,8 @@ class Money implements Comparable<Money> {
       final data = decoder.decode(amount);
 
       return Money._from(
-          data.amount.copyWith(scale: decimalDigits ?? currency.decimalDigits),
+          data.amount
+              .copyWith(decimalDigits: decimalDigits ?? currency.decimalDigits),
           currency);
     } catch (e) {
       throw MoneyParseException(e.toString());
@@ -393,8 +396,8 @@ class Money implements Comparable<Money> {
       }
     }
     return Money._from(
-        (amount ?? this.amount)
-            .copyWith(scale: decimalDigits ?? this.amount.scale),
+        (amount ?? this.amount).copyWith(
+            decimalDigits: decimalDigits ?? this.amount.decimalDigits),
         currency);
   }
 
@@ -512,7 +515,7 @@ class Money implements Comparable<Money> {
   /// using the [Money.fromJson] factory.
   Map<String, dynamic> toJson() => {
         'minorUnits': amount.minorUnits.toString(),
-        'decimals': amount.scale,
+        'decimals': amount.decimalDigits,
         'isoCode': currency.isoCode,
       };
 
@@ -524,7 +527,7 @@ class Money implements Comparable<Money> {
 
   String decimalPartAsString() => amount.decimalPartAsString();
 
-  int get decimalDigits => amount.scale;
+  int get decimalDigits => amount.decimalDigits;
 
   // Encoding/Decoding *******************************************************
 
@@ -539,7 +542,8 @@ class Money implements Comparable<Money> {
   static Money decoding<T>(T value, MoneyDecoder<T> decoder) {
     final data = decoder.decode(value);
 
-    return Money._from(data.amount.copyWith(scale: data.currency.decimalDigits),
+    return Money._from(
+        data.amount.copyWith(decimalDigits: data.currency.decimalDigits),
         data.currency);
   }
 
@@ -658,7 +662,7 @@ class Money implements Comparable<Money> {
   }
 
   /// returns the value of the Money as a double.
-  /// Becareful as you loose precision using a double
+  /// Becareful as you lose precision using a double
   /// You should store money as a integer and a scale.
   double toDouble() => amount.toDecimal().toDouble();
 
@@ -725,32 +729,34 @@ class Money implements Comparable<Money> {
   /// we treated it as if it has 16 decimal places.
   /// Use [multiplyByNum] if want to explicitly control the number of
   /// decimal places considered in [multiplier].
-  Money operator *(num multiplier) => _withAmount(
-      amount.multiply(multiplier, scale: 16).copyWith(scale: decimalDigits));
+  Money operator *(num multiplier) => _withAmount(amount
+      .multiply(multiplier, decimalDigits: 16)
+      .copyWith(decimalDigits: decimalDigits));
 
   Money multiplyByNum(num multiplier, [int? decimalDigits = 16]) =>
       _withAmount(amount
-          .multiply(multiplier, scale: decimalDigits)
-          .copyWith(scale: decimalDigits));
+          .multiply(multiplier, decimalDigits: decimalDigits)
+          .copyWith(decimalDigits: decimalDigits));
 
   /// Returns [Money] divided by [divisor], using schoolbook rounding.
   Money operator /(num divisor) => _withAmount(
-      amount.divide(divisor).copyWith(scale: currency.decimalDigits));
+      amount.divide(divisor).copyWith(decimalDigits: currency.decimalDigits));
 
   /// Calculates the percentage that this is of [base].
   /// So this:10, base: 100 yeilds 0.1 which is 10%.
-  /// The scale of the result is the larger scale of this and [base]
+  /// The no. of decimal digits of the result is the larger of this and [base]
   Percentage percentageOf(Money base) {
     final scale = max(decimalDigits, base.decimalDigits);
     return Percentage.fromFixed(
-        (toFixed() / base.toFixed() * Fixed.fromInt(100, scale: 0))
-            .copyWith(scale: scale));
+        (toFixed() / base.toFixed() * Fixed.fromInt(100, decimalDigits: 0))
+            .copyWith(decimalDigits: scale));
   }
 
   /// Multiples this by the given percentage
   /// $1 * 20% = $0.20
   Money multipliedByPercentage(Percentage percentage) =>
-      multiplyByFixed(percentage).divideByFixed(Fixed.fromInt(100, scale: 0));
+      multiplyByFixed(percentage)
+          .divideByFixed(Fixed.fromInt(100, decimalDigits: 0));
 
   /// Divides this by [divisor] and returns the result as a double
   double dividedBy(Money divisor) {

@@ -34,7 +34,7 @@ void main() {
 
       final data = MoneyData.from(Fixed.fromBigInt(minorUnits), usd);
       expect(data.amount.minorUnits, equals(minorUnits));
-      expect(data.amount.scale, equals(2));
+      expect(data.amount.decimalDigits, equals(2));
       expect(data.currency, equals(usd));
     });
   });
@@ -48,7 +48,8 @@ void main() {
 
     test('decoding', () {
       final money = Money.decoding(
-          MoneyData.from(Fixed.fromNum(500, scale: 2), usd), _TestDecoder());
+          MoneyData.from(Fixed.fromNum(500, decimalDigits: 2), usd),
+          _TestDecoder());
 
       expect(money, equals(Money.fromIntWithCurrency(50000, usd)));
     });

@@ -140,7 +140,8 @@ class PatternDecoder implements MoneyDecoder<String> {
 
     final value = currency.toMinorUnits(majorUnits, minorUnits);
     final result = MoneyData.from(
-        Fixed.fromBigInt(value, scale: currency.decimalDigits), currency);
+        Fixed.fromBigInt(value, decimalDigits: currency.decimalDigits),
+        currency);
     return result;
   }
 
