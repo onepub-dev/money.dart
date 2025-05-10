@@ -1,3 +1,6 @@
+# 6.0.0
+ - Breaking All occurances of the Precentage named arg 'scale' have been changed to decimalDigits.
+ 
 # 6.0.0-beta.4
 - Breaking: Money operator * now returns the same decimalDigits as the original
    Money instance. Previously we use the Currencies decimal Digits.

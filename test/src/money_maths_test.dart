@@ -30,17 +30,17 @@ void main() {
 
       var percentage = ten.percentageOf(onehundred);
       expect(percentage, equals(Percentage.fromInt(10, decimalDigits: 0)));
-      expect(percentage.scale, equals(onehundred.decimalDigits));
+      expect(percentage.decimalDigits, equals(onehundred.decimalDigits));
 
       final three = Money.fromInt(3, isoCode: 'AUD', decimalDigits: 0);
 
       percentage = three.percentageOf(onehundred);
       expect(percentage, equals(Percentage.fromInt(3, decimalDigits: 0)));
-      expect(percentage.scale, equals(onehundred.decimalDigits));
+      expect(percentage.decimalDigits, equals(onehundred.decimalDigits));
 
       percentage = onehundred.percentageOf(onehundred);
       expect(percentage, equals(Percentage.fromInt(100, decimalDigits: 0)));
-      expect(percentage.scale, equals(onehundred.decimalDigits));
+      expect(percentage.decimalDigits, equals(onehundred.decimalDigits));
     });
 
     test('multipliedBy', () {
@@ -69,7 +69,7 @@ void main() {
 
     final result = amount.divideByFixed(Fixed.one);
 
-    expect(result.amount, equals(Fixed.fromInt(314, scale: 0)));
+    expect(result.amount, equals(Fixed.fromInt(314, decimalDigits: 0)));
     expect(result.decimalDigits, equals(2));
   });
 }

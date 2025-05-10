@@ -13,8 +13,7 @@ class Percentage extends Fixed {
   /// Percentage(205, decimals: 1) == 20.5%;
   /// ```
   // ignore: matching_super_parameters
-  Percentage(super.percentage, {int decimalDigits = 2})
-      : super.fromInt(scale: decimalDigits);
+  Percentage(super.percentage, {super.decimalDigits}) : super.fromInt();
 
   /// Creates a percentage from an int.
   /// ```dart
@@ -22,13 +21,14 @@ class Percentage extends Fixed {
   /// Percentage.fromInt(10, decimalDigits:2) === 0.10%
   /// ```
   factory Percentage.fromInt(int? amount, {int decimalDigits = 2}) {
-    final fixed = Fixed.fromInt(amount ?? 0, scale: decimalDigits);
+    final fixed = Fixed.fromInt(amount ?? 0, decimalDigits: decimalDigits);
 
-    return Percentage(fixed.minorUnits.toInt(), decimalDigits: fixed.scale);
+    return Percentage(fixed.minorUnits.toInt(),
+        decimalDigits: fixed.decimalDigits);
   }
 
   Percentage.fromFixed(Fixed fixed)
-      : super.fromBigInt(fixed.minorUnits, scale: fixed.scale);
+      : super.fromBigInt(fixed.minorUnits, decimalDigits: fixed.decimalDigits);
 
   /// Parses [amount] as a percentage returning null
   /// if [amount] is not a valid number.
@@ -42,23 +42,22 @@ class Percentage extends Fixed {
     if (amount.trim().isEmpty) {
       fixed = Fixed.zero;
     } else {
-      fixed = Fixed.tryParse(amount, scale: decimalDigits);
+      fixed = Fixed.tryParse(amount, decimalDigits: decimalDigits);
     }
 
     if (fixed == null) {
       return null;
     }
 
-    return Percentage(fixed.minorUnits.toInt(), decimalDigits: fixed.scale);
+    return Percentage(fixed.minorUnits.toInt(),
+        decimalDigits: fixed.decimalDigits);
   }
 
   /// Returns a new [Percentage] value from an existing one
-  /// changing the scale to [scale].
+  /// changing the scale to [decimalDigits].
   @override
-  Percentage copyWith({int? scale}) =>
-      Percentage.fromFixed(super.copyWith(scale: scale));
-
-  int get decimalDigits => super.scale;
+  Percentage copyWith({int? decimalDigits}) =>
+      Percentage.fromFixed(super.copyWith(decimalDigits: decimalDigits));
 
   static final Percentage zero = Percentage(0, decimalDigits: 3);
   static final Percentage ten = Percentage(100, decimalDigits: 3);

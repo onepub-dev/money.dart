@@ -11,7 +11,7 @@ void main() {
         decimalDigits++) {
       final str = decimalDigits == 0 ? '1' : '1.${'0' * (decimalDigits - 1)}1';
       final fmt = decimalDigits == 0 ? 'S#' : '#.${'#' * decimalDigits}';
-      expect(Fixed.parse(str, scale: decimalDigits).format(fmt), str,
+      expect(Fixed.parse(str, decimalDigits: decimalDigits).format(fmt), str,
           reason: 'Failed with $decimalDigits decimal digits');
     }
   });
@@ -20,7 +20,7 @@ void main() {
     for (var ints = 0; ints <= maxInts; ints++) {
       final str = ints == 0 ? '0' : '9' * ints;
       const fmt = '#';
-      expect(Fixed.parse(str, scale: 0).format(fmt), str,
+      expect(Fixed.parse(str, decimalDigits: 0).format(fmt), str,
           reason: 'Failed with $ints ints');
     }
   });
@@ -47,7 +47,8 @@ void main() {
 
         final fmt = decimalDigits == 0 ? '#' : '#.${'#' * decimalDigits}';
 
-        expect(Fixed.parse(str, scale: decimalDigits).format(fmt), expectStr,
+        expect(Fixed.parse(str, decimalDigits: decimalDigits).format(fmt),
+            expectStr,
             reason: 'Failed with $decimalDigits decimal Digits, $ints ints');
       }
     }

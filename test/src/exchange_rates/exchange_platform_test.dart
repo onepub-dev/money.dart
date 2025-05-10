@@ -15,7 +15,7 @@ void main() {
 
     /// use target currency decimalDigits
     platform.register(ExchangeRate.fromFixed(
-      Fixed.fromNum(0.75312, scale: 5),
+      Fixed.fromNum(0.75312, decimalDigits: 5),
       fromIsoCode: 'AUD',
       toIsoCode: 'USD',
     ));
@@ -38,8 +38,11 @@ void main() {
     final usd = Money.fromNum(0.75312, decimalDigits: 5, isoCode: 'USD');
 
     /// control the target decimal Digits.
-    platform.register(ExchangeRate.fromFixed(Fixed.fromNum(0.75312, scale: 5),
-        fromIsoCode: 'AUD', toIsoCode: 'USD', toDecimalDigits: 5));
+    platform.register(ExchangeRate.fromFixed(
+        Fixed.fromNum(0.75312, decimalDigits: 5),
+        fromIsoCode: 'AUD',
+        toIsoCode: 'USD',
+        toDecimalDigits: 5));
 
     final t1 = platform.exchangeTo(aud, 'USD');
     expect(

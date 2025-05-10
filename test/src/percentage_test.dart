@@ -6,13 +6,13 @@ void main() {
     var percentage = Percentage(100, decimalDigits: 3);
     expect(percentage.integerPart.toInt(), equals(0));
     expect(percentage.decimalPart.toInt(), equals(100));
-    expect(percentage.scale, equals(3));
+    expect(percentage.decimalDigits, equals(3));
 
     // 100 %
     percentage = Percentage.tryParse('100', decimalDigits: 0)!;
     expect(percentage.integerPart.toInt(), equals(100));
     expect(percentage.decimalPart.toInt(), equals(0));
-    expect(percentage.scale, equals(0));
+    expect(percentage.decimalDigits, equals(0));
     expect(percentage.toString(), equals('100%'));
 
     /// 20.5%
@@ -36,7 +36,7 @@ void main() {
     expect(percentage.decimalPart, equals(BigInt.from(500)));
     expect(percentage.decimalDigits, equals(4));
 
-    final one = percentage.copyWith(scale: 3);
+    final one = percentage.copyWith(decimalDigits: 3);
     expect(one.integerPart, equals(BigInt.from(2)));
     expect(one.decimalPart, equals(BigInt.from(50)));
     expect(one.decimalDigits, equals(3));

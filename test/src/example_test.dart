@@ -53,8 +53,8 @@ void main() {
 
       /// Create a money instance from a Fixed and the USD
       /// common currency.
-      final amount3 =
-          Money.fromFixed(Fixed.parse('1.24', scale: 2), isoCode: 'USD');
+      final amount3 = Money.fromFixed(Fixed.parse('1.24', decimalDigits: 2),
+          isoCode: 'USD');
 
       expect(amount3.format('S0.00 CCC'), equals(r'$1.24 USD'));
     });
@@ -98,7 +98,6 @@ void main() {
       final euro4 = Currencies().parse('EUR1500.0');
       expect(euro4.decimalDigits, equals(4));
 
-
       /// register a new currency with 8 decimals.
       final doge =
           Currency.create('DODG', 8, symbol: 'Ð', pattern: 'S0.00000000');
@@ -111,6 +110,7 @@ void main() {
         final cost = Money.fromIntWithCurrency(1000000000, nowUseIt);
         expect(cost.toString(), equals('Ð10.00000000'));
       }
+
       /// restor the common currency so not to affect other tests.
       Currencies().register(CommonCurrencies().euro);
       Currencies().register(CommonCurrencies().usd);
@@ -127,7 +127,7 @@ void main() {
       /// Parse using an alternate pattern
       final t3 =
           Money.parse(r'$10.00 AUD', isoCode: 'AUD', pattern: 'S0.00 CCC');
-      expect(t3.amount, equals(Fixed.parse('10.00', scale: 2)));
+      expect(t3.amount, equals(Fixed.parse('10.00', decimalDigits: 2)));
     });
 
     test('parse with Currency', () {
@@ -367,7 +367,7 @@ void main() {
 
       /// Define the exchange rate in USD (0.68c)
       final auToUsExchangeRate = ExchangeRate.fromFixed(
-          Fixed.parse('0.75432', scale: 5),
+          Fixed.parse('0.75432', decimalDigits: 5),
           fromIsoCode: 'AUD',
           toIsoCode: 'USD',
           toDecimalDigits: 5);
