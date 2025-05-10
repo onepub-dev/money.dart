@@ -1,5 +1,9 @@
+# 6.0.1
+- Added method isNonZero as a convenience.
+
 # 6.0.0
  - Breaking All occurances of the Precentage named arg 'scale' have been changed to decimalDigits.
+ - change all occurance of scale to decimalDigits. Upgraded to Fixed 6.0
  
 # 6.0.0-beta.4
 - Breaking: Money operator * now returns the same decimalDigits as the original
