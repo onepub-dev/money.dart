@@ -565,6 +565,9 @@ class Money implements Comparable<Money> {
   /// Returns `true` when amount of this money is zero.
   bool get isZero => amount.isZero;
 
+  /// Returns `true` when amount of this money is not zero.
+  bool get isNonZero => !amount.isZero;
+
   /// Returns `true` when amount of this money is negative.
   bool get isNegative => amount.isNegative;
 
