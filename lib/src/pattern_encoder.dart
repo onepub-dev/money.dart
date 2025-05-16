@@ -197,9 +197,9 @@ There must be '#' or '0' after the group separator $patternGroupSeparator""");
         }
 
         /// only output a group seperator if there are more digits
-        /// to be written because we have more digits
-        /// or becuase the number of '0' pattern characters will force
-        /// more digits to be written.
+        /// to be written 
+        /// or because the number of '0' pattern characters will force
+        /// more digits ('0') be written.
         if (digitsIndex < digits.length || digitsIndex < zeroRuneCount - 1) {
           formatted.write(currency.groupSeparator);
           groupSeparatorSeen = true;
@@ -263,7 +263,6 @@ The "C" character may only appear in a pattern consequitively three times''');
 
             /// The C pattern is longer than the currencies iso code.
             if (isoCodeIndex < 0) {
-              //  >= reversedIsoCode.length) {
               continue;
             }
 
