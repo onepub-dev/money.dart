@@ -20,7 +20,7 @@ for that currency.
 
 The implication is that formatting with the old behavour would give $9000 whilst
 the new behavour would give $9,000.
-If want to mimic the old behaviour you can simply set the pattern to the original 'S0.00'.
+If you want to mimic the old behaviour you can simply set the pattern to the original 'S0.00'.
 
 We have also changed how we are maintaing common currencies. 
 We are are now generating common currencies from a yaml file.
