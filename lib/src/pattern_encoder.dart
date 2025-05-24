@@ -386,6 +386,10 @@ The "C" character may only appear in a pattern consequitively three times''');
     return formatted.toString();
   }
 
+/// we reset the iso code index whenever we see another pattern as this
+/// allows the iso code to appear multiple times in the output.
+/// Its probably not a often used feature but we can do it so why
+/// not allow it.
   int _resetIsoCodeindex(bool directionReversed, int totalCurrencyCount) =>
       directionReversed ? (totalCurrencyCount - 1) : 0;
 
