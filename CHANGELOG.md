@@ -1,3 +1,6 @@
+# 6.0.2-beta.2
+- Fixes issue with trailing Currency isoCodes throwing a range exception as reported in #95.
+
 # 6.0.2-beta.1
 - BREAKING: Fixes #95. This problem was a regression caused as part of the 6.x release.
   The issue was that group separators after the first (right most) group where
