@@ -193,8 +193,8 @@ A pattern may only have a single decimal separator $patternDecimalSeparator''');
       }
     }
 
-
-    var isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
+    var isoCodeIndex =
+        _resetIsoCodeindex(directionReversed, totalCurrencyCount);
     var flush = true;
 
     for (final rune in pattern.runes) {
@@ -213,7 +213,8 @@ There must be '#' or '0' after the group separator $patternGroupSeparator""");
           groupSeparatorSeen = true;
           lengthOfLastGroup = lengthOfCurrentGroup;
           lengthOfCurrentGroup = 0;
-           isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
+          isoCodeIndex =
+              _resetIsoCodeindex(directionReversed, totalCurrencyCount);
         }
       } else {
         switch (rune) {
@@ -223,7 +224,8 @@ There must be '#' or '0' after the group separator $patternGroupSeparator""");
               formatted.write(digits[digitsIndex++]);
             } else {}
             lengthOfCurrentGroup++;
-             isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
+            isoCodeIndex =
+                _resetIsoCodeindex(directionReversed, totalCurrencyCount);
             digitPatternSeen = true;
             optionalDigitPatternSeen = true;
 
@@ -244,7 +246,8 @@ There must be '#' or '0' after the group separator $patternGroupSeparator""");
               formatted.write('0');
             }
             lengthOfCurrentGroup++;
-             isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
+            isoCodeIndex =
+                _resetIsoCodeindex(directionReversed, totalCurrencyCount);
             digitPatternSeen = true;
 
           /// C -  Currency code
@@ -308,7 +311,8 @@ The "C" character may only appear in a pattern consequitively three times''');
               flush = false;
             }
             formatted.write(symbol);
-           isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
+            isoCodeIndex =
+                _resetIsoCodeindex(directionReversed, totalCurrencyCount);
           case minusRune:
             if (digitPatternSeen) {
               final flushed = _flushExtraDigits(
@@ -324,7 +328,8 @@ The "C" character may only appear in a pattern consequitively three times''');
               flush = false;
             }
             formatted.write(isNegative ? '-' : '');
-           isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
+            isoCodeIndex =
+                _resetIsoCodeindex(directionReversed, totalCurrencyCount);
           case plusRune:
             if (digitPatternSeen) {
               final flushed = _flushExtraDigits(
@@ -340,7 +345,8 @@ The "C" character may only appear in a pattern consequitively three times''');
               flush = false;
             }
             formatted.write(isNegative ? '-' : '+');
-           isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
+            isoCodeIndex =
+                _resetIsoCodeindex(directionReversed, totalCurrencyCount);
 
           /// Any un-recognised characters are just output
           /// verbatium
@@ -380,7 +386,8 @@ The "C" character may only appear in a pattern consequitively three times''');
     return formatted.toString();
   }
 
-  int _resetIsoCodeindex(bool directionReversed, int totalCurrencyCount) =>  directionReversed ? (totalCurrencyCount - 1) : 0;
+  int _resetIsoCodeindex(bool directionReversed, int totalCurrencyCount) =>
+      directionReversed ? (totalCurrencyCount - 1) : 0;
 
   final regex = RegExp(r'[+\-]');
   bool containsPlusOrMinus(String pattern) => regex.hasMatch(pattern);
