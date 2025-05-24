@@ -12,7 +12,7 @@ import 'package:decimal/decimal.dart';
 import 'package:fixed/fixed.dart';
 import 'package:meta/meta.dart';
 
-import 'common_currencies.dart';
+import 'common_currencies.g.dart';
 import 'currencies.dart';
 import 'currency.dart';
 import 'encoders.dart';
@@ -478,7 +478,17 @@ class Money implements Comparable<Money> {
   ///     and only one occurrence is allowed.
   ///   – A negative symbol '-' or '+' may appear at most once in the numeric
   ///   portion and must be either the first or last character there.
-  ///
+  /// 
+  /// Group Separators
+  ///   - group separators allow you to specify repeating patterns.
+  ///   e.g.
+  ///      #,### == ###,### == ###,###,####
+  ///      ##,### == ##,##,###
+  /// 
+  /// The left most group is treated as the repeating pattern unless
+  /// it is a single #, in which case the next group is treated as
+  /// the repeating pattern. 
+  /// 
   ///
   /// Note: even if you use the groupSeparator or decimalSeparator
   /// to use alternate separators the pattern must still use ',' and '.'

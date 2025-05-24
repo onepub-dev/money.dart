@@ -416,7 +416,7 @@ The "C" character may only appear in a pattern consequitively three times''');
     const maxInt = -1 >>> 1;
     final buffer = StringBuffer();
 
-    if (lengthOfCurrentGroup != 0) {
+    if (lengthOfCurrentGroup > 1) {
       groupSize = lengthOfCurrentGroup;
     }
     var remainingGroup =

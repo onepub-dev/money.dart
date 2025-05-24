@@ -1,0 +1,1124 @@
+# Generated common currencies
+
+- code: AFN
+  decimalDigites: 2
+  symbol: "؋"
+  country: "Afghanistan"
+  unit: "Afghani"
+  name: "Afghan Afghani"
+
+- code: ALL
+  decimalDigites: 2
+  symbol: "L"
+  country: "Albania"
+  unit: "Lek"
+  name: "Albanian Lek"
+
+- code: DZD
+  decimalDigites: 2
+  symbol: "د.ج"
+  pattern: "#,##0.00S"
+  country: "Algeria"
+  unit: "Dinar"
+  name: "Algerian Dinar"
+
+- code: AOA
+  decimalDigites: 2
+  symbol: "Kz"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "Angola"
+  unit: "Kwanza"
+  name: "Angolan Kwanza"
+
+- code: ARS
+  decimalDigites: 2
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "Argentina"
+  unit: "Peso"
+  name: "Argentine Peso"
+
+- code: AMD
+  decimalDigites: 2
+  symbol: "֏"
+  pattern: "#,##0.00S"
+  country: "Armenia"
+  unit: "Dram"
+  name: "Armenian Dram"
+
+- code: AWG
+  decimalDigites: 2
+  symbol: "ƒ"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "Aruba"
+  unit: "Florin"
+  name: "Aruban Florin"
+
+- code: AUD
+  decimalDigites: 2
+  country: "Australian"
+  unit: "Dollar"
+  name: "Australian Dollar"
+
+- code: AZN
+  decimalDigites: 2
+  symbol: "₼"
+  country: "Azerbaijan"
+  unit: "Manat"
+  name: "Azerbaijani Manat"
+
+- code: BSD
+  decimalDigites: 2
+  country: "Bahamas"
+  unit: "Dollar"
+  name: "Bahamian Dollar"
+
+- code: BHD
+  decimalDigites: 3
+  symbol: ".د.ب"
+  pattern: "#,##0.000S"
+  country: "Bahrain"
+  unit: "Dinar"
+  name: "Bahraini Dinar"
+
+- code: BDT
+  decimalDigites: 2
+  symbol: "৳"
+  country: "Bangladesh"
+  unit: "Taka"
+  name: "Bangladeshi Taka"
+
+- code: BBD
+  decimalDigites: 2
+  country: "Barbados"
+  unit: "Dollar"
+  name: "Barbadian Dollar"
+
+- code: BYN
+  decimalDigites: 2
+  symbol: "Br"
+  groupSeparator: " "
+  decimalSeparator: ","
+  country: "Belarus"
+  unit: "Ruble"
+  name: "Belarusian Ruble"
+
+- code: BZD
+  decimalDigites: 2
+  country: "Belize"
+  unit: "Dollar"
+  name: "Belize Dollar"
+
+- code: BMD
+  decimalDigites: 2
+  country: "Bermuda"
+  unit: "Dollar"
+  name: "Bermudian Dollar"
+
+- code: BTN
+  decimalDigites: 2
+  symbol: "Nu."
+  country: "Bhutan"
+  unit: "Ngultrum"
+  name: "Bhutanese Ngultrum"
+
+- code: BTC
+  decimalDigites: 8
+  symbol: "₿"
+  pattern: "S#,##0.00000000"
+  country: "Digital"
+  unit: "Bitcoin"
+  name: "Bitcon"
+
+- code: BOB
+  decimalDigites: 2
+  symbol: "Bs."
+  country: "Bolivia"
+  unit: "Boliviano"
+  name: "Bolivian Boliviano"
+
+- code: BAM
+  decimalDigites: 2
+  symbol: "KM"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "Bosnia and Herzegovina"
+  unit: "Mark"
+  name: "Bosnia and Herzegovina Convertible Mark"
+
+- code: BWP
+  decimalDigites: 2
+  symbol: "P"
+  country: "Botswana"
+  unit: "Pula"
+  name: "Botswana Pula"
+
+- code: BRL
+  decimalDigites: 2
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "Brazil"
+  unit: "Real"
+  name: "Brazilian Real"
+
+- code: GBP
+  decimalDigites: 2
+  symbol: "£"
+  country: "Britan"
+  unit: "Pound Sterling"
+  name: "British Pound Sterling"
+
+- code: BND
+  decimalDigites: 2
+  country: "Brunei"
+  unit: "Dollar"
+  name: "Brunei Dollar"
+
+- code: BGN
+  decimalDigites: 2
+  symbol: "лв"
+  groupSeparator: " "
+  decimalSeparator: ","
+  country: "Bulgaria"
+  unit: "Lev"
+  name: "Bulgarian Lev"
+
+- code: BIF
+  decimalDigites: 0
+  symbol: "FBu"
+  pattern: "S#,##0"
+  country: "Burundi"
+  unit: "Franc"
+  name: "Burundian Franc"
+
+- code: KHR
+  decimalDigites: 2
+  symbol: "៛"
+  country: "Cambodia"
+  unit: "Riel"
+  name: "Cambodian Riel"
+
+- code: CAD
+  decimalDigites: 2
+  country: "Canada"
+  unit: "Dollar"
+  name: "Canadian Dollar"
+
+- code: CVE
+  decimalDigites: 2
+  country: "Cape Verde"
+  unit: "Escudo"
+  name: "Cape Verdean Escudo"
+
+- code: KYD
+  decimalDigites: 2
+  country: "Cayman Islands"
+  unit: "Dollar"
+  name: "Cayman Islands Dollar"
+
+- code: XAF
+  decimalDigites: 0
+  symbol: "FCFA"
+  pattern: "S#,##0"
+  groupSeparator: " "
+  country: "Central African States"
+  unit: "Franc"
+  name: "Central African CFA Franc"
+
+- code: XPF
+  decimalDigites: 0
+  symbol: "F"
+  pattern: "S#,##0"
+  country: "French Polynesia, New Caledonia, Wallis and Futuna"
+  unit: "Franc"
+  name: "CFP Franc"
+
+- code: CLP
+  decimalDigites: 0
+  pattern: "S#,##0"
+  country: "Chile"
+  unit: "Peso"
+  name: "Chilean Peso"
+
+- code: CNY
+  decimalDigites: 2
+  symbol: "¥"
+  country: "China"
+  unit: "Renminbi"
+  name: "Chinese Renminbi"
+
+- code: COP
+  decimalDigites: 2
+  pattern: "#,##0.00S"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "Colombia"
+  unit: "Peso"
+  name: "Colombian Peso"
+
+- code: KMF
+  decimalDigites: 0
+  symbol: "CF"
+  pattern: "S#,##0"
+  country: "Comoros"
+  unit: "Franc"
+  name: "Comorian Franc"
+
+- code: CDF
+  decimalDigites: 2
+  symbol: "FC"
+  country: "Congo (DRC)"
+  unit: "Franc"
+  name: "Congolese Franc"
+
+- code: CRC
+  decimalDigites: 2
+  symbol: "₡"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "Costa Rica"
+  unit: "Colón"
+  name: "Costa Rican Colón"
+
+- code: CUP
+  decimalDigites: 2
+  country: "Cuba"
+  unit: "Peso"
+  name: "Cuban Peso"
+
+- code: CZK
+  decimalDigites: 2
+  symbol: "Kč"
+  pattern: "#,##0.00S"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "Czech"
+  unit: "Koruna"
+  name: "Czech Koruna"
+
+- code: DKK
+  decimalDigites: 2
+  symbol: "kr"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "Denmark"
+  unit: "Krone"
+  name: "Danish Krone"
+
+- code: DJF
+  decimalDigites: 0
+  symbol: "Fdj"
+  pattern: "S#,##0"
+  country: "Djibouti"
+  unit: "Franc"
+  name: "Djiboutian Franc"
+
+- code: DOP
+  decimalDigites: 2
+  country: "Dominican Republic"
+  unit: "Peso"
+  name: "Dominican Peso"
+
+- code: XCD
+  decimalDigites: 2
+  country: "East Caribbean"
+  unit: "Dollar"
+  name: "East Caribbean Dollar"
+
+- code: EGP
+  decimalDigites: 2
+  symbol: "£"
+  country: "Egypt"
+  unit: "Pound"
+  name: "Egyptian Pound"
+
+- code: ERN
+  decimalDigites: 2
+  symbol: "Nfk"
+  country: "Eritrea"
+  unit: "Nakfa"
+  name: "Eritrean Nakfa"
+
+- code: ETB
+  decimalDigites: 2
+  symbol: "Br"
+  country: "Ethiopia"
+  unit: "Birr"
+  name: "Ethiopian Birr"
+
+- code: EUR
+  decimalDigites: 2
+  symbol: "€"
+  pattern: "#,##0.00S"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "European Union"
+  unit: "Euro"
+  name: "European Union Euro"
+  varName: euro
+
+- code: FKP
+  decimalDigites: 2
+  symbol: "£"
+  country: "Falkland Islands"
+  unit: "Pound"
+  name: "Falkland Islands Pound"
+
+- code: FJD
+  decimalDigites: 2
+  country: "Fiji"
+  unit: "Dollar"
+  name: "Fijian Dollar"
+
+- code: GMD
+  decimalDigites: 2
+  symbol: "D"
+  country: "Gambia"
+  unit: "Dalasi"
+  name: "Gambian Dalasi"
+
+- code: GEL
+  decimalDigites: 2
+  symbol: "₾"
+  groupSeparator: " "
+  decimalSeparator: ","
+  country: "Georgia"
+  unit: "Lari"
+  name: "Georgian Lari"
+
+- code: GHS
+  decimalDigites: 2
+  symbol: "₵"
+  country: "Ghana"
+  unit: "Cedi"
+  name: "Ghana Cedi"
+
+- code: GIP
+  decimalDigites: 2
+  symbol: "£"
+  country: "Gibraltar"
+  unit: "Pound"
+  name: "Gibraltar Pound"
+
+- code: GTQ
+  decimalDigites: 2
+  symbol: "Q"
+  country: "Guatemala"
+  unit: "Quetzal"
+  name: "Guatemalan Quetzal"
+
+- code: GNF
+  decimalDigites: 0
+  symbol: "FG"
+  pattern: "S#,##0"
+  country: "Guinea"
+  unit: "Franc"
+  name: "Guinean Franc"
+
+- code: GYD
+  decimalDigites: 2
+  country: "Guyana"
+  unit: "Dollar"
+  name: "Guyanese Dollar"
+
+- code: HTG
+  decimalDigites: 2
+  symbol: "G"
+  country: "Haiti"
+  unit: "Gourde"
+  name: "Haitian Gourde"
+
+- code: HNL
+  decimalDigites: 2
+  symbol: "L"
+  country: "Honduras"
+  unit: "Lempira"
+  name: "Honduran Lempira"
+
+- code: HKD
+  decimalDigites: 2
+  country: "Hong Kong"
+  unit: "Dollar"
+  name: "Hong Kong Dollar"
+
+- code: HUF
+  decimalDigites: 0
+  symbol: "Ft"
+  pattern: "S#,##0"
+  country: "Hungary"
+  unit: "Forint"
+  name: "Hungarian Forint"
+
+- code: ISK
+  decimalDigites: 0
+  symbol: "kr"
+  pattern: "S#,##0"
+  country: "Iceland"
+  unit: "Krona"
+  name: "Icelandic Krona"
+
+- code: INR
+  decimalDigites: 2
+  symbol: "₹"
+  pattern: "S##,###.00"
+  country: "Indian"
+  unit: "Rupee"
+  name: "Indian Rupee"
+
+- code: IDR
+  decimalDigites: 2
+  symbol: "Rp"
+  country: "Indonesia"
+  unit: "Rupiah"
+  name: "Indonesian Rupiah"
+
+- code: IRR
+  decimalDigites: 2
+  symbol: "﷼"
+  country: "Iran"
+  unit: "Rial"
+  name: "Iranian Rial"
+
+- code: IQD
+  decimalDigites: 3
+  symbol: "ع.د"
+  pattern: "#,##0.000S"
+  country: "Iraq"
+  unit: "Dinar"
+  name: "Iraqi Dinar"
+
+- code: ILS
+  decimalDigites: 2
+  symbol: "₪"
+  country: "Israel"
+  unit: "Shekel"
+  name: "Israeli New Shekel"
+
+- code: JMD
+  decimalDigites: 2
+  country: "Jamaica"
+  unit: "Dollar"
+  name: "Jamaican Dollar"
+
+- code: JPY
+  decimalDigites: 0
+  symbol: "¥"
+  pattern: "S#,##0"
+  country: "Japanese"
+  unit: "Yen"
+  name: "Japanese Yen"
+
+- code: JOD
+  decimalDigites: 3
+  symbol: "د.ا"
+  pattern: "#,##0.000S"
+  country: "Jordan"
+  unit: "Dinar"
+  name: "Jordanian Dinar"
+
+- code: KZT
+  decimalDigites: 2
+  symbol: "₸"
+  country: "Kazakhstan"
+  unit: "Tenge"
+  name: "Kazakhstani Tenge"
+
+- code: KES
+  decimalDigites: 2
+  symbol: "KSh"
+  country: "Kenya"
+  unit: "Shilling"
+  name: "Kenyan Shilling"
+
+- code: KWD
+  decimalDigites: 3
+  symbol: "د.ك"
+  pattern: "#,##0.000S"
+  country: "Kuwait"
+  unit: "Dinar"
+  name: "Kuwaiti Dinar"
+
+- code: KGS
+  decimalDigites: 2
+  symbol: "с"
+  country: "Kyrgyzstan"
+  unit: "Som"
+  name: "Kyrgyzstani Som"
+
+- code: LAK
+  decimalDigites: 2
+  symbol: "₭"
+  country: "Laos"
+  unit: "Kip"
+  name: "Lao Kip"
+
+- code: LBP
+  decimalDigites: 2
+  symbol: "ل.ل"
+  country: "Lebanon"
+  unit: "Pound"
+  name: "Lebanese Pound"
+
+- code: LSL
+  decimalDigites: 2
+  symbol: "L"
+  country: "Lesotho"
+  unit: "Loti"
+  name: "Lesotho Loti"
+
+- code: LRD
+  decimalDigites: 2
+  country: "Liberia"
+  unit: "Dollar"
+  name: "Liberian Dollar"
+
+- code: LYD
+  decimalDigites: 3
+  symbol: "ل.د"
+  pattern: "#,##0.000S"
+  country: "Libya"
+  unit: "Dinar"
+  name: "Libyan Dinar"
+
+- code: MOP
+  decimalDigites: 2
+  country: "Macao"
+  unit: "Pataca"
+  name: "Macanese Pataca"
+
+- code: MKD
+  decimalDigites: 2
+  symbol: "ден"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "North Macedonia"
+  unit: "Denar"
+  name: "Macedonian Denar"
+
+- code: MGA
+  decimalDigites: 2
+  symbol: "Ar"
+  country: "Madagascar"
+  unit: "Ariary"
+  name: "Malagasy Ariary"
+
+- code: MWK
+  decimalDigites: 2
+  symbol: "MK"
+  country: "Malawi"
+  unit: "Kwacha"
+  name: "Malawian Kwacha"
+
+- code: MYR
+  decimalDigites: 2
+  symbol: "RM"
+  country: "Malaysia"
+  unit: "Ringgit"
+  name: "Malaysian Ringgit"
+
+- code: MVR
+  decimalDigites: 2
+  symbol: "ރ."
+  country: "Maldives"
+  unit: "Rufiyaa"
+  name: "Maldivian Rufiyaa"
+
+- code: MRU
+  decimalDigites: 2
+  symbol: "UM"
+  country: "Mauritania"
+  unit: "Ouguiya"
+  name: "Mauritanian Ouguiya"
+
+- code: MUR
+  decimalDigites: 2
+  symbol: "₨"
+  country: "Mauritius"
+  unit: "Rupee"
+  name: "Mauritian Rupee"
+
+- code: MXN
+  decimalDigites: 2
+  country: "Mexican"
+  unit: "Peso"
+  name: "Mexican Peso"
+
+- code: MDL
+  decimalDigites: 2
+  symbol: "L"
+  country: "Moldova"
+  unit: "Leu"
+  name: "Moldovan Leu"
+
+- code: MNT
+  decimalDigites: 2
+  symbol: "₮"
+  country: "Mongolia"
+  unit: "Tugrik"
+  name: "Mongolian Tugrik"
+
+- code: MAD
+  decimalDigites: 2
+  symbol: "د.م."
+  groupSeparator: " "
+  decimalSeparator: ","
+  country: "Morocco"
+  unit: "Dirham"
+  name: "Moroccan Dirham"
+
+- code: MZN
+  decimalDigites: 2
+  symbol: "MT"
+  country: "Mozambique"
+  unit: "Metical"
+  name: "Mozambican Metical"
+
+- code: MMK
+  decimalDigites: 2
+  symbol: "K"
+  country: "Myanmar (Burma)"
+  unit: "Kyat"
+  name: "Myanmar Kyat"
+
+- code: NAD
+  decimalDigites: 2
+  country: "Namibia"
+  unit: "Dollar"
+  name: "Namibian Dollar"
+
+- code: NPR
+  decimalDigites: 2
+  symbol: "रू"
+  country: "Nepal"
+  unit: "Rupee"
+  name: "Nepalese Rupee"
+
+- code: ANG
+  decimalDigites: 2
+  symbol: "ƒ"
+  country: "Curaçao and Sint Maarten"
+  unit: "Guilder"
+  name: "Netherlands Antillean Guilder"
+
+- code: TWD
+  decimalDigites: 0
+  pattern: "S#,##0"
+  country: "New Taiwan"
+  unit: "Dollar"
+  name: "New Taiwan Dollar"
+
+- code: NZD
+  decimalDigites: 2
+  country: "New Zealand"
+  unit: "Dollar"
+  name: "New Zealand Dollar"
+
+- code: NIO
+  decimalDigites: 2
+  country: "Nicaragua"
+  unit: "Córdoba"
+  name: "Nicaraguan Córdoba"
+
+- code: NGN
+  decimalDigites: 2
+  symbol: "₦"
+  country: "Nigerian"
+  unit: "Naira"
+  name: "Nigerian Naira"
+
+- code: KPW
+  decimalDigites: 2
+  symbol: "₩"
+  country: "North Korea"
+  unit: "Won"
+  name: "North Korean Won"
+
+- code: NOK
+  decimalDigites: 2
+  symbol: "kr"
+  country: "Norwegian"
+  unit: "Krone"
+  name: "Norwegian Krone"
+
+- code: OMR
+  decimalDigites: 3
+  symbol: "ر.ع."
+  pattern: "#,##0.000S"
+  country: "Oman"
+  unit: "Rial"
+  name: "Omani Rial"
+
+- code: PKR
+  decimalDigites: 2
+  symbol: "₨"
+  country: "Pakistan"
+  unit: "Rupee"
+  name: "Pakistani Rupee"
+
+- code: PAB
+  decimalDigites: 2
+  symbol: "B/."
+  country: "Panama"
+  unit: "Balboa"
+  name: "Panamanian Balboa"
+
+- code: PGK
+  decimalDigites: 2
+  symbol: "K"
+  country: "Papua New Guinea"
+  unit: "Kina"
+  name: "Papua New Guinean Kina"
+
+- code: PYG
+  decimalDigites: 0
+  symbol: "₲"
+  pattern: "S#,##0"
+  groupSeparator: "."
+  country: "Paraguay"
+  unit: "Guarani"
+  name: "Paraguayan Guarani"
+
+- code: PEN
+  decimalDigites: 2
+  symbol: "S/."
+  country: "Peru"
+  unit: "Sol"
+  name: "Peruvian Sol"
+
+- code: PHP
+  decimalDigites: 2
+  symbol: "₱"
+  country: "Philippines"
+  unit: "Peso"
+  name: "Philippine Peso"
+
+- code: PLN
+  decimalDigites: 2
+  symbol: "zł"
+  pattern: "#,##0.00S"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "Polish"
+  unit: "Zloty"
+  name: "Polish Zloty"
+
+- code: QAR
+  decimalDigites: 2
+  symbol: "ر.ق"
+  country: "Qatar"
+  unit: "Riyal"
+  name: "Qatari Riyal"
+
+- code: RON
+  decimalDigites: 2
+  symbol: "lei"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "Romania"
+  unit: "Leu"
+  name: "Romanian Leu"
+
+- code: RUB
+  decimalDigites: 2
+  symbol: "₽"
+  country: "Russia"
+  unit: "Ruble"
+  name: "Russian Ruble"
+
+- code: RWF
+  decimalDigites: 0
+  symbol: "RF"
+  pattern: "S#,##0"
+  country: "Rwanda"
+  unit: "Franc"
+  name: "Rwandan Franc"
+
+- code: SHP
+  decimalDigites: 2
+  symbol: "£"
+  country: "Saint Helena"
+  unit: "Pound"
+  name: "Saint Helena Pound"
+
+- code: WST
+  decimalDigites: 2
+  country: "Samoa"
+  unit: "Tala"
+  name: "Samoan Tala"
+
+- code: STN
+  decimalDigites: 2
+  symbol: "Db"
+  country: "São Tomé and Príncipe"
+  unit: "Dobra"
+  name: "São Tomé and Príncipe Dobra"
+
+- code: SAR
+  decimalDigites: 2
+  symbol: "ر.س"
+  country: "Saudi Arabia"
+  unit: "Riyal"
+  name: "Saudi Riyal"
+
+- code: RSD
+  decimalDigites: 2
+  symbol: "дин"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "Serbia"
+  unit: "Dinar"
+  name: "Serbian Dinar"
+
+- code: SCR
+  decimalDigites: 2
+  symbol: "₨"
+  country: "Seychelles"
+  unit: "Rupee"
+  name: "Seychellois Rupee"
+
+- code: SLE
+  decimalDigites: 2
+  symbol: "Le"
+  country: "Sierra Leone"
+  unit: "Leone"
+  name: "Sierra Leonean Leone"
+
+- code: SGD
+  decimalDigites: 2
+  country: "Singapore"
+  unit: "Dollar"
+  name: "Singapore Dollar"
+
+- code: SBD
+  decimalDigites: 2
+  country: "Solomon Islands"
+  unit: "Dollar"
+  name: "Solomon Islands Dollar"
+
+- code: SOS
+  decimalDigites: 2
+  symbol: "Sh"
+  country: "Somalia"
+  unit: "Shilling"
+  name: "Somali Shilling"
+
+- code: ZAR
+  decimalDigites: 2
+  symbol: "R"
+  country: "South African"
+  unit: "Rand"
+  name: "South African Rand"
+
+- code: KRW
+  decimalDigites: 0
+  symbol: "₩"
+  pattern: "S#,##0"
+  country: "South Korean"
+  unit: "Won"
+  name: "South Korean Won"
+
+- code: SSP
+  decimalDigites: 2
+  symbol: "£"
+  country: "South Sudan"
+  unit: "Pound"
+  name: "South Sudanese Pound"
+
+- code: LKR
+  decimalDigites: 2
+  symbol: "Rs"
+  country: "Sri Lanka"
+  unit: "Rupee"
+  name: "Sri Lankan Rupee"
+
+- code: SDG
+  decimalDigites: 2
+  symbol: "£"
+  country: "Sudan"
+  unit: "Pound"
+  name: "Sudanese Pound"
+
+- code: SRD
+  decimalDigites: 2
+  country: "Suriname"
+  unit: "Dollar"
+  name: "Surinamese Dollar"
+
+- code: SZL
+  decimalDigites: 2
+  symbol: "E"
+  country: "Eswatini"
+  unit: "Lilangeni"
+  name: "Swazi Lilangeni"
+
+- code: SEK
+  decimalDigites: 2
+  symbol: "kr"
+  groupSeparator: " "
+  decimalSeparator: ","
+  country: "Sweden"
+  unit: "Krona"
+  name: "Swedish Krona"
+
+- code: CHF
+  decimalDigites: 2
+  symbol: "fr"
+  country: "Switzerland"
+  unit: "Franc"
+  name: "Swiss Franc"
+
+- code: SYP
+  decimalDigites: 2
+  symbol: "£"
+  country: "Syria"
+  unit: "Pound"
+  name: "Syrian Pound"
+
+- code: TJS
+  decimalDigites: 2
+  symbol: "ЅМ"
+  country: "Tajikistan"
+  unit: "Somoni"
+  name: "Tajikistani Somoni"
+
+- code: TZS
+  decimalDigites: 2
+  symbol: "Sh"
+  country: "Tanzania"
+  unit: "Shilling"
+  name: "Tanzanian Shilling"
+
+- code: THB
+  decimalDigites: 2
+  symbol: "฿"
+  country: "Thailand"
+  unit: "Baht"
+  name: "Thai Baht"
+
+- code: TOP
+  decimalDigites: 2
+  country: "Tonga"
+  unit: "Paʻanga"
+  name: "Tongan Paʻanga"
+
+- code: TTD
+  decimalDigites: 2
+  country: "Trinidad and Tobago"
+  unit: "Dollar"
+  name: "Trinidad and Tobago Dollar"
+
+- code: TND
+  decimalDigites: 3
+  symbol: "د.ت"
+  pattern: "#,##0.000S"
+  country: "Tunisia"
+  unit: "Dinar"
+  name: "Tunisian Dinar"
+
+- code: TRY
+  decimalDigites: 2
+  symbol: "₺"
+  country: "Turkish"
+  unit: "Lira"
+  name: "Turkish Lira"
+  varName: ltry
+
+- code: TMT
+  decimalDigites: 2
+  symbol: "m"
+  country: "Turkmenistan"
+  unit: "Manat"
+  name: "Turkmenistani Manat"
+
+- code: UGX
+  decimalDigites: 0
+  symbol: "USh"
+  pattern: "S#,##0"
+  country: "Uganda"
+  unit: "Shilling"
+  name: "Ugandan Shilling"
+
+- code: UAH
+  decimalDigites: 2
+  symbol: "₴"
+  country: "Ukraine"
+  unit: "Hryvnia"
+  name: "Ukrainian Hryvnia"
+
+- code: AED
+  decimalDigites: 2
+  symbol: "د.إ"
+  country: "United Arab Emirates"
+  unit: "Dirham"
+  name: "United Arab Emirates Dirham"
+
+- code: USD
+  decimalDigites: 2
+  country: "United States of America"
+  unit: "Dollar"
+  name: "United States Dollar"
+
+- code: UYU
+  decimalDigites: 2
+  country: "Uruguay"
+  unit: "Peso"
+  name: "Uruguayan Peso"
+
+- code: UZS
+  decimalDigites: 2
+  symbol: "soʻm"
+  country: "Uzbekistan"
+  unit: "Som"
+  name: "Uzbekistani Som"
+
+- code: VUV
+  decimalDigites: 0
+  symbol: "Vt"
+  pattern: "S#,##0"
+  country: "Vanuatu"
+  unit: "Vatu"
+  name: "Vanuatu Vatu"
+
+- code: VES
+  decimalDigites: 2
+  symbol: "Bs"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "Venezuela"
+  unit: "Bolívar"
+  name: "Venezuelan Bolívar"
+
+- code: VND
+  decimalDigites: 0
+  symbol: "₫"
+  pattern: "S#,##0"
+  groupSeparator: "."
+  country: "Vietnam"
+  unit: "Dong"
+  name: "Vietnamese Dong"
+
+- code: XOF
+  decimalDigites: 0
+  symbol: "CFA"
+  pattern: "S#,##0"
+  groupSeparator: " "
+  country: "West African States"
+  unit: "Franc"
+  name: "West African CFA Franc"
+
+- code: YER
+  decimalDigites: 2
+  symbol: "﷼"
+  country: "Yemen"
+  unit: "Rial"
+  name: "Yemeni Rial"
+
+- code: ZMW
+  decimalDigites: 2
+  symbol: "ZK"
+  country: "Zambia"
+  unit: "Kwacha"
+  name: "Zambian Kwacha"
+

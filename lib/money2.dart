@@ -77,7 +77,7 @@ import 'src/money.dart';
 
 export 'package:fixed/fixed.dart';
 
-export 'src/common_currencies.dart';
+export 'src/common_currencies.g.dart';
 export 'src/currencies.dart';
 export 'src/currency.dart';
 export 'src/encoders.dart';

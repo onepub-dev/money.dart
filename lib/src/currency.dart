@@ -68,7 +68,7 @@ class Currency {
           isoCode, 'isoCode', 'Must be a non-empty string.');
     }
   }
-  static const String defaultPattern = 'S0.00';
+  static const String defaultPattern = 'S#,##0.00';
 
   /// Creates a [Currency] from an existing [Currency] with changes.
   Currency copyWith({

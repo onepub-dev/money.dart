@@ -165,14 +165,12 @@ void main() {
           groupSeparator: '.',
           // The pattern MUST use the default group and decimal separators.
           // This allows us to share patterns across currencies.
-          pattern: 'S#,##0.00');
+          pattern: '#,##0.00S');
       final euroCostPrice = Money.fromIntWithCurrency(899, euro);
-      expect(euroCostPrice.toString(), equals('€8,99'));
+      expect(euroCostPrice.toString(), equals('8,99€'));
 
-      final usdValue = euro.parse('€7,10');
-      expect(usdValue.toString(), equals('€7,10'));
-      final euroValue = euro.parse('€2,99');
-      expect(euroValue.toString(), equals('€2,99'));
+      final euroValue = euro.parse('2,99€');
+      expect(euroValue.toString(), equals('2,99€'));
     });
 
     test('Symbols', () {

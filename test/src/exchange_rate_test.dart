@@ -27,7 +27,7 @@ void main() {
       //final Currency usd = Currency.create('USD', 2);
 
       final twdM = Money.fromIntWithCurrency(1000, twd);
-      expect(twdM.toString(), equals(r'NT$1000.00'));
+      expect(twdM.toString(), equals(r'NT$1,000.00'));
 
       final twdToUsdRate = ExchangeRate.fromMinorUnits(3,
           decimalDigits: 2,
@@ -59,14 +59,14 @@ void main() {
       final twd = Currency.create('TWD', 0, symbol: r'NT$');
 
       final twdM = Money.fromNumWithCurrency(1000, twd);
-      expect(twdM.toString(), equals(r'NT$1000.00'));
+      expect(twdM.toString(), equals(r'NT$1,000.00'));
 
       final twdToJpyRate = ExchangeRate.fromMinorUnits(3,
           decimalDigits: 0, fromIsoCode: 'TWD', toIsoCode: 'JPY');
       expect(twdToJpyRate.toString(), equals('3'));
 
       final jpyM = twdM.exchangeTo(twdToJpyRate);
-      expect(jpyM.toString(), equals('¥3000'));
+      expect(jpyM.toString(), equals('¥3,000'));
     });
 
     test('rub', () {

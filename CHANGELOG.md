@@ -1,3 +1,30 @@
+# 6.0.2-beta.1
+- BREAKING: Fixes #95. This problem was a regression caused as part of the 6.x release.
+  The issue was that group separators after the first (right most) group where
+  being treated incorrectly.  
+  We now treat #,### == ###,###
+  and ##,### == ##,###
+
+We also fixed a long standing issue with common currences.
+All CommonCurrencies has been defined without group separators. 
+This has now been changed so that all common currencies are
+defined with the appropriate group separators.
+
+This means that the pattern for USD (and most other currencies) changes 
+from S0.00 to S#,##0.00.
+All common currencies are now defined with group separators as appropriate
+for that currency.
+
+The implication is that formatting with the old behavour would give $9000 whilst
+the new behavour would give $9,000.
+If want to mimic the old behaviour you can simply set the pattern to the original 'S0.00'.
+
+We have also changed how we are maintaing common currencies. 
+We are are now generating common currencies from a yaml file.
+To regenerate common currences run:
+dart tool/generate_common_currencies.dart
+
+
 # 6.0.1
 - Added method isNonZero as a convenience.
 
@@ -37,7 +64,7 @@ Change how ExchangeRates are stored to json to bring it in line with how we stor
         'toIsoCode': 'USD',
         'toDecimals': 3,
 ```
-Note that 'minoorUnits' is a string to avoid overflow issues when javascript parses the json and the integer is larger than a javascript num.
+Note that 'minorUnits' is a string to avoid overflow issues when javascript parses the json and the integer is larger than a javascript num.
 
 # 6.0.0-beta.2
  BREAKING: the 'precision' argument to Currencies.copyWith has been renamed from

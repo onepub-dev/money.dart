@@ -14,6 +14,7 @@ void main() {
   final usd10d5c = Money.fromInt(1005, isoCode: 'USD');
   final usd10 = Money.fromInt(1000, isoCode: 'USD');
   final long1000d90 = Money.fromInt(100090, isoCode: 'LONG');
+  final used5M = Money.fromNum(5000000.90, isoCode: 'USD');
   final usd20cents = Money.fromInt(20, isoCode: 'USD');
   final btc1satoshi = Money.fromInt(1, isoCode: 'BTC');
 
@@ -26,6 +27,8 @@ void main() {
       expect(usd10d25.format('#.#'), equals('10.2'));
       expect(usd10d25.format('0.00'), equals('10.25'));
       expect(usd10d25.format('#,##0.##'), equals('10.25'));
+      expect(used5M.format('###,##0.00'), equals('5,000,000.90'));
+      expect(used5M.format('#,##0.00'), equals('5,000,000.90'));
       expect(long1000d90.format('#,##0.00'), equals('1,000.90'));
       expect(usd10d25.format('###,000.##'), equals('010.25'));
       expect(usd10d25.format('##.##'), equals('10.25'));
@@ -95,7 +98,7 @@ void main() {
     test('Inverted Decimal Separator', () {
       final eurolarge = Money.fromInt(10000000, isoCode: 'EUR');
       final euroSmall = Money.fromInt(1099, isoCode: 'EUR');
-      expect(eurolarge.toString(), equals('100000,00€'));
+      expect(eurolarge.toString(), equals('100.000,00€'));
       expect(euroSmall.format('S#'), equals('€10'));
       expect(euroSmall.format('#.#'), equals('10,9'));
       expect(euroSmall.format('CCC#.0#'), equals('EUR10,99'));
@@ -374,6 +377,52 @@ void main() {
                   35231, Currency.create('AU', 6, pattern: 'S0.000000'))
               .toString(),
           equals(r'$0.035231'));
+    });
+
+    test('group separators', () {
+      // none
+      expect(
+          Money.fromIntWithCurrency(
+                  31234567,
+                  decimalDigits: 0,
+                  Currency.create('AU', 6, pattern: '#'))
+              .toString(),
+          equals('31234567'));
+
+      // leading
+      expect(
+          Money.fromIntWithCurrency(
+                  31234567,
+                  decimalDigits: 0,
+                  Currency.create('AU', 6, pattern: ',###'))
+              .toString(),
+          equals('31,234,567'));
+
+      // indian
+      expect(
+          Money.fromIntWithCurrency(
+                  31234567,
+                  decimalDigits: 0,
+                  Currency.create('AU', 6, pattern: '##,###'))
+              .toString(),
+          equals('3,12,34,567'));
+
+      // single
+      expect(
+          Money.fromIntWithCurrency(
+                  31234567,
+                  decimalDigits: 0,
+                  Currency.create('AU', 6, pattern: '#,#,###'))
+              .toString(),
+          equals('3,1,2,3,4,567'));
+      // default
+      expect(
+          Money.fromIntWithCurrency(
+                  31234567,
+                  decimalDigits: 0,
+                  Currency.create('AU', 6, pattern: '#,###'))
+              .toString(),
+          equals('31,234,567'));
     });
   });
 }

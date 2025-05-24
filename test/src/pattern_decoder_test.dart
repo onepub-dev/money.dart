@@ -4,7 +4,7 @@
  * Written by Brett Sutton <bsutton@onepub.dev>, Jan 2022
  */
 import 'package:fixed/fixed.dart';
-import 'package:money2/src/common_currencies.dart';
+import 'package:money2/src/common_currencies.g.dart';
 import 'package:money2/src/exceptions.dart';
 import 'package:money2/src/money.dart';
 import 'package:money2/src/pattern_decoder.dart';
