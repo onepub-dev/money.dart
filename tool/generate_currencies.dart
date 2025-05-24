@@ -8,7 +8,7 @@ import 'dart:io';
 
 import 'package:yaml/yaml.dart';
 
-const _yamlPath = 'lib/currencies.yaml';
+const _yamlPath = 'tool/currencies.yaml';
 const _outputPath = 'lib/src/common_currencies.g.dart';
 
 void main() {
