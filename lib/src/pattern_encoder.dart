@@ -120,10 +120,17 @@ A pattern may only have a single decimal separator $patternDecimalSeparator''');
     if (pattern.isEmpty) {
       return '';
     }
+    // final minorPart =
+    //     _stripTrailingZeros(data.amount.decimalPartAsString(), data);
+
+    // final isoCode = data.currency.isoCode.reverse();
+    // final symbol = data.currency.symbol;
+
     final minorPart =
         _stripTrailingZeros(data.amount.decimalPartAsString(), data);
 
-    final isoCode = data.currency.isoCode.reverse();
+    // use the **un**-reversed ISO code for suffixes:
+    final isoCode = data.currency.isoCode;
     final symbol = data.currency.symbol;
 
     return processPart(
@@ -186,7 +193,8 @@ A pattern may only have a single decimal separator $patternDecimalSeparator''');
       }
     }
 
-    var isoCodeIndex = totalCurrencyCount - 1;
+
+    var isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
     var flush = true;
 
     for (final rune in pattern.runes) {
@@ -197,7 +205,7 @@ There must be '#' or '0' after the group separator $patternGroupSeparator""");
         }
 
         /// only output a group seperator if there are more digits
-        /// to be written 
+        /// to be written
         /// or because the number of '0' pattern characters will force
         /// more digits ('0') be written.
         if (digitsIndex < digits.length || digitsIndex < zeroRuneCount - 1) {
@@ -205,7 +213,7 @@ There must be '#' or '0' after the group separator $patternGroupSeparator""");
           groupSeparatorSeen = true;
           lengthOfLastGroup = lengthOfCurrentGroup;
           lengthOfCurrentGroup = 0;
-          isoCodeIndex = totalCurrencyCount - 1;
+           isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
         }
       } else {
         switch (rune) {
@@ -215,7 +223,7 @@ There must be '#' or '0' after the group separator $patternGroupSeparator""");
               formatted.write(digits[digitsIndex++]);
             } else {}
             lengthOfCurrentGroup++;
-            isoCodeIndex = totalCurrencyCount - 1;
+             isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
             digitPatternSeen = true;
             optionalDigitPatternSeen = true;
 
@@ -236,7 +244,7 @@ There must be '#' or '0' after the group separator $patternGroupSeparator""");
               formatted.write('0');
             }
             lengthOfCurrentGroup++;
-            isoCodeIndex = totalCurrencyCount - 1;
+             isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
             digitPatternSeen = true;
 
           /// C -  Currency code
@@ -267,13 +275,21 @@ The "C" character may only appear in a pattern consequitively three times''');
             }
 
             if (isoCodeIndex == 2) {
-              // we have three Cs so we write the entire isoCode
+              // we have three Cs so we write the remainder of the isoCode
               // regardless of length.
-              formatted.write(isoCode.substring(2).reverse());
+              if (directionReversed) {
+                formatted.write(isoCode.substring(2).reverse());
+              } else {
+                formatted.write(isoCode.substring(2));
+              }
             } else {
               formatted.write(isoCode[isoCodeIndex]);
             }
-            isoCodeIndex--;
+            if (directionReversed) {
+              isoCodeIndex--;
+            } else {
+              isoCodeIndex++;
+            }
 
           /// S - currency symbol
           case sRune:
@@ -292,7 +308,7 @@ The "C" character may only appear in a pattern consequitively three times''');
               flush = false;
             }
             formatted.write(symbol);
-            isoCodeIndex = totalCurrencyCount - 1;
+           isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
           case minusRune:
             if (digitPatternSeen) {
               final flushed = _flushExtraDigits(
@@ -308,7 +324,7 @@ The "C" character may only appear in a pattern consequitively three times''');
               flush = false;
             }
             formatted.write(isNegative ? '-' : '');
-            isoCodeIndex = totalCurrencyCount - 1;
+           isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
           case plusRune:
             if (digitPatternSeen) {
               final flushed = _flushExtraDigits(
@@ -324,13 +340,13 @@ The "C" character may only appear in a pattern consequitively three times''');
               flush = false;
             }
             formatted.write(isNegative ? '-' : '+');
-            isoCodeIndex = totalCurrencyCount - 1;
+           isoCodeIndex = _resetIsoCodeindex(directionReversed, totalCurrencyCount);
 
           /// Any un-recognised characters are just output
           /// verbatium
           default:
             if (digitPatternSeen) {
-              final flushed = _flushExtraDigits(
+              final flushedPart = _flushExtraDigits(
                   remaining: digits.substring(digitsIndex),
                   groupSeparatorSeen: groupSeparatorSeen,
                   groupSize: lengthOfLastGroup,
@@ -338,8 +354,10 @@ The "C" character may only appear in a pattern consequitively three times''');
                   groupSeparator: currency.groupSeparator,
                   showNegative: implicitNegative,
                   printAllDigits: printAllDigits);
-              formatted.write(flushed);
-              digitsIndex += flushed.length;
+              formatted.write(flushedPart);
+
+              /// we have now written all digits.
+              digitsIndex = digits.length;
               flush = false;
             }
             formatted.write(String.fromCharCode(rune));
@@ -361,6 +379,8 @@ The "C" character may only appear in a pattern consequitively three times''');
 
     return formatted.toString();
   }
+
+  int _resetIsoCodeindex(bool directionReversed, int totalCurrencyCount) =>  directionReversed ? (totalCurrencyCount - 1) : 0;
 
   final regex = RegExp(r'[+\-]');
   bool containsPlusOrMinus(String pattern) => regex.hasMatch(pattern);

@@ -424,5 +424,55 @@ void main() {
               .toString(),
           equals('31,234,567'));
     });
+    test('space', () {
+      expect(
+          Money.fromIntWithCurrency(
+                  31234567,
+                  decimalDigits: 0,
+                  Currency.create('AU', 6, pattern: 'S #,###.##'))
+              .toString(),
+          equals(r'$ 31,234,567'));
+
+      expect(
+          Money.fromIntWithCurrency(
+                  31234567,
+                  decimalDigits: 0,
+                  Currency.create('AU', 6, pattern: 'C #,###.##'))
+              .toString(),
+          equals('A 31,234,567'));
+
+      expect(
+          Money.fromIntWithCurrency(
+                  31234567,
+                  decimalDigits: 0,
+                  Currency.create('AUD', 6, pattern: 'CCC #,###.##'))
+              .toString(),
+          equals('AUD 31,234,567'));
+
+      expect(
+          Money.fromIntWithCurrency(
+                  31234567,
+                  decimalDigits: 0,
+                  Currency.create('AU', 6, pattern: '#,###.## S'))
+              .toString(),
+          equals(r'31,234,567 $'));
+
+      expect(
+          Money.fromIntWithCurrency(
+                  31234567,
+                  decimalDigits: 0,
+                  Currency.create('AU', 6, pattern: '#,###.## C'))
+              .toString(),
+          equals('31,234,567 A'));
+
+      expect(
+          Money.fromIntWithCurrency(
+                  31234567,
+                  decimalDigits: 0,
+                  Currency.create('AUD', 6, pattern: '#,###.## CCC'))
+              .toString(),
+          equals('31,234,567 AUD'));
+    });
+
   });
 }
