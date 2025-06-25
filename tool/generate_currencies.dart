@@ -110,7 +110,11 @@ String generateCode(List<CurrencyDef> defs) {
       ..writeln("\t\t'${d.code}',")
       ..writeln('\t\t${d.scale},');
     if (d.symbol != null) {
-      buf.writeln("\t\tsymbol: '${d.symbol}',");
+      var symbolRaw = '';
+      if (d.symbol!.contains(r'$')) {
+        symbolRaw = 'r';
+      }
+      buf.writeln("\t\tsymbol: $symbolRaw'${d.symbol}',");
     }
     if (d.pattern != null) {
       buf.writeln("\t\tpattern: '${d.pattern}',");

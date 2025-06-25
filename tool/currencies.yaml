@@ -159,6 +159,7 @@
   decimalDigites: 2
   groupSeparator: "."
   decimalSeparator: ","
+  symbol: "R$"
   country: "Brazil"
   unit: "Real"
   name: "Brazilian Real"

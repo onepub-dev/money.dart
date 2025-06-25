@@ -233,6 +233,7 @@ class CommonCurrencies {
   final Currency brl = Currency.create(
 		'BRL',
 		2,
+		symbol: r'R$',
 		groupSeparator: '.',
 		decimalSeparator: ',',
 		country: 'Brazil',

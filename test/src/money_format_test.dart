@@ -472,7 +472,20 @@ void main() {
                   Currency.create('AUD', 6, pattern: '#,###.## CCC'))
               .toString(),
           equals('31,234,567 AUD'));
-    });
 
+      expect(
+          Money.fromIntWithCurrency(
+                  33900000,
+                  decimalDigits: 0,
+                  Currency.create('AUD', 0, pattern: r'$#,###'))
+              .toString(),
+          equals(r'$33,900,000'));
+
+      expect(
+          Money.fromIntWithCurrency(
+                  33900000, decimalDigits: 0, CommonCurrencies().usd)
+              .toString(),
+          equals(r'$33,900,000.00'));
+    });
   });
 }
