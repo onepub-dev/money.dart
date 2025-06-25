@@ -1,3 +1,7 @@
+# 6.0.3
+- Fixeds #96. Change the generator so if the symbol contains a $ we prefix the string with 'r'.
+- spelling.
+
 # 6.0.2-beta.2
 - Fixes issue with trailing Currency isoCodes throwing a range exception as reported in #95.
 
