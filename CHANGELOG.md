@@ -1,3 +1,6 @@
+# 6.0.5
+- reverted to character 1.4.0 to support flutter_test.
+
 # 6.0.4
 - removed the dependency on strings package by copying a the two functions we used into money2.
 
