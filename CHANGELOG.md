@@ -1,3 +1,6 @@
+# 6.0.4
+- removed the dependency on strings package by copying a the two functions we used into money2.
+
 # 6.0.3
 - Fixeds #96. Change the generator so if the symbol contains a $ we prefix the string with 'r'.
 - spelling.
