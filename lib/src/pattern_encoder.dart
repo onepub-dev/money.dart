@@ -1,9 +1,8 @@
-import 'package:strings/strings.dart';
-
 import 'currency.dart';
 import 'encoders.dart';
 import 'exceptions.dart';
 import 'money_data.dart';
+import 'strings.dart';
 
 /// Patterns must always use these separators
 /// regardless of the currency’s own separators.
@@ -386,10 +385,10 @@ The "C" character may only appear in a pattern consequitively three times''');
     return formatted.toString();
   }
 
-/// we reset the iso code index whenever we see another pattern as this
-/// allows the iso code to appear multiple times in the output.
-/// Its probably not a often used feature but we can do it so why
-/// not allow it.
+  /// we reset the iso code index whenever we see another pattern as this
+  /// allows the iso code to appear multiple times in the output.
+  /// Its probably not a often used feature but we can do it so why
+  /// not allow it.
   int _resetIsoCodeindex(bool directionReversed, int totalCurrencyCount) =>
       directionReversed ? (totalCurrencyCount - 1) : 0;
 

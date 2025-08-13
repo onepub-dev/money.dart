@@ -7,10 +7,10 @@ repository: https://github.com/onepub-dev/money.dart
 environment:
   sdk: '>=3.0.0 <4.0.0'
 dependencies:
+  characters: ^1.4.1
   decimal: ^3.0.0
   fixed: ^6.0.0
   meta: ^1.9.0
-  strings: ^3.2.0
 dev_dependencies:
   lint_hard: ^5.0.0
   test: ^1.17.10

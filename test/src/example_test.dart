@@ -1,5 +1,5 @@
 import 'package:money2/money2.dart';
-import 'package:strings/strings.dart';
+import 'package:money2/src/strings.dart';
 import 'package:test/test.dart';
 
 /// This test is designed to ensure that the
