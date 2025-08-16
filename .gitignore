@@ -14,3 +14,4 @@ doc/api/
 .vscode/settings.json
 .failed_tracker
 .idea
+custom_lint.log
