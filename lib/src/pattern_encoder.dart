@@ -6,7 +6,12 @@ import 'strings.dart';
 
 /// Patterns must always use these separators
 /// regardless of the currency’s own separators.
+
+// public api
+// ignore: omit_obvious_property_types
 const String patternDecimalSeparator = '.';
+// public api
+// ignore: omit_obvious_property_types
 const String patternGroupSeparator = ',';
 
 /// Formatter that converts a MoneyData into a String based on a
@@ -41,10 +46,14 @@ const String patternGroupSeparator = ',';
 /// This implementation processes the major part by iterating right-to-left
 ///   and the minor part left-to-right.
 class PatternEncoder implements MoneyEncoder<String> {
-  PatternEncoder(this.pattern);
-
   /// The full pattern string.
   String pattern;
+
+  final regex = RegExp(r'[+\-]');
+
+  var flushed = false;
+
+  PatternEncoder(this.pattern);
 
   @override
   String encode(MoneyData data) {
@@ -392,7 +401,6 @@ The "C" character may only appear in a pattern consequitively three times''');
   int _resetIsoCodeindex(bool directionReversed, int totalCurrencyCount) =>
       directionReversed ? (totalCurrencyCount - 1) : 0;
 
-  final regex = RegExp(r'[+\-]');
   bool containsPlusOrMinus(String pattern) => regex.hasMatch(pattern);
 
   int _countZeros(String input) {
@@ -404,8 +412,6 @@ The "C" character may only appear in a pattern consequitively three times''');
     }
     return count;
   }
-
-  bool flushed = false;
 
   /// Flushes out the remaining digits (in reverse order)
   /// inserting the grouping separator every [groupSize] digits.

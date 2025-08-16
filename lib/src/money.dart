@@ -58,18 +58,13 @@ import 'percentage.dart';
 @immutable
 class Money implements Comparable<Money> {
   /* Internal constructor *****************************************************/
+  /// The monetary amount
+  final Fixed amount;
+
+  /// The currency the [amount] is stored in.
+  final Currency currency;
+
   const Money._from(this.amount, this.currency);
-  // factory Money.copyWith({
-  //   BigInt? amount,
-  //   Currency? currency,
-  //   String? pattern,
-  //   String? format,
-  // }) {
-  //   return Money._from(
-  //       Fixed.copyWith(data.amount,
-  //           decimalDigits: decimalDigits ?? currency.decimalDigits),
-  //       currency);
-  // }
 
   /// ******************************************
   /// Money.from
@@ -401,12 +396,6 @@ class Money implements Comparable<Money> {
         currency);
   }
 
-  /// The monetary amount
-  final Fixed amount;
-
-  /// The currency the [amount] is stored in.
-  final Currency currency;
-
   /// Returns the underlying minorUnits
   /// for this monetary amount.
   /// e.g. $10.10 is returned as 1010
@@ -478,17 +467,17 @@ class Money implements Comparable<Money> {
   ///     and only one occurrence is allowed.
   ///   – A negative symbol '-' or '+' may appear at most once in the numeric
   ///   portion and must be either the first or last character there.
-  /// 
+  ///
   /// Group Separators
   ///   - group separators allow you to specify repeating patterns.
   ///   e.g.
   ///      #,### == ###,### == ###,###,####
   ///      ##,### == ##,##,###
-  /// 
+  ///
   /// The left most group is treated as the repeating pattern unless
   /// it is a single #, in which case the next group is treated as
-  /// the repeating pattern. 
-  /// 
+  /// the repeating pattern.
+  ///
   ///
   /// Note: even if you use the groupSeparator or decimalSeparator
   /// to use alternate separators the pattern must still use ',' and '.'

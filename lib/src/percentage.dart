@@ -1,3 +1,6 @@
+// these fields are part of our public api.
+// ignore_for_file: omit_obvious_property_types
+
 import '../money2.dart';
 
 /// Helper class to allow us to do percentage
@@ -5,6 +8,14 @@ import '../money2.dart';
 /// Percentage is described as a decimal [Fixed]
 /// so 20% is expressed as 20.0
 class Percentage extends Fixed {
+  static final Percentage zero = Percentage(0, decimalDigits: 3);
+
+  static final Percentage ten = Percentage(100, decimalDigits: 3);
+
+  static final Percentage twenty = Percentage(200, decimalDigits: 3);
+
+  static final Percentage onehundred = Percentage(1000, decimalDigits: 3);
+
   /// Creates a percentage.
   /// Pass 20 to get 20%
   /// For 20.5% (0.205) use:
@@ -58,11 +69,6 @@ class Percentage extends Fixed {
   @override
   Percentage copyWith({int? decimalDigits}) =>
       Percentage.fromFixed(super.copyWith(decimalDigits: decimalDigits));
-
-  static final Percentage zero = Percentage(0, decimalDigits: 3);
-  static final Percentage ten = Percentage(100, decimalDigits: 3);
-  static final Percentage twenty = Percentage(200, decimalDigits: 3);
-  static final Percentage onehundred = Percentage(1000, decimalDigits: 3);
 
   @override
   String toString() => '${super.toString()}%';

@@ -27,13 +27,18 @@ import 'pattern_decoder.dart';
 ///   [CommonCurrencies]
 
 class Currencies {
+  static final _self = Currencies._internal();
+
+  /// Maps a currency 'isoCode' to its associated currency.
+  final Map<String, Currency> _directory = {};
+
   factory Currencies() => _self;
+
   Currencies._internal() {
     for (final currency in CommonCurrencies().asList()) {
       _directory[currency.isoCode] = currency;
     }
   }
-  static final Currencies _self = Currencies._internal();
 
   /// Register a Currency.
   ///
@@ -74,9 +79,6 @@ class Currencies {
       _self._directory[currency.isoCode] = currency;
     }
   }
-
-  /// Maps a currency 'isoCode' to its associated currency.
-  final Map<String, Currency> _directory = {};
 
   /// Parses a string containing a money amount including a currency isoCode.
   ///
@@ -154,8 +156,6 @@ class Currencies {
 
     return Money.fromFixedWithCurrency(moneyData.amount, currency);
   }
-
-  /* Protocol *****************************************************************/
 
   /// Searches the list of registered [Currency]s.
   ///

@@ -16,6 +16,14 @@ import 'util.dart';
 
 /// Parses a String containing a monetary amount based on a pattern.
 class PatternDecoder implements MoneyDecoder<String> {
+  /// the currency we discovered
+  final Currency currency;
+
+  /// the pattern used to decode the amount.
+  final String pattern;
+
+  static const numerics = '0123456789+=,.';
+
   /// ctor
   PatternDecoder(
     this.currency,
@@ -24,12 +32,6 @@ class PatternDecoder implements MoneyDecoder<String> {
     ArgumentError.checkNotNull(currency, 'currency');
     ArgumentError.checkNotNull(pattern, 'pattern');
   }
-
-  /// the currency we discovered
-  final Currency currency;
-
-  /// the pattern used to decode the amount.
-  final String pattern;
 
   @override
   MoneyData decode(String monetaryValue) {
@@ -216,8 +218,6 @@ class PatternDecoder implements MoneyDecoder<String> {
     return true;
   }
 
-  static const numerics = '0123456789+=,.';
-
   /// true if the pass value is one of the characters used
   /// to represent a number as defined by [numerics]
   bool isNumeric(String value) {
@@ -247,20 +247,20 @@ class PatternDecoder implements MoneyDecoder<String> {
 /// Takes a monetary value and turns it into a queue
 /// of digits which can be taken one at a time.
 class ValueQueue {
-  ///
-  ValueQueue(this.monetaryValue, this.groupSeparator);
-
   /// the amount we are queuing the digits of.
   String monetaryValue;
 
   /// current index into the [monetaryValue]
-  int index = 0;
+  var index = 0;
 
   /// the group seperator used in this [monetaryValue]
   String groupSeparator;
 
   /// The last character we took from the queue.
   String? lastTake;
+
+  ///
+  ValueQueue(this.monetaryValue, this.groupSeparator);
 
   /// returns the next character from the queue without
   /// removing it.

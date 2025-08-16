@@ -17,14 +17,14 @@ import 'pattern_encoder.dart' show PatternEncoder;
 @sealed
 @immutable
 class MoneyData {
-  /// Creates a MoneyData
-  const MoneyData.from(this.amount, this.currency);
-
   /// Amount of money in the smallest units (e.g. cent for USD).
   final Fixed amount;
 
   /// The currency
   final Currency currency;
+
+  /// Creates a MoneyData
+  const MoneyData.from(this.amount, this.currency);
 
   /// returns the major currency value of this
   /// MoneyData (e.g. the dollar amount)

@@ -11,7 +11,7 @@ import 'package:money2/src/pattern_decoder.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('pattern decoder unexpected minor units', () async {
+  test('pattern decoder unexpected minor units', ()  {
     final btc = CommonCurrencies().btc;
     final btcDecoder = PatternDecoder(btc, btc.pattern);
 

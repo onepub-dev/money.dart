@@ -2,7 +2,7 @@ import 'package:money2/src/percentage.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('percentage ...', () async {
+  test('percentage ...', ()  {
     var percentage = Percentage(100, decimalDigits: 3);
     expect(percentage.integerPart.toInt(), equals(0));
     expect(percentage.decimalPart.toInt(), equals(100));

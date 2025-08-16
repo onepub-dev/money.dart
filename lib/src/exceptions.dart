@@ -5,6 +5,8 @@ import 'money.dart';
 /// Thrown if an exchange is attempted with a [Money] has a [Currency] which
 /// doesn't match the exchange rate.
 class MismatchedCurrencyException extends MoneyException {
+  late final String message;
+
   /// Thrown if an exchange is attempted with a [Money] has a [Currency] which
   /// doesn't match the exchange rate.
   MismatchedCurrencyException(
@@ -12,16 +14,15 @@ class MismatchedCurrencyException extends MoneyException {
     message = "The exchange rate 'fromCurrency' of $expected is not the "
         "same as the Money's currency $actual";
   }
-  late final String message;
 }
 
 /// Thrown if the currency is not registered.
 class UnknownCurrencyException implements MoneyException {
-  /// Thrown if the currency is not registered.
-  UnknownCurrencyException(this.isoCode);
-
   /// The [isoCode] or monetary amount that contained the unknow currency
   String isoCode;
+
+  /// Thrown if the currency is not registered.
+  UnknownCurrencyException(this.isoCode);
 
   @override
   String toString() =>
@@ -31,6 +32,9 @@ class UnknownCurrencyException implements MoneyException {
 
 /// Exception thrown when a parse fails.
 class MoneyParseException implements MoneyException {
+  /// The error message
+  String message;
+
   ///
   MoneyParseException(this.message);
 
@@ -47,17 +51,16 @@ $monetaryValue contained an unexpected character '${compressedValue[monetaryInde
     return MoneyParseException(message);
   }
 
-  /// The error message
-  String message;
-
   @override
   String toString() => message;
 }
 
 /// Exception thrown for an illegal pattern.
 class IllegalPatternException implements Exception {
-  IllegalPatternException(this.message);
   final String message;
+
+  IllegalPatternException(this.message);
+
   @override
   String toString() => message;
 }
@@ -65,14 +68,14 @@ class IllegalPatternException implements Exception {
 /// Thrown if an attempt is made to calcuate the value of a [Money] amount
 /// in another currency for which there isn't a registered exchange rate.
 class UnknownExchangeRateException implements MoneyException {
-  /// Thrown if no exchange rate exists between [from] and [to]
-  UnknownExchangeRateException(this.from, this.to);
-
   /// The from currency isoCode in the unknown exchange
   CurrencyIsoCode from;
 
   /// The to  currency isoCode in the unknown exchange
   CurrencyIsoCode to;
+
+  /// Thrown if no exchange rate exists between [from] and [to]
+  UnknownExchangeRateException(this.from, this.to);
 
   @override
   String toString() =>

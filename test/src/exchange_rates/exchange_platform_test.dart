@@ -7,7 +7,7 @@ import 'package:money2/money2.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('default decimalDigits ...', () async {
+  test('default decimalDigits ...', ()  {
     final platform = ExchangePlatform();
 
     final aud = Money.fromNum(1, decimalDigits: 2, isoCode: 'AUD');
@@ -31,7 +31,7 @@ void main() {
     expect(t2.decimalDigits, equals(2));
   });
 
-  test('controlled decimal Digits ...', () async {
+  test('controlled decimal Digits ...', ()  {
     final platform = ExchangePlatform();
 
     final aud = Money.fromNum(1, decimalDigits: 2, isoCode: 'AUD');

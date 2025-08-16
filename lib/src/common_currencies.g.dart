@@ -1,4 +1,6 @@
 /// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: omit_obvious_property_types
+
 library;
 /*
  * Copyright (c) 2025 S. Brett Sutton
@@ -27,8 +29,6 @@ import 'currency.dart';
 ///
 
 class CommonCurrencies {
-  factory CommonCurrencies() => _self;
-  CommonCurrencies._();
   static final CommonCurrencies _self = CommonCurrencies._();
 
   /// United Arab Emirates Dirham
@@ -1613,6 +1613,10 @@ class CommonCurrencies {
 		unit: 'Kwacha',
 		name: 'Zambian Kwacha'
 	);
+
+  factory CommonCurrencies() => _self;
+
+  CommonCurrencies._();
 
   List<Currency> asList() => [
     aed,

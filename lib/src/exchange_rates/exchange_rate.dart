@@ -18,6 +18,21 @@ typedef CurrencyIsoCode = String;
 /// AUD 1.00 = USD 65c.
 ///
 class ExchangeRate {
+  /// The Currency that we are converting from.
+  late final Currency fromCurrency;
+
+  /// The exchange rate
+  late final Fixed exchangeRate;
+
+  /// After the exchange rate is applied this
+  /// will the resulting [Currency] of the returned [Money]
+  late final Currency toCurrency;
+
+  /// The number of decimal digigs of the resulting [Currency]
+  /// If not passed then we use the default decimalDigits
+  /// of the [toCurrency]
+  final int? toDecimalDigits;
+
   /// Create an exchange rate from a [Fixed] decimal.
   ///
   /// The target currency, as defined by [toIsoCode], describes the
@@ -162,21 +177,6 @@ class ExchangeRate {
     exchangeRate =
         Fixed.fromBigInt(exchangeRateMinorUnits, decimalDigits: decimalDigits);
   }
-
-  /// The Currency that we are converting from.
-  late final Currency fromCurrency;
-
-  /// The exchange rate
-  late final Fixed exchangeRate;
-
-  /// After the exchange rate is applied this
-  /// will the resulting [Currency] of the returned [Money]
-  late final Currency toCurrency;
-
-  /// The number of decimal digigs of the resulting [Currency]
-  /// If not passed then we use the default decimalDigits
-  /// of the [toCurrency]
-  final int? toDecimalDigits;
 
   /// Apply the exchange rate to [amount] and return
   /// a new [Money] in the [toCurrency].

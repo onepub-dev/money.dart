@@ -2,6 +2,7 @@
 // Dart CLI script to read currencies.yaml and generate
 // a sorted CommonCurrencies Dart file (lib/common_currencies.g.dart).
 
+// this is a cli tool
 // ignore_for_file: avoid_print
 
 import 'dart:io';
@@ -20,6 +21,26 @@ void main() {
 
 /// Currency definition read from YAML (with override)
 class CurrencyDef {
+  final String code;
+
+  final int scale;
+
+  final String? symbol;
+
+  final String? pattern;
+
+  final String? groupSeparator;
+
+  final String? decimalSeparator;
+
+  final String country;
+
+  final String unit;
+
+  final String name;
+
+  final String? varName;
+
   CurrencyDef({
     required this.code,
     required this.varName,
@@ -32,16 +53,6 @@ class CurrencyDef {
     this.groupSeparator,
     this.decimalSeparator,
   });
-  final String code;
-  final int scale;
-  final String? symbol;
-  final String? pattern;
-  final String? groupSeparator;
-  final String? decimalSeparator;
-  final String country;
-  final String unit;
-  final String name;
-  final String? varName;
 }
 
 List<CurrencyDef> readYaml() {
