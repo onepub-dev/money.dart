@@ -1,3 +1,6 @@
+# 6.0.6
+- now allows a -ve sign before the currency symbol. Fixed a bug in the pattern which included = rather than -.
+
 # 6.0.5
 - reverted to character 1.4.0 to support flutter_test.
 
