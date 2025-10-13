@@ -22,7 +22,7 @@ class PatternDecoder implements MoneyDecoder<String> {
   /// the pattern used to decode the amount.
   final String pattern;
 
-  static const numerics = '0123456789+=,.';
+  static const numerics = '0123456789+-,.';
 
   /// ctor
   PatternDecoder(
@@ -50,8 +50,15 @@ class PatternDecoder implements MoneyDecoder<String> {
     var seenMajor = false;
     var seenDecimal = false;
 
+    var valueForQueue = compressedMonetaryValue;
+    if (valueForQueue.isNotEmpty &&
+        (valueForQueue[0] == '-' || valueForQueue[0] == '+')) {
+      isNegative = valueForQueue[0] == '-';
+      valueForQueue = valueForQueue.substring(1);
+    }
+
     final valueQueue =
-        ValueQueue(compressedMonetaryValue, currency.groupSeparator);
+        ValueQueue(valueForQueue, currency.groupSeparator);
 
     for (var i = 0; i < compressedPattern.length; i++) {
       switch (compressedPattern[i]) {

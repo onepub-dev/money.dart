@@ -19,12 +19,20 @@ void main() {
     test('Default Currency Pattern with negative number', () {
       expect(Money.tryParse(r'$-10.25', isoCode: 'USD'),
           equals(Money.fromInt(-1025, isoCode: 'USD')));
+      expect(Money.tryParse(r'-$10.25', isoCode: 'USD'),
+          equals(Money.fromInt(-1025, isoCode: 'USD')));
+
       expect(Money.tryParse('-10.25', isoCode: 'USD', pattern: '#.#'),
           equals(Money.fromInt(-1025, isoCode: 'USD')));
       expect(Money.tryParse('USD-10.25', isoCode: 'USD', pattern: 'CCC#.#'),
           equals(Money.fromInt(-1025, isoCode: 'USD')));
+      expect(Money.tryParse('-USD10.25', isoCode: 'USD', pattern: 'CCC#.#'),
+          equals(Money.fromInt(-1025, isoCode: 'USD')));
       expect(Money.tryParse(r'$USD-10.25', isoCode: 'USD', pattern: 'SCCC#.#'),
           equals(Money.fromInt(-1025, isoCode: 'USD')));
+      expect(Money.tryParse(r'-$USD10.25', isoCode: 'USD', pattern: 'SCCC#.#'),
+          equals(Money.fromInt(-1025, isoCode: 'USD')));
+
       expect(Money.tryParse('-1,000.25', isoCode: 'USD', pattern: '#.#'),
           equals(Money.fromInt(-100025, isoCode: 'USD')));
     });
