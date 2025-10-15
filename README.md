@@ -32,6 +32,11 @@ predictability are essential — no floating-point rounding surprises.
 Money2 is sponsored by [OnePub](https://onepub.dev), the private Dart package repository.  
 You can support Money2 by supporting OnePub.
 
+<a href="https://onepub.dev">
+  <img src="https://raw.githubusercontent.com/onepub-dev/fixed/main/images/LogoAndByLine.png" alt="OnePub" width="300">
+</a>
+
+
 ---
 
 ## How Money2 Handles Currencies
