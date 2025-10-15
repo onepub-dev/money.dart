@@ -1,3 +1,8 @@
+# 6.0.7
+- updated the readme with more detail and improved the pubspec description.
+- We now generate an md file with the full list of currency codes and their settings. 
+- Fixed a spelling mistake in the currencies.yaml file.
+
 # 6.0.6
 - now allows a -ve sign before the currency symbol. Fixed a bug in the pattern which included = rather than -.
 
