@@ -1,3 +1,6 @@
+# 6.0.9
+- added onepubl logo.
+
 # 6.0.8
 - updated link to common currencies so it works from pub.dev
 
