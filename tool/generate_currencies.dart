@@ -25,6 +25,7 @@
 // ignore_for_file: avoid_print
 
 import 'dart:io';
+
 import 'package:yaml/yaml.dart';
 
 const _yamlPath = 'tool/currencies.yaml';
@@ -77,8 +78,8 @@ List<CurrencyDef> readYaml() {
     final map = node as YamlMap;
     return CurrencyDef(
       code: map['code'] as String,
-      varName:
-          ((map['varName'] as String?) ?? (map['code'] as String)).toLowerCase(),
+      varName: ((map['varName'] as String?) ?? (map['code'] as String))
+          .toLowerCase(),
       decimalDigits: map['decimalDigits'] as int,
       symbol: map['symbol'] as String?,
       pattern: map['pattern'] as String?,
@@ -102,7 +103,8 @@ String generateCode(List<CurrencyDef> defs) {
     ..writeln(' * SPDX-License-Identifier: MIT')
     ..writeln(' *')
     ..writeln(' * This file is part of the “Money2” project.')
-    ..writeln(' * See the LICENSE file in the project root for full license text.')
+    ..writeln(
+        ' * See the LICENSE file in the project root for full license text.')
     ..writeln(' */')
     ..writeln()
     ..writeln("import 'currency.dart';")
@@ -141,8 +143,8 @@ String generateCode(List<CurrencyDef> defs) {
           "    groupSeparator: '${_escapeSingleQuotes(d.groupSeparator!)}',");
     }
     if (d.decimalSeparator != null && d.decimalSeparator!.isNotEmpty) {
-      buf.writeln(
-          "    decimalSeparator: '${_escapeSingleQuotes(d.decimalSeparator!)}',");
+      buf.writeln("""
+    decimalSeparator: '${_escapeSingleQuotes(d.decimalSeparator!)}',""");
     }
     buf
       ..writeln("    country: '${_escapeSingleQuotes(d.country)}',")
@@ -175,10 +177,11 @@ String generateMarkdown(List<CurrencyDef> defs) {
   final buf = StringBuffer()
     ..writeln('# Common Currencies')
     ..writeln()
-    ..writeln(
-        'This document is auto-generated from `tool/currencies.yaml` by `tool/generate_currencies.dart`.')
+    ..writeln('''
+This document is auto-generated from `tool/currencies.yaml` by `tool/generate_currencies.dart`.''')
     ..writeln()
-    ..writeln('Each row represents a currency available via the `CommonCurrencies` class:')
+    ..writeln('''
+Each row represents a currency available via the `CommonCurrencies` class:''')
     ..writeln()
     ..writeln('```dart')
     ..writeln('final common = CommonCurrencies();')
@@ -196,8 +199,10 @@ String generateMarkdown(List<CurrencyDef> defs) {
     ..writeln()
     ..writeln('**Total currencies:** ${defs.length}')
     ..writeln()
-    ..writeln('| ISO | Common | Name | Country | Unit | Symbol | Pattern | Group Sep | Decimal Sep | Decimal Digits |')
-    ..writeln('|-----|--------|------|---------|------|--------|----------|------------|--------------|----------------|');
+    ..writeln('''
+| ISO | Common | Name | Country | Unit | Symbol | Pattern | Group Sep | Decimal Sep | Decimal Digits |''')
+    ..writeln('''
+|-----|--------|------|---------|------|--------|----------|------------|--------------|----------------|''');
 
   for (final d in defs) {
     final iso = _mdEsc(d.code);
@@ -206,10 +211,12 @@ String generateMarkdown(List<CurrencyDef> defs) {
     final country = _mdEsc(d.country);
     final unit = _mdEsc(d.unit);
 
-    final symbolCell =
-        (d.symbol != null && d.symbol != defaultSymbol) ? _mdCode(d.symbol!) : '';
-    final patternCell =
-        (d.pattern != null && d.pattern != defaultPattern) ? _mdCode(d.pattern!) : '';
+    final symbolCell = (d.symbol != null && d.symbol != defaultSymbol)
+        ? _mdCode(d.symbol!)
+        : '';
+    final patternCell = (d.pattern != null && d.pattern != defaultPattern)
+        ? _mdCode(d.pattern!)
+        : '';
     final groupSepCell = (d.groupSeparator != null &&
             d.groupSeparator!.isNotEmpty &&
             d.groupSeparator != defaultGroupSep)
@@ -223,8 +230,8 @@ String generateMarkdown(List<CurrencyDef> defs) {
     final digitsCell =
         (d.decimalDigits != defaultDigits) ? d.decimalDigits.toString() : '';
 
-    buf.writeln(
-        '| $iso | $common | $name | $country | $unit | $symbolCell | $patternCell | $groupSepCell | $decSepCell | $digitsCell |');
+    buf.writeln('''
+| $iso | $common | $name | $country | $unit | $symbolCell | $patternCell | $groupSepCell | $decSepCell | $digitsCell |''');
   }
 
   buf
@@ -246,7 +253,9 @@ String _mdEsc(String s) =>
     s.replaceAll('|', r'\|').replaceAll('<', r'\<').replaceAll('>', r'\>');
 
 String _mdCode(String s) {
-  if (s.isEmpty) return '';
+  if (s.isEmpty) {
+    return '';
+  }
   final hasBacktick = s.contains('`');
   final fence = hasBacktick ? '``' : '`';
   return '$fence$s$fence';
