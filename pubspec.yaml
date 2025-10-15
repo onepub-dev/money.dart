@@ -2,7 +2,11 @@ name: money2
 version: 6.0.6
 homepage: https://money2.onepub.dev
 documentation: https://money2.onepub.dev
-description: Money and Currency classes with fixed precision maths, parsing and formatting. (Money.parse('$2010.00') * 10).format('S CC#,##0') -> $ US20,100
+description: >
+  Money and currency handling for Dart.
+  Fixed-decimal math, multi-currency support and conversions, parsing and formatting.
+  (Money.parse('$2010.00') * 10).format('SCC#,##0') -> $US20,100
+
 repository: https://github.com/onepub-dev/money.dart
 environment:
   sdk: '>=3.0.0 <4.0.0'
