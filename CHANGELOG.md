@@ -1,3 +1,6 @@
+# 6.0.8
+- updated link to common currencies so it works from pub.dev
+
 # 6.0.7
 - updated the readme with more detail and improved the pubspec description.
 - We now generate an md file with the full list of currency codes and their settings. 
