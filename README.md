@@ -42,7 +42,7 @@ to reuse and customize currency definitions.
 ### CommonCurrencies
 
 Money2 ships with a full list of world currencies. You can view the complete list in  
-[Common Currency List](common_currencies.md).
+[Common Currency List](https://github.com/onepub-dev/money.dart/blob/master/common_currencies.md).
 
 You can also create your own currencies or override existing definitions.
 
