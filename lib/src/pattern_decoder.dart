@@ -57,8 +57,25 @@ class PatternDecoder implements MoneyDecoder<String> {
       valueForQueue = valueForQueue.substring(1);
     }
 
-    final valueQueue =
-        ValueQueue(valueForQueue, currency.groupSeparator);
+    var decimalSeparator = currency.decimalSeparator;
+    var groupSeparator = currency.groupSeparator;
+
+    final lastDotIndex = valueForQueue.lastIndexOf('.');
+    final lastCommaIndex = valueForQueue.lastIndexOf(',');
+
+    final lastSeparatorIndex = max(lastDotIndex, lastCommaIndex);
+
+    if (lastSeparatorIndex != -1) {
+      final separatorChar = valueForQueue[lastSeparatorIndex];
+      final decimals = valueForQueue.length - lastSeparatorIndex - 1;
+
+      if (decimals == currency.decimalDigits) {
+        decimalSeparator = separatorChar;
+        groupSeparator = (separatorChar == '.') ? ',' : '.';
+      }
+    }
+
+    final valueQueue = ValueQueue(valueForQueue, groupSeparator);
 
     for (var i = 0; i < compressedPattern.length; i++) {
       switch (compressedPattern[i]) {
@@ -120,10 +137,9 @@ class PatternDecoder implements MoneyDecoder<String> {
           /// we can have a pattern with a decimal but the
           /// value doesn't contain any minor units
           /// So check if the value queue has digits.
-          if (valueQueue.isNotEmpty &&
-              valueQueue.contains(currency.decimalSeparator)) {
+          if (valueQueue.isNotEmpty && valueQueue.contains(decimalSeparator)) {
             final char = valueQueue.takeOne();
-            if (char != currency.decimalSeparator) {
+            if (char != decimalSeparator) {
               throw MoneyParseException.fromValue(
                   compressedPattern: compressedPattern,
                   patternIndex: i,

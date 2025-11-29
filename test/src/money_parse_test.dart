@@ -60,6 +60,8 @@ void main() {
           equals(Money.fromInt(100025, isoCode: 'EUR')));
       expect(Money.parse('1.000,25', isoCode: 'EUR', pattern: '#,###.00'),
           equals(Money.fromInt(100025, isoCode: 'EUR')));
+      expect(Money.parse('46.98', isoCode: 'EUR', pattern: '#.##'),
+          equals(Money.fromInt(4698, isoCode: 'EUR')));
     });
 
     test('Inverted Decimal Separator with pattern with negative number', () {
