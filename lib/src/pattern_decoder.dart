@@ -12,7 +12,6 @@ import 'encoders.dart';
 import 'exceptions.dart';
 import 'money_data.dart';
 import 'pattern_encoder.dart';
-import 'util.dart';
 
 /// Parses a String containing a monetary amount based on a pattern.
 class PatternDecoder implements MoneyDecoder<String> {
@@ -35,52 +34,79 @@ class PatternDecoder implements MoneyDecoder<String> {
 
   @override
   MoneyData decode(String monetaryValue) {
-    final negativeOne = BigInt.from(-1);
     var majorUnits = BigInt.zero;
+
     var minorUnits = BigInt.zero;
 
     final isoCode = currency.isoCode;
 
     var compressedPattern = compressDigits(pattern);
+
     compressedPattern = compressWhitespace(compressedPattern);
+
     final compressedMonetaryValue = compressWhitespace(monetaryValue);
+
     var codeIndex = 0;
 
     var isNegative = false;
+
     var seenMajor = false;
+
     var seenDecimal = false;
 
     var valueForQueue = compressedMonetaryValue;
+
     if (valueForQueue.isNotEmpty &&
         (valueForQueue[0] == '-' || valueForQueue[0] == '+')) {
       isNegative = valueForQueue[0] == '-';
+
       valueForQueue = valueForQueue.substring(1);
     }
 
     var decimalSeparator = currency.decimalSeparator;
+
     var groupSeparator = currency.groupSeparator;
 
-    final lastDotIndex = valueForQueue.lastIndexOf('.');
-    final lastCommaIndex = valueForQueue.lastIndexOf(',');
+    // Heuristic for robust decimal/group separator detection based on input format
 
-    final lastSeparatorIndex = max(lastDotIndex, lastCommaIndex);
+    final hasDot = valueForQueue.contains('.');
 
-    if (lastSeparatorIndex != -1) {
-      final separatorChar = valueForQueue[lastSeparatorIndex];
-      final decimals = valueForQueue.length - lastSeparatorIndex - 1;
+    final hasComma = valueForQueue.contains(',');
 
-      if (decimals == currency.decimalDigits) {
-        decimalSeparator = separatorChar;
-        groupSeparator = (separatorChar == '.') ? ',' : '.';
+    if (hasDot && !hasComma) {
+      decimalSeparator = '.';
+
+      groupSeparator = ',';
+    } else if (!hasDot && hasComma) {
+      decimalSeparator = ',';
+
+      groupSeparator = '.';
+    } else if (hasDot && hasComma) {
+      final lastDotIndex = valueForQueue.lastIndexOf('.');
+
+      final lastCommaIndex = valueForQueue.lastIndexOf(',');
+
+      if (lastDotIndex > lastCommaIndex) {
+        decimalSeparator = '.';
+
+        groupSeparator = ',';
+      } else {
+        decimalSeparator = ',';
+
+        groupSeparator = '.';
       }
     }
 
-    final valueQueue = ValueQueue(valueForQueue, groupSeparator);
+    // End heuristic
+
+    final valueQueue =
+        ValueQueue(valueForQueue, groupSeparator, decimalSeparator);
 
     for (var i = 0; i < compressedPattern.length; i++) {
       switch (compressedPattern[i]) {
         case 'S':
           final possibleSymbol = valueQueue.peekN(currency.symbol.length);
+
           if (possibleSymbol == currency.symbol) {
             valueQueue.takeN(currency.symbol.length);
           } else {
@@ -100,6 +126,7 @@ class PatternDecoder implements MoneyDecoder<String> {
                 'The pattern has more currency isoCode "C" characters '
                 '($codeIndex + 1) than the length of the passed currency.');
           }
+
           final char = valueQueue.peek();
 
           if (char != isoCode[codeIndex]) {
@@ -113,32 +140,34 @@ class PatternDecoder implements MoneyDecoder<String> {
             }
           } else {
             valueQueue.takeOne();
+
             codeIndex++;
           }
+
         case '#':
           if (!seenMajor) {
             final char = valueQueue.peek();
+
             if (char == '-') {
               valueQueue.takeOne();
+
               isNegative = true;
             }
           }
+
           if (seenMajor) {
-            /// we can have a pattern with a decmial but the moneyValue
-            /// contains no minorUnits.
             if (seenDecimal) {
-              minorUnits = valueQueue.takeMinorDigits(currency);
+              minorUnits =
+                  valueQueue.takeMinorDigits(currency);
             }
           } else {
             majorUnits = valueQueue.takeMajorDigits();
           }
-        case '.':
 
-          /// we can have a pattern with a decimal but the
-          /// value doesn't contain any minor units
-          /// So check if the value queue has digits.
+        case '.':
           if (valueQueue.isNotEmpty && valueQueue.contains(decimalSeparator)) {
             final char = valueQueue.takeOne();
+
             if (char != decimalSeparator) {
               throw MoneyParseException.fromValue(
                   compressedPattern: compressedPattern,
@@ -147,26 +176,37 @@ class PatternDecoder implements MoneyDecoder<String> {
                   monetaryIndex: valueQueue.index,
                   monetaryValue: monetaryValue);
             }
+
             seenDecimal = true;
           }
+
           seenMajor = true;
+
         case ' ':
           break;
+
         default:
           throw MoneyParseException(
               'Invalid character "${compressedPattern[i]}" found in pattern.');
       }
     }
 
+    // Combine absolute major and minor units
+    BigInt combinedAbsoluteValue =
+        majorUnits * currency.decimalDigitsFactor + minorUnits;
+
+    BigInt finalValue;
+
     if (isNegative) {
-      majorUnits = majorUnits * negativeOne;
-      minorUnits = minorUnits * negativeOne;
+      finalValue = combinedAbsoluteValue * BigInt.from(-1);
+    } else {
+      finalValue = combinedAbsoluteValue;
     }
 
-    final value = currency.toMinorUnits(majorUnits, minorUnits);
     final result = MoneyData.from(
-        Fixed.fromBigInt(value, decimalDigits: currency.decimalDigits),
+        Fixed.fromBigInt(finalValue, decimalDigits: currency.decimalDigits),
         currency);
+
     return result;
   }
 
@@ -279,11 +319,14 @@ class ValueQueue {
   /// the group seperator used in this [monetaryValue]
   String groupSeparator;
 
+  /// the decimal seperator used in this [monetaryValue]
+  String decimalSeparator;
+
   /// The last character we took from the queue.
   String? lastTake;
 
   ///
-  ValueQueue(this.monetaryValue, this.groupSeparator);
+  ValueQueue(this.monetaryValue, this.groupSeparator, this.decimalSeparator);
 
   /// returns the next character from the queue without
   /// removing it.
@@ -318,7 +361,7 @@ class ValueQueue {
   /// return all of the digits from the current position
   /// until we find a non-digit.
   BigInt takeMajorDigits() {
-    final majorDigits = _takeDigits();
+    final majorDigits = _takeDigits(isMajor: true);
     return majorDigits.isEmpty ? BigInt.zero : BigInt.parse(majorDigits);
   }
 
@@ -330,13 +373,12 @@ class ValueQueue {
   /// 1.2 -> 1.20
   /// 1.21 -> 1.21
   BigInt takeMinorDigits(Currency currency) {
-    var digits = _takeDigits();
+    var digits = _takeDigits(isMajor: false);
 
     if (digits.length < currency.decimalDigits) {
       digits += '0' * max(0, currency.decimalDigits - digits.length);
     }
 
-    // we have no way of storing less than a minorDigit is this a problem?
     if (digits.length > currency.decimalDigits) {
       digits = digits.substring(0, currency.decimalDigits);
     }
@@ -344,24 +386,30 @@ class ValueQueue {
     return BigInt.parse(digits);
   }
 
-  String _takeDigits() {
-    var digits = ''; //  = lastTake;
-
-    while (index < monetaryValue.length &&
-        (isDigit(monetaryValue[index]) ||
-            monetaryValue[index] == groupSeparator)) {
-      if (monetaryValue[index] != groupSeparator) {
-        digits += monetaryValue[index];
+  String _takeDigits({required bool isMajor}) {
+    var digits = '';
+    while (index < monetaryValue.length) {
+      final char = monetaryValue[index];
+      if (_isDigit(char)) {
+        digits += char;
+        index++;
+      } else if (char == groupSeparator && isMajor) {
+        // Skip group separator. Consume it.
+        index++;
+      } else if (char == decimalSeparator) {
+        // Stop, this is the decimal separator. DO NOT CONSUME.
+        break;
+      } else {
+        // Stop, not a digit or expected separator. DO NOT CONSUME.
+        break;
       }
-      index++;
     }
-
-    // if (digits.isEmpty) {
-    //   throw MoneyParseException(
-    //       'Character "${monetaryValue[index]}" at pos $index'
-    //       ' is not a digit when a digit was expected');
-    // }
     return digits;
+  }
+
+  bool _isDigit(String char) {
+    return char.codeUnitAt(0) >= '0'.codeUnitAt(0) &&
+        char.codeUnitAt(0) <= '9'.codeUnitAt(0);
   }
 
   /// returns true if the value queue still contains [char]
