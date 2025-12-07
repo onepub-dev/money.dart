@@ -157,8 +157,7 @@ class PatternDecoder implements MoneyDecoder<String> {
 
           if (seenMajor) {
             if (seenDecimal) {
-              minorUnits =
-                  valueQueue.takeMinorDigits(currency);
+              minorUnits = valueQueue.takeMinorDigits(currency);
             }
           } else {
             majorUnits = valueQueue.takeMajorDigits();
@@ -192,7 +191,7 @@ class PatternDecoder implements MoneyDecoder<String> {
     }
 
     // Combine absolute major and minor units
-    BigInt combinedAbsoluteValue =
+    final combinedAbsoluteValue =
         majorUnits * currency.decimalDigitsFactor + minorUnits;
 
     BigInt finalValue;
@@ -407,10 +406,9 @@ class ValueQueue {
     return digits;
   }
 
-  bool _isDigit(String char) {
-    return char.codeUnitAt(0) >= '0'.codeUnitAt(0) &&
-        char.codeUnitAt(0) <= '9'.codeUnitAt(0);
-  }
+  bool _isDigit(String char) =>
+      char.codeUnitAt(0) >= '0'.codeUnitAt(0) &&
+      char.codeUnitAt(0) <= '9'.codeUnitAt(0);
 
   /// returns true if the value queue still contains [char]
   bool contains(String char) {

@@ -15,3 +15,4 @@ doc/api/
 .failed_tracker
 .idea
 custom_lint.log
+logs/analyzer.txt
