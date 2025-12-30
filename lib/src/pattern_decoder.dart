@@ -68,23 +68,14 @@ class PatternDecoder implements MoneyDecoder<String> {
     var groupSeparator = currency.groupSeparator;
 
     // Heuristic for robust decimal/group separator detection based on input format
-
-    final hasDot = valueForQueue.contains('.');
-
-    final hasComma = valueForQueue.contains(',');
-
-    if (hasDot && hasComma) {
-      final lastDotIndex = valueForQueue.lastIndexOf('.');
-
-      final lastCommaIndex = valueForQueue.lastIndexOf(',');
-
+    final lastDotIndex = valueForQueue.lastIndexOf('.');
+    final lastCommaIndex = valueForQueue.lastIndexOf(',');
+    if (lastDotIndex != -1 && lastCommaIndex != -1) {
       if (lastDotIndex > lastCommaIndex) {
         decimalSeparator = '.';
-
         groupSeparator = ',';
       } else {
         decimalSeparator = ',';
-
         groupSeparator = '.';
       }
     }
