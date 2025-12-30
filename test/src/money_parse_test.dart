@@ -60,6 +60,23 @@ void main() {
           equals(Money.fromInt(100025, isoCode: 'EUR')));
       expect(Money.parse('1.000,25', isoCode: 'EUR', pattern: '#,###.00'),
           equals(Money.fromInt(100025, isoCode: 'EUR')));
+      expect(Money.parse('46,98', isoCode: 'EUR', pattern: '#.##'),
+          equals(Money.fromInt(4698, isoCode: 'EUR')));
+    });
+
+    test('Precision handling - truncation for 0.0282 EUR', () {
+      expect(Money.parse('0,0282', isoCode: 'EUR', pattern: '#.##'),
+          equals(Money.fromInt(2, isoCode: 'EUR')));
+    });
+
+    test('High Precision Crypto - 1 BTC', () {
+      expect(Money.parse('1', isoCode: 'BTC'),
+          equals(Money.fromInt(100000000, isoCode: 'BTC')));
+    });
+
+    test('Negative Number Parsing -10.25 USD', () {
+      expect(Money.parse('-10.25', isoCode: 'USD'),
+          equals(Money.fromInt(-1025, isoCode: 'USD')));
     });
 
     test('Inverted Decimal Separator with pattern with negative number', () {

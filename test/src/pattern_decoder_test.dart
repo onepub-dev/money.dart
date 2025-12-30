@@ -11,7 +11,7 @@ import 'package:money2/src/pattern_decoder.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('pattern decoder unexpected minor units', ()  {
+  test('pattern decoder unexpected minor units', () {
     final btc = CommonCurrencies().btc;
     final btcDecoder = PatternDecoder(btc, btc.pattern);
 
@@ -119,5 +119,11 @@ void main() {
   test('Issue #53', () {
     final money = Money.parseWithCurrency('₿1.99', CommonCurrencies().btc);
     expect(money.format('#.000'), '1.990');
+  });
+
+  test('separator heuristics', () {
+    final euro = CommonCurrencies().euro;
+    final money = Money.parseWithCurrency('1.000', CommonCurrencies().euro);
+    expect(money.format(euro.pattern), '1.000,00€');
   });
 }
