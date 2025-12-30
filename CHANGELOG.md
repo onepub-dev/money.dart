@@ -1,3 +1,12 @@
+# 6.1.0
+- There is a merge (of most) of #97 submitted by @fabiocarneiro - thanks to fabio for his excellent work.
+- Robust Decimal/Group Separator Heuristic: A new heuristic dynamically detects decimalSeparator and groupSeparator by analyzing the input string's structure (presence and position of . and ,).   This allows Money.parse to correctly interpret formats like 1,246.98 (treating . as decimal) even for EUR, which defaults to ,.
+- The heuristic is only applied if both separators are present in the input to prevent input such as 9,00 being mis-interpreted as 900 rather than 9.
+- Accurate Major/Minor Unit Extraction: The ValueQueue._takeDigits method was refined to strictly differentiate between digits, group separators, and the detected decimal separator. This ensures major units stop precisely at the decimal point.
+- Correct Truncation/Scaling Flow: PatternDecoder now extracts the full precision of minor units from the input string. The Fixed amount is then constructed with this full parsed precision. The final truncation or scaling to currency.decimalDigits (as per the "excess digits will be ignored" rule) is handled correctly by Fixed.copyWith during the Money object creation.
+- Precise Negative Number Handling: The calculation of the final value now combines the absolute major and minor units first, and then applies the negative sign (if isNegative is true) to this combined absolute value, preventing off-by-one errors for negative inputs.
+- Improved _isDigit: The _isDigit method was corrected to strictly identify only 0-9 characters as digits, preventing separators from being misinterpreted as numerical values.
+
 # 6.0.9
 - added onepubl logo.
 
