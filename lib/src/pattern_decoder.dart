@@ -73,15 +73,7 @@ class PatternDecoder implements MoneyDecoder<String> {
 
     final hasComma = valueForQueue.contains(',');
 
-    if (hasDot && !hasComma) {
-      decimalSeparator = '.';
-
-      groupSeparator = ',';
-    } else if (!hasDot && hasComma) {
-      decimalSeparator = ',';
-
-      groupSeparator = '.';
-    } else if (hasDot && hasComma) {
+    if (hasDot && hasComma) {
       final lastDotIndex = valueForQueue.lastIndexOf('.');
 
       final lastCommaIndex = valueForQueue.lastIndexOf(',');

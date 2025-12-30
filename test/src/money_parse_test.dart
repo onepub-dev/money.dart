@@ -60,12 +60,12 @@ void main() {
           equals(Money.fromInt(100025, isoCode: 'EUR')));
       expect(Money.parse('1.000,25', isoCode: 'EUR', pattern: '#,###.00'),
           equals(Money.fromInt(100025, isoCode: 'EUR')));
-      expect(Money.parse('46.98', isoCode: 'EUR', pattern: '#.##'),
+      expect(Money.parse('46,98', isoCode: 'EUR', pattern: '#.##'),
           equals(Money.fromInt(4698, isoCode: 'EUR')));
     });
 
     test('Precision handling - truncation for 0.0282 EUR', () {
-      expect(Money.parse('0.0282', isoCode: 'EUR', pattern: '#.##'),
+      expect(Money.parse('0,0282', isoCode: 'EUR', pattern: '#.##'),
           equals(Money.fromInt(2, isoCode: 'EUR')));
     });
 

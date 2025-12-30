@@ -124,6 +124,6 @@ void main() {
   test('separator heuristics', () {
     final euro = CommonCurrencies().euro;
     final money = Money.parseWithCurrency('1.000', CommonCurrencies().euro);
-    expect(money.format(euro.pattern), '1.000€');
+    expect(money.format(euro.pattern), '1.000,00€');
   });
 }
