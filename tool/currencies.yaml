@@ -124,14 +124,6 @@
   unit: "Ngultrum"
   name: "Bhutanese Ngultrum"
 
-- code: BTC
-  decimalDigits: 8
-  symbol: "₿"
-  pattern: "S#,##0.00000000"
-  country: "Digital"
-  unit: "Bitcoin"
-  name: "Bitcon"
-
 - code: BOB
   decimalDigits: 2
   symbol: "Bs."
@@ -228,14 +220,6 @@
   unit: "Franc"
   name: "Central African CFA Franc"
 
-- code: XPF
-  decimalDigits: 0
-  symbol: "F"
-  pattern: "S#,##0"
-  country: "French Polynesia, New Caledonia, Wallis and Futuna"
-  unit: "Franc"
-  name: "CFP Franc"
-
 - code: CLP
   decimalDigits: 0
   pattern: "S#,##0"
@@ -289,6 +273,13 @@
   unit: "Peso"
   name: "Cuban Peso"
 
+- code: ANG
+  decimalDigits: 2
+  symbol: "ƒ"
+  country: "Curaçao and Sint Maarten"
+  unit: "Guilder"
+  name: "Netherlands Antillean Guilder"
+
 - code: CZK
   decimalDigits: 2
   symbol: "Kč"
@@ -307,6 +298,14 @@
   country: "Denmark"
   unit: "Krone"
   name: "Danish Krone"
+
+- code: BTC
+  decimalDigits: 8
+  symbol: "₿"
+  pattern: "S#,##0.00000000"
+  country: "Digital"
+  unit: "Bitcoin"
+  name: "Bitcon"
 
 - code: DJF
   decimalDigits: 0
@@ -342,6 +341,13 @@
   unit: "Nakfa"
   name: "Eritrean Nakfa"
 
+- code: SZL
+  decimalDigits: 2
+  symbol: "E"
+  country: "Eswatini"
+  unit: "Lilangeni"
+  name: "Swazi Lilangeni"
+
 - code: ETB
   decimalDigits: 2
   symbol: "Br"
@@ -372,6 +378,14 @@
   country: "Fiji"
   unit: "Dollar"
   name: "Fijian Dollar"
+
+- code: XPF
+  decimalDigits: 0
+  symbol: "F"
+  pattern: "S#,##0"
+  country: "French Polynesia, New Caledonia, Wallis and Futuna"
+  unit: "Franc"
+  name: "CFP Franc"
 
 - code: GMD
   decimalDigits: 2
@@ -589,15 +603,6 @@
   unit: "Pataca"
   name: "Macanese Pataca"
 
-- code: MKD
-  decimalDigits: 2
-  symbol: "ден"
-  groupSeparator: "."
-  decimalSeparator: ","
-  country: "North Macedonia"
-  unit: "Denar"
-  name: "Macedonian Denar"
-
 - code: MGA
   decimalDigits: 2
   symbol: "Ar"
@@ -696,13 +701,6 @@
   unit: "Rupee"
   name: "Nepalese Rupee"
 
-- code: ANG
-  decimalDigits: 2
-  symbol: "ƒ"
-  country: "Curaçao and Sint Maarten"
-  unit: "Guilder"
-  name: "Netherlands Antillean Guilder"
-
 - code: TWD
   decimalDigits: 0
   pattern: "S#,##0"
@@ -735,6 +733,15 @@
   country: "North Korea"
   unit: "Won"
   name: "North Korean Won"
+
+- code: MKD
+  decimalDigits: 2
+  symbol: "ден"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "North Macedonia"
+  unit: "Denar"
+  name: "Macedonian Denar"
 
 - code: NOK
   decimalDigits: 2
@@ -849,13 +856,6 @@
   unit: "Tala"
   name: "Samoan Tala"
 
-- code: STN
-  decimalDigits: 2
-  symbol: "Db"
-  country: "São Tomé and Príncipe"
-  unit: "Dobra"
-  name: "São Tomé and Príncipe Dobra"
-
 - code: SAR
   decimalDigits: 2
   symbol: "ر.س"
@@ -947,13 +947,6 @@
   unit: "Dollar"
   name: "Surinamese Dollar"
 
-- code: SZL
-  decimalDigits: 2
-  symbol: "E"
-  country: "Eswatini"
-  unit: "Lilangeni"
-  name: "Swazi Lilangeni"
-
 - code: SEK
   decimalDigits: 2
   symbol: "kr"
@@ -976,6 +969,13 @@
   country: "Syria"
   unit: "Pound"
   name: "Syrian Pound"
+
+- code: STN
+  decimalDigits: 2
+  symbol: "Db"
+  country: "São Tomé and Príncipe"
+  unit: "Dobra"
+  name: "São Tomé and Príncipe Dobra"
 
 - code: TJS
   decimalDigits: 2
@@ -1122,4 +1122,3 @@
   country: "Zambia"
   unit: "Kwacha"
   name: "Zambian Kwacha"
-
