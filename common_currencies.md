@@ -2,6 +2,10 @@
 
 This document is auto-generated from `tool/currencies.yaml` by `tool/update_currencies.dart`.
 
+Currencies are taken from:
+https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml
+https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json
+
 Each row represents a currency available via the `CommonCurrencies` class:
 
 ```dart

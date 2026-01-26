@@ -17,4 +17,4 @@ doc/api/
 custom_lint.log
 logs/analyzer.txt
 tool/cldr-cache/
-.mcp_logs/*
+**/*.log

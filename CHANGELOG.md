@@ -8,7 +8,14 @@ The fromJson method will set isIso to true, isDrerecated to false and replacedBy
 - FIX some currency use a non-breaking space as per the ISO standard, for the group separator, these have been changed
 from a normal space for: GNF, XPF
 - FIX the number of decimal palces for the TWD has changed from 2 to 0.
+- Change the source of currencies to 
+    'https://www.six-group.com/dam/download/financial-information/data-center/'
+    'iso-currrency/lists/list-one.xml';
+    'https://raw.githubusercontent.com/unicode-org/cldr-json/48.0.0/cldr-json';
 
+- add some 30 missing currencies.
+- added some 12 digital currencies.
+- FIXED #99.
 
 
 # 6.1.0
