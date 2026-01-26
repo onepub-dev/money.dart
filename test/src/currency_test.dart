@@ -5,6 +5,7 @@
  */
 
 import 'dart:convert';
+
 import 'package:money2/money2.dart';
 import 'package:test/test.dart';
 
@@ -77,6 +78,9 @@ void main() {
         'country': 'United States',
         'unit': 'dollar',
         'name': 'US Dollar',
+        'isIso': true,
+        'isDeprecated': false,
+        'replacedBy': null
       };
 
       test('works correctly', () {

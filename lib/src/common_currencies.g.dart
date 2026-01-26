@@ -430,8 +430,6 @@ class CommonCurrencies {
     'CLP',
     0,
     pattern: 'S#,##0',
-    groupSeparator: '.',
-    decimalSeparator: ',',
     country: 'Chile',
     unit: 'Peso',
     name: 'Chilean Peso'
@@ -523,11 +521,9 @@ class CommonCurrencies {
     0,
     symbol: 'Fdj',
     pattern: 'S#,##0',
-    groupSeparator: ' ',
-    decimalSeparator: ',',
     country: 'Djibouti',
     unit: 'Franc',
-    name: 'Djibouti Franc'
+    name: 'Djiboutian Franc'
   );
 
   /// Danish Krone
@@ -567,8 +563,6 @@ class CommonCurrencies {
     2,
     symbol: 'د.ج',
     pattern: '#,##0.00S',
-    groupSeparator: '.',
-    decimalSeparator: ',',
     country: 'Algeria',
     unit: 'Dinar',
     name: 'Algerian Dinar'
@@ -704,8 +698,6 @@ class CommonCurrencies {
     0,
     symbol: 'FG',
     pattern: 'S#,##0',
-    groupSeparator: ' ',
-    decimalSeparator: ',',
     country: 'Guinea',
     unit: 'Franc',
     name: 'Guinean Franc'
@@ -1647,7 +1639,7 @@ class CommonCurrencies {
   /// New Taiwan Dollar
   final twd = Currency.create(
     'TWD',
-    2,
+    0,
     pattern: 'S#,##0',
     country: 'New Taiwan',
     unit: 'Dollar',
@@ -1841,9 +1833,10 @@ class CommonCurrencies {
     0,
     symbol: 'FCFA',
     pattern: 'S#,##0',
+    groupSeparator: ' ',
     country: 'Central African States',
     unit: 'Franc',
-    name: 'CFA Franc BEAC'
+    name: 'Central African CFA Franc'
   );
 
   /// Silver
@@ -1955,8 +1948,6 @@ class CommonCurrencies {
     0,
     symbol: 'F',
     pattern: 'S#,##0',
-    groupSeparator: ' ',
-    decimalSeparator: ',',
     country: 'French Polynesia, New Caledonia, Wallis and Futuna',
     unit: 'Franc',
     name: 'CFP Franc'

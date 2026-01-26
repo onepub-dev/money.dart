@@ -57,7 +57,7 @@ dart tool/update_currencies.dart
 | CHF | chf | Yes | Swiss Franc | Switzerland | Franc | fr | S #,##0.00;S-#,##0.00 | ' | . | 2 |
 | CHW | chw | Yes | WIR Franc | SWITZERLAND | WIR Franc | $ | S #,##0.00;S-#,##0.00 | ' | . | 2 |
 | CLF | clf | Yes | Unidad de Fomento | CHILE | Unidad de Fomento | $ | S#,##0.00;S-#,##0.00 | . | , | 4 |
-| CLP | clp | Yes | Chilean Peso | Chile | Peso | $ | S#,##0 | . | , | 0 |
+| CLP | clp | Yes | Chilean Peso | Chile | Peso | $ | S#,##0 | , | . | 0 |
 | CNY | cny | Yes | Yuan Renminbi | China | Renminbi | ¥ | S#,##0.00 | , | . | 2 |
 | COP | cop | Yes | Colombian Peso | Colombia | Peso | $ | #,##0.00S | . | , | 2 |
 | COU | cou | Yes | Unidad de Valor Real | COLOMBIA | Unidad de Valor Real | $ | S #,##0.00 | . | , | 2 |
@@ -65,11 +65,11 @@ dart tool/update_currencies.dart
 | CUP | cup | Yes | Cuban Peso | Cuba | Peso | $ | S#,##0.00 | , | . | 2 |
 | CVE | cve | Yes | Cabo Verde Escudo | Cape Verde | Escudo | $ | #,##0.00 S |   | , | 2 |
 | CZK | czk | Yes | Czech Koruna | Czech | Koruna | Kč | #,##0.00S | . | , | 2 |
-| DJF | djf | Yes | Djibouti Franc | Djibouti | Franc | Fdj | S#,##0 |   | , | 0 |
+| DJF | djf | Yes | Djiboutian Franc | Djibouti | Franc | Fdj | S#,##0 | , | . | 0 |
 | DKK | dkk | Yes | Danish Krone | Denmark | Krone | kr | S#,##0.00 | . | , | 2 |
 | DOGE | doge | No | Dogecoin | Digital | Dogecoin | $ | S#,##0.00 | , | . | 8 |
 | DOP | dop | Yes | Dominican Peso | Dominican Republic | Peso | $ | S#,##0.00 | , | . | 2 |
-| DZD | dzd | Yes | Algerian Dinar | Algeria | Dinar | د.ج | #,##0.00S | . | , | 2 |
+| DZD | dzd | Yes | Algerian Dinar | Algeria | Dinar | د.ج | #,##0.00S | , | . | 2 |
 | EGP | egp | Yes | Egyptian Pound | Egypt | Pound | £ | ‏#,##0.00 S;‏-#,##0.00 S | , | . | 2 |
 | ERN | ern | Yes | Nakfa | Eritrea | Nakfa | Nfk | S#,##0.00 | , | . | 2 |
 | ETB | etb | Yes | Ethiopian Birr | Ethiopia | Birr | Br | S#,##0.00 | , | . | 2 |
@@ -82,7 +82,7 @@ dart tool/update_currencies.dart
 | GHS | ghs | Yes | Ghana Cedi | Ghana | Cedi | ₵ | S#,##0.00 | , | . | 2 |
 | GIP | gip | Yes | Gibraltar Pound | Gibraltar | Pound | £ | S#,##0.00 | , | . | 2 |
 | GMD | gmd | Yes | Dalasi | Gambia | Dalasi | D | S#,##0.00 | , | . | 2 |
-| GNF | gnf | Yes | Guinean Franc | Guinea | Franc | FG | S#,##0 |   | , | 0 |
+| GNF | gnf | Yes | Guinean Franc | Guinea | Franc | FG | S#,##0 | , | . | 0 |
 | GTQ | gtq | Yes | Quetzal | Guatemala | Quetzal | Q | S#,##0.00 | , | . | 2 |
 | GYD | gyd | Yes | Guyana Dollar | Guyana | Dollar | $ | S#,##0.00 | , | . | 2 |
 | HKD | hkd | Yes | Hong Kong Dollar | Hong Kong | Dollar | $ | S#,##0.00 | , | . | 2 |
@@ -171,7 +171,7 @@ dart tool/update_currencies.dart
 | TOP | top | Yes | Pa’anga | Tonga | Paʻanga | $ | S#,##0.00 | , | . | 2 |
 | TRY | ltry | Yes | Turkish Lira | Turkish | Lira | ₺ | S#,##0.00 | , | . | 2 |
 | TTD | ttd | Yes | Trinidad and Tobago Dollar | Trinidad and Tobago | Dollar | $ | S#,##0.00 | , | . | 2 |
-| TWD | twd | Yes | New Taiwan Dollar | New Taiwan | Dollar | $ | S#,##0 | , | . | 2 |
+| TWD | twd | Yes | New Taiwan Dollar | New Taiwan | Dollar | $ | S#,##0 | , | . | 0 |
 | TZS | tzs | Yes | Tanzanian Shilling | Tanzania | Shilling | Sh | S#,##0.00 | , | . | 2 |
 | UAH | uah | Yes | Hryvnia | Ukraine | Hryvnia | ₴ | S#,##0.00 | , | . | 2 |
 | UGX | ugx | Yes | Uganda Shilling | Uganda | Shilling | USh | S#,##0 | , | . | 0 |
@@ -189,7 +189,7 @@ dart tool/update_currencies.dart
 | VUV | vuv | Yes | Vatu | Vanuatu | Vatu | Vt | S#,##0 | , | . | 0 |
 | WST | wst | Yes | Tala | Samoa | Tala | $ | S#,##0.00 | , | . | 2 |
 | XAD | xad | Yes | Arab Accounting Dinar | ARAB MONETARY FUND | Arab Accounting Dinar | $ | S#,##0.00 | , | . | 2 |
-| XAF | xaf | Yes | CFA Franc BEAC | Central African States | Franc | FCFA | S#,##0 | , | . | 0 |
+| XAF | xaf | Yes | Central African CFA Franc | Central African States | Franc | FCFA | S#,##0 |   | . | 0 |
 | XAG | xag | Yes | Silver | ZZ11_Silver | Silver | $ | S#,##0.00 | , | . | 0 |
 | XAU | xau | Yes | Gold | ZZ08_Gold | Gold | $ | S#,##0.00 | , | . | 0 |
 | XBA | xba | Yes | Bond Markets Unit European Composite Unit (EURCO) | ZZ01_Bond Markets Unit European_EURCO | Bond Markets Unit European Composite Unit (EURCO) | $ | S#,##0.00 | , | . | 0 |
@@ -201,7 +201,7 @@ dart tool/update_currencies.dart
 | XDR | xdr | Yes | SDR (Special Drawing Right) | INTERNATIONAL MONETARY FUND (IMF) | SDR (Special Drawing Right) | $ | S#,##0.00 | , | . | 0 |
 | XOF | xof | Yes | CFA Franc BCEAO | West African States | Franc | CFA | S#,##0 |   | , | 0 |
 | XPD | xpd | Yes | Palladium | ZZ09_Palladium | Palladium | $ | S#,##0.00 | , | . | 0 |
-| XPF | xpf | Yes | CFP Franc | French Polynesia, New Caledonia, Wallis and Futuna | Franc | F | S#,##0 |   | , | 0 |
+| XPF | xpf | Yes | CFP Franc | French Polynesia, New Caledonia, Wallis and Futuna | Franc | F | S#,##0 | , | . | 0 |
 | XPT | xpt | Yes | Platinum | ZZ10_Platinum | Platinum | $ | S#,##0.00 | , | . | 0 |
 | XRP | xrp | No | XRP | Digital | XRP | $ | S#,##0.00 | , | . | 6 |
 | XSU | xsu | Yes | Sucre | SISTEMA UNITARIO DE COMPENSACION REGIONAL DE PAGOS "SUCRE" | Sucre | $ | S#,##0.00 | , | . | 0 |

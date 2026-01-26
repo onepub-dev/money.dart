@@ -41,9 +41,9 @@ void main() {
       /// base line test that we have USD registered
       expect(Currencies()['USD'], isNotNull);
 
-      /// no try a slighly longer variant that doesn't exist.
-      expect(Currencies()['USDT'], isNull);
-      expect(Currencies().find('USDT'), isNull);
+      /// no try a slightly longer variant that doesn't exist.
+      expect(Currencies()['USDX'], isNull);
+      expect(Currencies().find('USDX'), isNull);
     });
   });
 }

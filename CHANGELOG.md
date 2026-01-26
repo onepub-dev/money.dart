@@ -1,3 +1,16 @@
+# 6.2.0
+- BREAKING -the currency json format has three new fields, isIso, isDepreated, replacedBy;
+The fromJson method will set isIso to true, isDrerecated to false and replacedBy to null  if they are not present.
+- FIX the Chilean Peso group and decimal separators where reversed, now corrected.
+- FIX spelling of the name of some currencies in line with theiso standards.
+    Djibouti Franc -> Djiboutian Franc
+  CFA Franc BEAC -> Central African CFA Franc
+- FIX some currency use a non-breaking space as per the ISO standard, for the group separator, these have been changed
+from a normal space for: GNF, XPF
+- FIX the number of decimal palces for the TWD has changed from 2 to 0.
+
+
+
 # 6.1.0
 - There is a merge (of most) of #97 submitted by @fabiocarneiro - thanks to fabio for his excellent work.
 - Robust Decimal/Group Separator Heuristic: A new heuristic dynamically detects decimalSeparator and groupSeparator by analyzing the input string's structure (presence and position of . and ,).   This allows Money.parse to correctly interpret formats like 1,246.98 (treating . as decimal) even for EUR, which defaults to ,.

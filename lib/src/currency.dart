@@ -66,7 +66,7 @@ class Currency {
   /// True if the currency is present in ISO 4217 list-one.xml.
   final bool isIso;
 
-  /// True if the currency is deprecated.
+  /// True if the currency is deprecated by the ISO 4217 standard.
   final bool isDeprecated;
 
   /// Optional replacement ISO code for deprecated currencies.
@@ -203,18 +203,21 @@ class Currency {
   ///
   /// The JSON representation can be used to recreate this [Currency] instance
   /// using the [Currency.fromJson] factory.
-  Map<String, dynamic> toJson() => {
-        'isoCode': isoCode,
-        'decimalDigits': decimalDigits,
-        'symbol': symbol,
-        'pattern': pattern,
-        'groupSeparator': groupSeparator,
-        'decimalSeparator': decimalSeparator,
-        'country': country,
-        'unit': unit,
-        'name': name,
-        'isIso': isIso,
-        'isDeprecated': isDeprecated,
-        'replacedBy': replacedBy,
-      };
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{
+      'isoCode': isoCode,
+      'decimalDigits': decimalDigits,
+      'symbol': symbol,
+      'pattern': pattern,
+      'groupSeparator': groupSeparator,
+      'decimalSeparator': decimalSeparator,
+      'country': country,
+      'unit': unit,
+      'name': name,
+      'isIso': isIso,
+      'isDeprecated': isDeprecated,
+      'replacedBy': replacedBy,
+    };
+    return json;
+  }
 }

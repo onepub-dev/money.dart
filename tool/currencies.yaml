@@ -38,8 +38,8 @@
   iso: true
   symbol: "د.ج"
   pattern: "#,##0.00S"
-  groupSeparator: "."
-  decimalSeparator: ","
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Algeria"
   unit: "Dinar"
   name: "Algerian Dinar"
@@ -370,19 +370,19 @@
   iso: true
   symbol: "FCFA"
   pattern: "S#,##0"
-  groupSeparator: ","
+  groupSeparator: " "
   decimalSeparator: "."
   country: "Central African States"
   unit: "Franc"
-  name: "CFA Franc BEAC"
+  name: "Central African CFA Franc"
 
 - code: CLP
   decimalDigits: 0
   iso: true
   symbol: "$"
   pattern: "S#,##0"
-  groupSeparator: "."
-  decimalSeparator: ","
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Chile"
   unit: "Peso"
   name: "Chilean Peso"
@@ -614,11 +614,11 @@
   iso: true
   symbol: "Fdj"
   pattern: "S#,##0"
-  groupSeparator: " "
-  decimalSeparator: ","
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Djibouti"
   unit: "Franc"
-  name: "Djibouti Franc"
+  name: "Djiboutian Franc"
 
 - code: DOP
   decimalDigits: 2
@@ -736,8 +736,8 @@
   iso: true
   symbol: "F"
   pattern: "S#,##0"
-  groupSeparator: " "
-  decimalSeparator: ","
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "French Polynesia, New Caledonia, Wallis and Futuna"
   unit: "Franc"
   name: "CFP Franc"
@@ -802,8 +802,8 @@
   iso: true
   symbol: "FG"
   pattern: "S#,##0"
-  groupSeparator: " "
-  decimalSeparator: ","
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Guinea"
   unit: "Franc"
   name: "Guinean Franc"
@@ -1271,7 +1271,7 @@
   name: "Nepalese Rupee"
 
 - code: TWD
-  decimalDigits: 2
+  decimalDigits: 0
   iso: true
   symbol: "$"
   pattern: "S#,##0"
@@ -2106,4 +2106,3 @@
   country: "Zambia"
   unit: "Kwacha"
   name: "Zambian Kwacha"
-
