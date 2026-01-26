@@ -1,38 +1,65 @@
 # Generated common currencies
 
+- code: XAD
+  decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "ARAB MONETARY FUND"
+  unit: "Arab Accounting Dinar"
+  name: "Arab Accounting Dinar"
+
 - code: AFN
   decimalDigits: 2
+  iso: true
   symbol: "؋"
+  pattern: "S #,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Afghanistan"
   unit: "Afghani"
-  name: "Afghan Afghani"
+  name: "Afghani"
 
 - code: ALL
   decimalDigits: 2
+  iso: true
   symbol: "L"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Albania"
   unit: "Lek"
-  name: "Albanian Lek"
+  name: "Lek"
 
 - code: DZD
   decimalDigits: 2
+  iso: true
   symbol: "د.ج"
   pattern: "#,##0.00S"
+  groupSeparator: "."
+  decimalSeparator: ","
   country: "Algeria"
   unit: "Dinar"
   name: "Algerian Dinar"
 
 - code: AOA
   decimalDigits: 2
+  iso: true
   symbol: "Kz"
+  pattern: "#,##0.00 S"
   groupSeparator: "."
   decimalSeparator: ","
   country: "Angola"
   unit: "Kwanza"
-  name: "Angolan Kwanza"
+  name: "Kwanza"
 
 - code: ARS
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S #,##0.00"
   groupSeparator: "."
   decimalSeparator: ","
   country: "Argentina"
@@ -41,15 +68,20 @@
 
 - code: AMD
   decimalDigits: 2
+  iso: true
   symbol: "֏"
   pattern: "#,##0.00S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Armenia"
   unit: "Dram"
   name: "Armenian Dram"
 
 - code: AWG
   decimalDigits: 2
+  iso: true
   symbol: "ƒ"
+  pattern: "S #,##0.00;S -#,##0.00"
   groupSeparator: "."
   decimalSeparator: ","
   country: "Aruba"
@@ -58,48 +90,87 @@
 
 - code: AUD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Australian"
   unit: "Dollar"
   name: "Australian Dollar"
 
 - code: AZN
   decimalDigits: 2
+  iso: true
   symbol: "₼"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Azerbaijan"
   unit: "Manat"
-  name: "Azerbaijani Manat"
+  name: "Azerbaijan Manat"
+
+- code: BOV
+  decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "BOLIVIA (PLURINATIONAL STATE OF)"
+  unit: "Mvdol"
+  name: "Mvdol"
 
 - code: BSD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Bahamas"
   unit: "Dollar"
   name: "Bahamian Dollar"
 
 - code: BHD
   decimalDigits: 3
+  iso: true
   symbol: ".د.ب"
   pattern: "#,##0.000S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Bahrain"
   unit: "Dinar"
   name: "Bahraini Dinar"
 
 - code: BDT
   decimalDigits: 2
+  iso: true
   symbol: "৳"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Bangladesh"
   unit: "Taka"
-  name: "Bangladeshi Taka"
+  name: "Taka"
 
 - code: BBD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Barbados"
   unit: "Dollar"
-  name: "Barbadian Dollar"
+  name: "Barbados Dollar"
 
 - code: BYN
   decimalDigits: 2
+  iso: true
   symbol: "Br"
-  groupSeparator: " "
+  pattern: "#,##0.00 S"
+  groupSeparator: " "
   decimalSeparator: ","
   country: "Belarus"
   unit: "Ruble"
@@ -107,135 +178,230 @@
 
 - code: BZD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Belize"
   unit: "Dollar"
   name: "Belize Dollar"
 
 - code: BMD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Bermuda"
   unit: "Dollar"
   name: "Bermudian Dollar"
 
 - code: BTN
   decimalDigits: 2
+  iso: true
   symbol: "Nu."
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Bhutan"
   unit: "Ngultrum"
-  name: "Bhutanese Ngultrum"
+  name: "Ngultrum"
 
 - code: BOB
   decimalDigits: 2
+  iso: true
   symbol: "Bs."
+  pattern: "S#,##0.00"
+  groupSeparator: "."
+  decimalSeparator: ","
   country: "Bolivia"
   unit: "Boliviano"
-  name: "Bolivian Boliviano"
+  name: "Boliviano"
 
 - code: BAM
   decimalDigits: 2
+  iso: true
   symbol: "KM"
+  pattern: "S#,##0.00"
   groupSeparator: "."
   decimalSeparator: ","
   country: "Bosnia and Herzegovina"
   unit: "Mark"
-  name: "Bosnia and Herzegovina Convertible Mark"
+  name: "Convertible Mark"
 
 - code: BWP
   decimalDigits: 2
+  iso: true
   symbol: "P"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Botswana"
   unit: "Pula"
-  name: "Botswana Pula"
+  name: "Pula"
 
 - code: BRL
   decimalDigits: 2
+  iso: true
+  symbol: "R$"
+  pattern: "S#,##0.00"
   groupSeparator: "."
   decimalSeparator: ","
-  symbol: "R$"
   country: "Brazil"
   unit: "Real"
   name: "Brazilian Real"
 
 - code: GBP
   decimalDigits: 2
+  iso: true
   symbol: "£"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Britan"
   unit: "Pound Sterling"
-  name: "British Pound Sterling"
+  name: "Pound Sterling"
 
 - code: BND
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S #,##0.00"
+  groupSeparator: "."
+  decimalSeparator: ","
   country: "Brunei"
   unit: "Dollar"
   name: "Brunei Dollar"
 
 - code: BGN
   decimalDigits: 2
+  iso: false
+  deprecated: true
   symbol: "лв"
-  groupSeparator: " "
+  pattern: "S#,##0.00"
+  groupSeparator: ","
   decimalSeparator: ","
   country: "Bulgaria"
   unit: "Lev"
   name: "Bulgarian Lev"
+  replacedBy: "EUR"
 
 - code: BIF
   decimalDigits: 0
+  iso: true
   symbol: "FBu"
   pattern: "S#,##0"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Burundi"
   unit: "Franc"
-  name: "Burundian Franc"
+  name: "Burundi Franc"
+
+- code: CLF
+  decimalDigits: 4
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00;S-#,##0.00"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "CHILE"
+  unit: "Unidad de Fomento"
+  name: "Unidad de Fomento"
+
+- code: COU
+  decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S #,##0.00"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "COLOMBIA"
+  unit: "Unidad de Valor Real"
+  name: "Unidad de Valor Real"
 
 - code: KHR
   decimalDigits: 2
+  iso: true
   symbol: "៛"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Cambodia"
   unit: "Riel"
-  name: "Cambodian Riel"
+  name: "Riel"
 
 - code: CAD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Canada"
   unit: "Dollar"
   name: "Canadian Dollar"
 
 - code: CVE
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "#,##0.00 S"
+  groupSeparator: " "
+  decimalSeparator: ","
   country: "Cape Verde"
   unit: "Escudo"
-  name: "Cape Verdean Escudo"
+  name: "Cabo Verde Escudo"
 
 - code: KYD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Cayman Islands"
   unit: "Dollar"
   name: "Cayman Islands Dollar"
 
 - code: XAF
   decimalDigits: 0
+  iso: true
   symbol: "FCFA"
   pattern: "S#,##0"
-  groupSeparator: " "
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Central African States"
   unit: "Franc"
-  name: "Central African CFA Franc"
+  name: "CFA Franc BEAC"
 
 - code: CLP
   decimalDigits: 0
+  iso: true
+  symbol: "$"
   pattern: "S#,##0"
+  groupSeparator: "."
+  decimalSeparator: ","
   country: "Chile"
   unit: "Peso"
   name: "Chilean Peso"
 
 - code: CNY
   decimalDigits: 2
+  iso: true
   symbol: "¥"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "China"
   unit: "Renminbi"
-  name: "Chinese Renminbi"
+  name: "Yuan Renminbi"
 
 - code: COP
   decimalDigits: 2
+  iso: true
+  symbol: "$"
   pattern: "#,##0.00S"
   groupSeparator: "."
   decimalSeparator: ","
@@ -245,43 +411,64 @@
 
 - code: KMF
   decimalDigits: 0
+  iso: true
   symbol: "CF"
   pattern: "S#,##0"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Comoros"
   unit: "Franc"
   name: "Comorian Franc"
 
 - code: CDF
   decimalDigits: 2
+  iso: true
   symbol: "FC"
+  pattern: "#,##0.00 S"
+  groupSeparator: " "
+  decimalSeparator: ","
   country: "Congo (DRC)"
   unit: "Franc"
   name: "Congolese Franc"
 
 - code: CRC
   decimalDigits: 2
+  iso: true
   symbol: "₡"
+  pattern: "S#,##0.00"
   groupSeparator: "."
   decimalSeparator: ","
   country: "Costa Rica"
   unit: "Colón"
-  name: "Costa Rican Colón"
+  name: "Costa Rican Colon"
 
 - code: CUP
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Cuba"
   unit: "Peso"
   name: "Cuban Peso"
 
 - code: ANG
   decimalDigits: 2
+  iso: false
+  deprecated: true
   symbol: "ƒ"
+  pattern: "S #,##0.00;S -#,##0.00"
+  groupSeparator: "."
+  decimalSeparator: ","
   country: "Curaçao and Sint Maarten"
   unit: "Guilder"
   name: "Netherlands Antillean Guilder"
+  replacedBy: "XCG"
 
 - code: CZK
   decimalDigits: 2
+  iso: true
   symbol: "Kč"
   pattern: "#,##0.00S"
   groupSeparator: "."
@@ -292,383 +479,737 @@
 
 - code: DKK
   decimalDigits: 2
+  iso: true
   symbol: "kr"
+  pattern: "S#,##0.00"
   groupSeparator: "."
   decimalSeparator: ","
   country: "Denmark"
   unit: "Krone"
   name: "Danish Krone"
 
-- code: BTC
+- code: ADA
+  decimalDigits: 6
+  iso: false
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "Digital"
+  unit: "Cardano"
+  name: "Cardano"
+
+- code: BCH
   decimalDigits: 8
+  iso: false
   symbol: "₿"
   pattern: "S#,##0.00000000"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "Digital"
+  unit: "Bitcoin Cash"
+  name: "Bitcoin Cash"
+
+- code: BNB
+  decimalDigits: 18
+  iso: false
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "Digital"
+  unit: "BNB"
+  name: "BNB"
+
+- code: BTC
+  decimalDigits: 8
+  iso: false
+  symbol: "₿"
+  pattern: "S#,##0.00000000"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Digital"
   unit: "Bitcoin"
-  name: "Bitcon"
+  name: "Bitcoin"
+
+- code: DOGE
+  decimalDigits: 8
+  iso: false
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "Digital"
+  unit: "Dogecoin"
+  name: "Dogecoin"
+
+- code: ETH
+  decimalDigits: 18
+  iso: false
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "Digital"
+  unit: "Ether"
+  name: "Ethereum"
+
+- code: LTC
+  decimalDigits: 8
+  iso: false
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "Digital"
+  unit: "Litecoin"
+  name: "Litecoin"
+
+- code: SOL
+  decimalDigits: 9
+  iso: false
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "Digital"
+  unit: "Solana"
+  name: "Solana"
+
+- code: USDC
+  decimalDigits: 6
+  iso: false
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "Digital"
+  unit: "USD Coin"
+  name: "USD Coin"
+
+- code: USDT
+  decimalDigits: 6
+  iso: false
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "Digital"
+  unit: "Tether"
+  name: "Tether"
+
+- code: XRP
+  decimalDigits: 6
+  iso: false
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "Digital"
+  unit: "XRP"
+  name: "XRP"
 
 - code: DJF
   decimalDigits: 0
+  iso: true
   symbol: "Fdj"
   pattern: "S#,##0"
+  groupSeparator: " "
+  decimalSeparator: ","
   country: "Djibouti"
   unit: "Franc"
-  name: "Djiboutian Franc"
+  name: "Djibouti Franc"
 
 - code: DOP
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Dominican Republic"
   unit: "Peso"
   name: "Dominican Peso"
 
+- code: SVC
+  decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "EL SALVADOR"
+  unit: "El Salvador Colon"
+  name: "El Salvador Colon"
+
 - code: XCD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "East Caribbean"
   unit: "Dollar"
   name: "East Caribbean Dollar"
 
 - code: EGP
   decimalDigits: 2
+  iso: true
   symbol: "£"
+  pattern: "‏#,##0.00 S;‏-#,##0.00 S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Egypt"
   unit: "Pound"
   name: "Egyptian Pound"
 
 - code: ERN
   decimalDigits: 2
+  iso: true
   symbol: "Nfk"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Eritrea"
   unit: "Nakfa"
-  name: "Eritrean Nakfa"
+  name: "Nakfa"
 
 - code: SZL
   decimalDigits: 2
+  iso: true
   symbol: "E"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Eswatini"
   unit: "Lilangeni"
-  name: "Swazi Lilangeni"
+  name: "Lilangeni"
 
 - code: ETB
   decimalDigits: 2
+  iso: true
   symbol: "Br"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Ethiopia"
   unit: "Birr"
   name: "Ethiopian Birr"
 
 - code: EUR
   decimalDigits: 2
+  iso: true
   symbol: "€"
   pattern: "#,##0.00S"
   groupSeparator: "."
   decimalSeparator: ","
   country: "European Union"
   unit: "Euro"
-  name: "European Union Euro"
-  varName: euro
+  name: "Euro"
+  varName: "euro"
 
 - code: FKP
   decimalDigits: 2
+  iso: true
   symbol: "£"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Falkland Islands"
   unit: "Pound"
   name: "Falkland Islands Pound"
 
 - code: FJD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Fiji"
   unit: "Dollar"
-  name: "Fijian Dollar"
+  name: "Fiji Dollar"
 
 - code: XPF
   decimalDigits: 0
+  iso: true
   symbol: "F"
   pattern: "S#,##0"
+  groupSeparator: " "
+  decimalSeparator: ","
   country: "French Polynesia, New Caledonia, Wallis and Futuna"
   unit: "Franc"
   name: "CFP Franc"
 
 - code: GMD
   decimalDigits: 2
+  iso: true
   symbol: "D"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Gambia"
   unit: "Dalasi"
-  name: "Gambian Dalasi"
+  name: "Dalasi"
 
 - code: GEL
   decimalDigits: 2
+  iso: true
   symbol: "₾"
-  groupSeparator: " "
+  pattern: "S#,##0.00"
+  groupSeparator: ","
   decimalSeparator: ","
   country: "Georgia"
   unit: "Lari"
-  name: "Georgian Lari"
+  name: "Lari"
 
 - code: GHS
   decimalDigits: 2
+  iso: true
   symbol: "₵"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Ghana"
   unit: "Cedi"
   name: "Ghana Cedi"
 
 - code: GIP
   decimalDigits: 2
+  iso: true
   symbol: "£"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Gibraltar"
   unit: "Pound"
   name: "Gibraltar Pound"
 
 - code: GTQ
   decimalDigits: 2
+  iso: true
   symbol: "Q"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Guatemala"
   unit: "Quetzal"
-  name: "Guatemalan Quetzal"
+  name: "Quetzal"
 
 - code: GNF
   decimalDigits: 0
+  iso: true
   symbol: "FG"
   pattern: "S#,##0"
+  groupSeparator: " "
+  decimalSeparator: ","
   country: "Guinea"
   unit: "Franc"
   name: "Guinean Franc"
 
 - code: GYD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Guyana"
   unit: "Dollar"
-  name: "Guyanese Dollar"
+  name: "Guyana Dollar"
 
 - code: HTG
   decimalDigits: 2
+  iso: true
   symbol: "G"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Haiti"
   unit: "Gourde"
-  name: "Haitian Gourde"
+  name: "Gourde"
 
 - code: HNL
   decimalDigits: 2
+  iso: true
   symbol: "L"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Honduras"
   unit: "Lempira"
-  name: "Honduran Lempira"
+  name: "Lempira"
 
 - code: HKD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Hong Kong"
   unit: "Dollar"
   name: "Hong Kong Dollar"
 
 - code: HUF
-  decimalDigits: 0
+  decimalDigits: 2
+  iso: true
   symbol: "Ft"
   pattern: "S#,##0"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Hungary"
   unit: "Forint"
-  name: "Hungarian Forint"
+  name: "Forint"
+
+- code: XDR
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "INTERNATIONAL MONETARY FUND (IMF)"
+  unit: "SDR (Special Drawing Right)"
+  name: "SDR (Special Drawing Right)"
 
 - code: ISK
   decimalDigits: 0
+  iso: true
   symbol: "kr"
   pattern: "S#,##0"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Iceland"
   unit: "Krona"
-  name: "Icelandic Krona"
+  name: "Iceland Krona"
 
 - code: INR
   decimalDigits: 2
+  iso: true
   symbol: "₹"
   pattern: "S##,###.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Indian"
   unit: "Rupee"
   name: "Indian Rupee"
 
 - code: IDR
   decimalDigits: 2
+  iso: true
   symbol: "Rp"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Indonesia"
   unit: "Rupiah"
-  name: "Indonesian Rupiah"
+  name: "Rupiah"
 
 - code: IRR
   decimalDigits: 2
+  iso: true
   symbol: "﷼"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Iran"
   unit: "Rial"
   name: "Iranian Rial"
 
 - code: IQD
   decimalDigits: 3
+  iso: true
   symbol: "ع.د"
   pattern: "#,##0.000S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Iraq"
   unit: "Dinar"
   name: "Iraqi Dinar"
 
 - code: ILS
   decimalDigits: 2
+  iso: true
   symbol: "₪"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Israel"
   unit: "Shekel"
-  name: "Israeli New Shekel"
+  name: "New Israeli Sheqel"
 
 - code: JMD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Jamaica"
   unit: "Dollar"
   name: "Jamaican Dollar"
 
 - code: JPY
   decimalDigits: 0
+  iso: true
   symbol: "¥"
   pattern: "S#,##0"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Japanese"
   unit: "Yen"
-  name: "Japanese Yen"
+  name: "Yen"
 
 - code: JOD
   decimalDigits: 3
+  iso: true
   symbol: "د.ا"
   pattern: "#,##0.000S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Jordan"
   unit: "Dinar"
   name: "Jordanian Dinar"
 
 - code: KZT
   decimalDigits: 2
+  iso: true
   symbol: "₸"
+  pattern: "#,##0.00 S"
+  groupSeparator: " "
+  decimalSeparator: ","
   country: "Kazakhstan"
   unit: "Tenge"
-  name: "Kazakhstani Tenge"
+  name: "Tenge"
 
 - code: KES
   decimalDigits: 2
+  iso: true
   symbol: "KSh"
+  pattern: "S #,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Kenya"
   unit: "Shilling"
   name: "Kenyan Shilling"
 
 - code: KWD
   decimalDigits: 3
+  iso: true
   symbol: "د.ك"
   pattern: "#,##0.000S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Kuwait"
   unit: "Dinar"
   name: "Kuwaiti Dinar"
 
 - code: KGS
   decimalDigits: 2
+  iso: true
   symbol: "с"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Kyrgyzstan"
   unit: "Som"
-  name: "Kyrgyzstani Som"
+  name: "Som"
 
 - code: LAK
   decimalDigits: 2
+  iso: true
   symbol: "₭"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Laos"
   unit: "Kip"
   name: "Lao Kip"
 
 - code: LBP
   decimalDigits: 2
+  iso: true
   symbol: "ل.ل"
+  pattern: "‏#,##0.00 S;‏-#,##0.00 S"
+  groupSeparator: "."
+  decimalSeparator: ","
   country: "Lebanon"
   unit: "Pound"
   name: "Lebanese Pound"
 
 - code: LSL
   decimalDigits: 2
+  iso: true
   symbol: "L"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Lesotho"
   unit: "Loti"
-  name: "Lesotho Loti"
+  name: "Loti"
 
 - code: LRD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Liberia"
   unit: "Dollar"
   name: "Liberian Dollar"
 
 - code: LYD
   decimalDigits: 3
+  iso: true
   symbol: "ل.د"
   pattern: "#,##0.000S"
+  groupSeparator: "."
+  decimalSeparator: ","
   country: "Libya"
   unit: "Dinar"
   name: "Libyan Dinar"
 
+- code: XUA
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "MEMBER COUNTRIES OF THE AFRICAN DEVELOPMENT BANK GROUP"
+  unit: "ADB Unit of Account"
+  name: "ADB Unit of Account"
+
+- code: MXV
+  decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "MEXICO"
+  unit: "Mexican Unidad de Inversion (UDI)"
+  name: "Mexican Unidad de Inversion (UDI)"
+
 - code: MOP
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Macao"
   unit: "Pataca"
-  name: "Macanese Pataca"
+  name: "Pataca"
 
 - code: MGA
   decimalDigits: 2
+  iso: true
   symbol: "Ar"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Madagascar"
   unit: "Ariary"
   name: "Malagasy Ariary"
 
 - code: MWK
   decimalDigits: 2
+  iso: true
   symbol: "MK"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Malawi"
   unit: "Kwacha"
-  name: "Malawian Kwacha"
+  name: "Malawi Kwacha"
 
 - code: MYR
   decimalDigits: 2
+  iso: true
   symbol: "RM"
+  pattern: "S #,##0.00"
+  groupSeparator: "."
+  decimalSeparator: ","
   country: "Malaysia"
   unit: "Ringgit"
   name: "Malaysian Ringgit"
 
 - code: MVR
   decimalDigits: 2
+  iso: true
   symbol: "ރ."
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Maldives"
   unit: "Rufiyaa"
-  name: "Maldivian Rufiyaa"
+  name: "Rufiyaa"
 
 - code: MRU
   decimalDigits: 2
+  iso: true
   symbol: "UM"
+  pattern: "‏#,##0.00 S;‏-#,##0.00 S"
+  groupSeparator: "."
+  decimalSeparator: ","
   country: "Mauritania"
   unit: "Ouguiya"
-  name: "Mauritanian Ouguiya"
+  name: "Ouguiya"
 
 - code: MUR
   decimalDigits: 2
+  iso: true
   symbol: "₨"
+  pattern: "#,##0.00 S"
+  groupSeparator: " "
+  decimalSeparator: ","
   country: "Mauritius"
   unit: "Rupee"
-  name: "Mauritian Rupee"
+  name: "Mauritius Rupee"
 
 - code: MXN
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Mexican"
   unit: "Peso"
   name: "Mexican Peso"
 
 - code: MDL
   decimalDigits: 2
+  iso: true
   symbol: "L"
+  pattern: "#,##0.00 S"
+  groupSeparator: "."
+  decimalSeparator: ","
   country: "Moldova"
   unit: "Leu"
   name: "Moldovan Leu"
 
 - code: MNT
   decimalDigits: 2
+  iso: true
   symbol: "₮"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Mongolia"
   unit: "Tugrik"
-  name: "Mongolian Tugrik"
+  name: "Tugrik"
 
 - code: MAD
   decimalDigits: 2
+  iso: true
   symbol: "د.م."
-  groupSeparator: " "
+  pattern: "‏#,##0.00 S;‏-#,##0.00 S"
+  groupSeparator: ","
   decimalSeparator: ","
   country: "Morocco"
   unit: "Dirham"
@@ -676,152 +1217,240 @@
 
 - code: MZN
   decimalDigits: 2
+  iso: true
   symbol: "MT"
+  pattern: "#,##0.00 S"
+  groupSeparator: " "
+  decimalSeparator: ","
   country: "Mozambique"
   unit: "Metical"
-  name: "Mozambican Metical"
+  name: "Mozambique Metical"
+
+- code: XCG
+  decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "Multiple"
+  unit: "Caribbean Guilder"
+  name: "Caribbean Guilder"
 
 - code: MMK
   decimalDigits: 2
+  iso: true
   symbol: "K"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Myanmar (Burma)"
   unit: "Kyat"
-  name: "Myanmar Kyat"
+  name: "Kyat"
 
 - code: NAD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: " "
+  decimalSeparator: ","
   country: "Namibia"
   unit: "Dollar"
-  name: "Namibian Dollar"
+  name: "Namibia Dollar"
 
 - code: NPR
   decimalDigits: 2
+  iso: true
   symbol: "रू"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Nepal"
   unit: "Rupee"
   name: "Nepalese Rupee"
 
 - code: TWD
-  decimalDigits: 0
+  decimalDigits: 2
+  iso: true
+  symbol: "$"
   pattern: "S#,##0"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "New Taiwan"
   unit: "Dollar"
   name: "New Taiwan Dollar"
 
 - code: NZD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "New Zealand"
   unit: "Dollar"
   name: "New Zealand Dollar"
 
 - code: NIO
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Nicaragua"
   unit: "Córdoba"
-  name: "Nicaraguan Córdoba"
+  name: "Cordoba Oro"
 
 - code: NGN
   decimalDigits: 2
+  iso: true
   symbol: "₦"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Nigerian"
   unit: "Naira"
-  name: "Nigerian Naira"
+  name: "Naira"
 
 - code: KPW
   decimalDigits: 2
+  iso: true
   symbol: "₩"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "North Korea"
   unit: "Won"
   name: "North Korean Won"
 
 - code: MKD
   decimalDigits: 2
+  iso: true
   symbol: "ден"
+  pattern: "S#,##0.00"
   groupSeparator: "."
   decimalSeparator: ","
   country: "North Macedonia"
   unit: "Denar"
-  name: "Macedonian Denar"
+  name: "Denar"
 
 - code: NOK
   decimalDigits: 2
+  iso: true
   symbol: "kr"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Norwegian"
   unit: "Krone"
   name: "Norwegian Krone"
 
 - code: OMR
   decimalDigits: 3
+  iso: true
   symbol: "ر.ع."
   pattern: "#,##0.000S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Oman"
   unit: "Rial"
-  name: "Omani Rial"
+  name: "Rial Omani"
 
 - code: PKR
   decimalDigits: 2
+  iso: true
   symbol: "₨"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Pakistan"
   unit: "Rupee"
-  name: "Pakistani Rupee"
+  name: "Pakistan Rupee"
 
 - code: PAB
   decimalDigits: 2
+  iso: true
   symbol: "B/."
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Panama"
   unit: "Balboa"
-  name: "Panamanian Balboa"
+  name: "Balboa"
 
 - code: PGK
   decimalDigits: 2
+  iso: true
   symbol: "K"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Papua New Guinea"
   unit: "Kina"
-  name: "Papua New Guinean Kina"
+  name: "Kina"
 
 - code: PYG
   decimalDigits: 0
+  iso: true
   symbol: "₲"
   pattern: "S#,##0"
   groupSeparator: "."
+  decimalSeparator: "."
   country: "Paraguay"
   unit: "Guarani"
-  name: "Paraguayan Guarani"
+  name: "Guarani"
 
 - code: PEN
   decimalDigits: 2
+  iso: true
   symbol: "S/."
+  pattern: "S #,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Peru"
   unit: "Sol"
-  name: "Peruvian Sol"
+  name: "Sol"
 
 - code: PHP
   decimalDigits: 2
+  iso: true
   symbol: "₱"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Philippines"
   unit: "Peso"
   name: "Philippine Peso"
 
 - code: PLN
   decimalDigits: 2
+  iso: true
   symbol: "zł"
   pattern: "#,##0.00S"
   groupSeparator: "."
   decimalSeparator: ","
   country: "Polish"
   unit: "Zloty"
-  name: "Polish Zloty"
+  name: "Zloty"
 
 - code: QAR
   decimalDigits: 2
+  iso: true
   symbol: "ر.ق"
+  pattern: "‏#,##0.00 S;‏-#,##0.00 S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Qatar"
   unit: "Riyal"
-  name: "Qatari Riyal"
+  name: "Qatari Rial"
 
 - code: RON
   decimalDigits: 2
+  iso: true
   symbol: "lei"
+  pattern: "S#,##0.00"
   groupSeparator: "."
   decimalSeparator: ","
   country: "Romania"
@@ -830,42 +1459,97 @@
 
 - code: RUB
   decimalDigits: 2
+  iso: true
   symbol: "₽"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Russia"
   unit: "Ruble"
   name: "Russian Ruble"
 
 - code: RWF
   decimalDigits: 0
+  iso: true
   symbol: "RF"
   pattern: "S#,##0"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Rwanda"
   unit: "Franc"
-  name: "Rwandan Franc"
+  name: "Rwanda Franc"
+
+- code: XSU
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "SISTEMA UNITARIO DE COMPENSACION REGIONAL DE PAGOS \"SUCRE\""
+  unit: "Sucre"
+  name: "Sucre"
+
+- code: CHE
+  decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S #,##0.00;S-#,##0.00"
+  groupSeparator: "'"
+  decimalSeparator: "."
+  country: "SWITZERLAND"
+  unit: "WIR Euro"
+  name: "WIR Euro"
+
+- code: CHW
+  decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S #,##0.00;S-#,##0.00"
+  groupSeparator: "'"
+  decimalSeparator: "."
+  country: "SWITZERLAND"
+  unit: "WIR Franc"
+  name: "WIR Franc"
 
 - code: SHP
   decimalDigits: 2
+  iso: true
   symbol: "£"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Saint Helena"
   unit: "Pound"
   name: "Saint Helena Pound"
 
 - code: WST
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Samoa"
   unit: "Tala"
-  name: "Samoan Tala"
+  name: "Tala"
 
 - code: SAR
   decimalDigits: 2
+  iso: true
   symbol: "ر.س"
+  pattern: "‏#,##0.00 S;‏-#,##0.00 S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Saudi Arabia"
   unit: "Riyal"
   name: "Saudi Riyal"
 
 - code: RSD
   decimalDigits: 2
+  iso: true
   symbol: "дин"
+  pattern: "S#,##0.00"
   groupSeparator: "."
   decimalSeparator: ","
   country: "Serbia"
@@ -874,83 +1558,131 @@
 
 - code: SCR
   decimalDigits: 2
+  iso: true
   symbol: "₨"
+  pattern: "#,##0.00 S"
+  groupSeparator: " "
+  decimalSeparator: ","
   country: "Seychelles"
   unit: "Rupee"
-  name: "Seychellois Rupee"
+  name: "Seychelles Rupee"
 
 - code: SLE
   decimalDigits: 2
+  iso: true
   symbol: "Le"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Sierra Leone"
   unit: "Leone"
-  name: "Sierra Leonean Leone"
+  name: "Leone"
 
 - code: SGD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Singapore"
   unit: "Dollar"
   name: "Singapore Dollar"
 
 - code: SBD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Solomon Islands"
   unit: "Dollar"
   name: "Solomon Islands Dollar"
 
 - code: SOS
   decimalDigits: 2
+  iso: true
   symbol: "Sh"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Somalia"
   unit: "Shilling"
   name: "Somali Shilling"
 
 - code: ZAR
   decimalDigits: 2
+  iso: true
   symbol: "R"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "South African"
   unit: "Rand"
-  name: "South African Rand"
+  name: "Rand"
 
 - code: KRW
   decimalDigits: 0
+  iso: true
   symbol: "₩"
   pattern: "S#,##0"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "South Korean"
   unit: "Won"
-  name: "South Korean Won"
+  name: "Won"
 
 - code: SSP
   decimalDigits: 2
+  iso: true
   symbol: "£"
+  pattern: "‏#,##0.00 S;‏-#,##0.00 S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "South Sudan"
   unit: "Pound"
   name: "South Sudanese Pound"
 
 - code: LKR
   decimalDigits: 2
+  iso: true
   symbol: "Rs"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Sri Lanka"
   unit: "Rupee"
-  name: "Sri Lankan Rupee"
+  name: "Sri Lanka Rupee"
 
 - code: SDG
   decimalDigits: 2
+  iso: true
   symbol: "£"
+  pattern: "‏#,##0.00 S;‏-#,##0.00 S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Sudan"
   unit: "Pound"
   name: "Sudanese Pound"
 
 - code: SRD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S #,##0.00;S -#,##0.00"
+  groupSeparator: "."
+  decimalSeparator: ","
   country: "Suriname"
   unit: "Dollar"
-  name: "Surinamese Dollar"
+  name: "Surinam Dollar"
 
 - code: SEK
   decimalDigits: 2
+  iso: true
   symbol: "kr"
-  groupSeparator: " "
+  pattern: "S#,##0.00"
+  groupSeparator: ","
   decimalSeparator: ","
   country: "Sweden"
   unit: "Krona"
@@ -958,167 +1690,420 @@
 
 - code: CHF
   decimalDigits: 2
+  iso: true
   symbol: "fr"
+  pattern: "S #,##0.00;S-#,##0.00"
+  groupSeparator: "'"
+  decimalSeparator: "."
   country: "Switzerland"
   unit: "Franc"
   name: "Swiss Franc"
 
 - code: SYP
   decimalDigits: 2
+  iso: true
   symbol: "£"
+  pattern: "‏#,##0.00 S;‏-#,##0.00 S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Syria"
   unit: "Pound"
   name: "Syrian Pound"
 
 - code: STN
   decimalDigits: 2
+  iso: true
   symbol: "Db"
+  pattern: "#,##0.00 S"
+  groupSeparator: " "
+  decimalSeparator: ","
   country: "São Tomé and Príncipe"
   unit: "Dobra"
-  name: "São Tomé and Príncipe Dobra"
+  name: "Dobra"
 
 - code: TJS
   decimalDigits: 2
+  iso: true
   symbol: "ЅМ"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Tajikistan"
   unit: "Somoni"
-  name: "Tajikistani Somoni"
+  name: "Somoni"
 
 - code: TZS
   decimalDigits: 2
+  iso: true
   symbol: "Sh"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Tanzania"
   unit: "Shilling"
   name: "Tanzanian Shilling"
 
 - code: THB
   decimalDigits: 2
+  iso: true
   symbol: "฿"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Thailand"
   unit: "Baht"
-  name: "Thai Baht"
+  name: "Baht"
 
 - code: TOP
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Tonga"
   unit: "Paʻanga"
-  name: "Tongan Paʻanga"
+  name: "Pa’anga"
 
 - code: TTD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Trinidad and Tobago"
   unit: "Dollar"
   name: "Trinidad and Tobago Dollar"
 
 - code: TND
   decimalDigits: 3
+  iso: true
   symbol: "د.ت"
   pattern: "#,##0.000S"
+  groupSeparator: "."
+  decimalSeparator: ","
   country: "Tunisia"
   unit: "Dinar"
   name: "Tunisian Dinar"
 
 - code: TRY
   decimalDigits: 2
+  iso: true
   symbol: "₺"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Turkish"
   unit: "Lira"
   name: "Turkish Lira"
-  varName: ltry
+  varName: "ltry"
 
 - code: TMT
   decimalDigits: 2
+  iso: true
   symbol: "m"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Turkmenistan"
   unit: "Manat"
-  name: "Turkmenistani Manat"
+  name: "Turkmenistan New Manat"
+
+- code: USN
+  decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "UNITED STATES OF AMERICA (THE)"
+  unit: "US Dollar (Next day)"
+  name: "US Dollar (Next day)"
+
+- code: UYI
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S #,##0.00"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "URUGUAY"
+  unit: "Uruguay Peso en Unidades Indexadas (UI)"
+  name: "Uruguay Peso en Unidades Indexadas (UI)"
+
+- code: UYW
+  decimalDigits: 4
+  iso: true
+  symbol: "$"
+  pattern: "S #,##0.00"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "URUGUAY"
+  unit: "Unidad Previsional"
+  name: "Unidad Previsional"
 
 - code: UGX
   decimalDigits: 0
+  iso: true
   symbol: "USh"
   pattern: "S#,##0"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Uganda"
   unit: "Shilling"
-  name: "Ugandan Shilling"
+  name: "Uganda Shilling"
 
 - code: UAH
   decimalDigits: 2
+  iso: true
   symbol: "₴"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Ukraine"
   unit: "Hryvnia"
-  name: "Ukrainian Hryvnia"
+  name: "Hryvnia"
 
 - code: AED
   decimalDigits: 2
+  iso: true
   symbol: "د.إ"
+  pattern: "‏#,##0.00 S;‏-#,##0.00 S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "United Arab Emirates"
   unit: "Dirham"
-  name: "United Arab Emirates Dirham"
+  name: "UAE Dirham"
 
 - code: USD
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "United States of America"
   unit: "Dollar"
-  name: "United States Dollar"
+  name: "US Dollar"
 
 - code: UYU
   decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S #,##0.00"
+  groupSeparator: "."
+  decimalSeparator: ","
   country: "Uruguay"
   unit: "Peso"
-  name: "Uruguayan Peso"
+  name: "Peso Uruguayo"
 
 - code: UZS
   decimalDigits: 2
+  iso: true
   symbol: "soʻm"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Uzbekistan"
   unit: "Som"
-  name: "Uzbekistani Som"
+  name: "Uzbekistan Sum"
+
+- code: VED
+  decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00;S-#,##0.00"
+  groupSeparator: "."
+  decimalSeparator: ","
+  country: "VENEZUELA (BOLIVARIAN REPUBLIC OF)"
+  unit: "Bolívar Soberano"
+  name: "Bolívar Soberano"
 
 - code: VUV
   decimalDigits: 0
+  iso: true
   symbol: "Vt"
   pattern: "S#,##0"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Vanuatu"
   unit: "Vatu"
-  name: "Vanuatu Vatu"
+  name: "Vatu"
 
 - code: VES
   decimalDigits: 2
+  iso: true
   symbol: "Bs"
+  pattern: "S#,##0.00;S-#,##0.00"
   groupSeparator: "."
   decimalSeparator: ","
   country: "Venezuela"
   unit: "Bolívar"
-  name: "Venezuelan Bolívar"
+  name: "Bolívar Soberano"
 
 - code: VND
   decimalDigits: 0
+  iso: true
   symbol: "₫"
   pattern: "S#,##0"
   groupSeparator: "."
+  decimalSeparator: "."
   country: "Vietnam"
   unit: "Dong"
-  name: "Vietnamese Dong"
+  name: "Dong"
 
 - code: XOF
   decimalDigits: 0
+  iso: true
   symbol: "CFA"
   pattern: "S#,##0"
-  groupSeparator: " "
+  groupSeparator: " "
+  decimalSeparator: ","
   country: "West African States"
   unit: "Franc"
-  name: "West African CFA Franc"
+  name: "CFA Franc BCEAO"
 
 - code: YER
   decimalDigits: 2
+  iso: true
   symbol: "﷼"
+  pattern: "‏#,##0.00 S;‏-#,##0.00 S"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Yemen"
   unit: "Rial"
   name: "Yemeni Rial"
 
+- code: ZWG
+  decimalDigits: 2
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "ZIMBABWE"
+  unit: "Zimbabwe Gold"
+  name: "Zimbabwe Gold"
+
+- code: XBA
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "ZZ01_Bond Markets Unit European_EURCO"
+  unit: "Bond Markets Unit European Composite Unit (EURCO)"
+  name: "Bond Markets Unit European Composite Unit (EURCO)"
+
+- code: XBB
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "ZZ02_Bond Markets Unit European_EMU-6"
+  unit: "Bond Markets Unit European Monetary Unit (E.M.U.-6)"
+  name: "Bond Markets Unit European Monetary Unit (E.M.U.-6)"
+
+- code: XBC
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "ZZ03_Bond Markets Unit European_EUA-9"
+  unit: "Bond Markets Unit European Unit of Account 9 (E.U.A.-9)"
+  name: "Bond Markets Unit European Unit of Account 9 (E.U.A.-9)"
+
+- code: XBD
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "ZZ04_Bond Markets Unit European_EUA-17"
+  unit: "Bond Markets Unit European Unit of Account 17 (E.U.A.-17)"
+  name: "Bond Markets Unit European Unit of Account 17 (E.U.A.-17)"
+
+- code: XTS
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "ZZ06_Testing_Code"
+  unit: "Codes specifically reserved for testing purposes"
+  name: "Codes specifically reserved for testing purposes"
+
+- code: XXX
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "ZZ07_No_Currency"
+  unit: "The codes assigned for transactions where no currency is involved"
+  name: "The codes assigned for transactions where no currency is involved"
+
+- code: XAU
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "ZZ08_Gold"
+  unit: "Gold"
+  name: "Gold"
+
+- code: XPD
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "ZZ09_Palladium"
+  unit: "Palladium"
+  name: "Palladium"
+
+- code: XPT
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "ZZ10_Platinum"
+  unit: "Platinum"
+  name: "Platinum"
+
+- code: XAG
+  decimalDigits: 0
+  iso: true
+  symbol: "$"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
+  country: "ZZ11_Silver"
+  unit: "Silver"
+  name: "Silver"
+
 - code: ZMW
   decimalDigits: 2
+  iso: true
   symbol: "ZK"
+  pattern: "S#,##0.00"
+  groupSeparator: ","
+  decimalSeparator: "."
   country: "Zambia"
   unit: "Kwacha"
   name: "Zambian Kwacha"
+

@@ -1,0 +1,151 @@
+# Extra currencies not present in ISO 4217 list-one.xml.
+
+- code: ANG
+  decimalDigits: 2
+  pattern: "S#,##0.00"
+  iso: false
+  deprecated: true
+  replacedBy: "XCG"
+  symbol: "ƒ"
+  country: "Curaçao and Sint Maarten"
+  unit: "Guilder"
+  name: "Netherlands Antillean Guilder"
+  groupSeparator: "."
+  decimalSeparator: ","
+
+
+- code: BGN
+  decimalDigits: 2
+  pattern: "S#,##0.00"
+  iso: false
+  deprecated: true
+  replacedBy: "EUR"
+  symbol: "лв"
+  groupSeparator: " "
+  decimalSeparator: ","
+  country: "Bulgaria"
+  unit: "Lev"
+  name: "Bulgarian Lev"
+
+- code: BTC
+  decimalDigits: 8
+  iso: false
+  deprecated: false
+  groupSeparator: ","
+  decimalSeparator: "."
+  symbol: "₿"
+  pattern: "S#,##0.00000000"
+  country: "Digital"
+  unit: "Bitcoin"
+  name: "Bitcoin"
+
+- code: BCH
+  decimalDigits: 8
+  iso: false
+  deprecated: false
+  groupSeparator: ","
+  decimalSeparator: "."
+  symbol: "₿"
+  pattern: "S#,##0.00000000"
+  country: "Digital"
+  unit: "Bitcoin Cash"
+  name: "Bitcoin Cash"
+
+- code: BNB
+  decimalDigits: 18
+  pattern: "S#,##0.000000000000000000"
+  iso: false
+  groupSeparator: ","
+  decimalSeparator: "."
+  deprecated: false
+  country: "Digital"
+  unit: "BNB"
+  name: "BNB"
+
+- code: ADA
+  decimalDigits: 6
+  pattern: "S#,##0.000000"
+  iso: false
+  groupSeparator: ","
+  decimalSeparator: "."
+  deprecated: false
+  country: "Digital"
+  unit: "Cardano"
+  name: "Cardano"
+
+- code: DOGE
+  decimalDigits: 8
+  pattern: "S#,##0.00000000"
+  iso: false
+  groupSeparator: ","
+  decimalSeparator: "."
+  deprecated: false
+  country: "Digital"
+  unit: "Dogecoin"
+  name: "Dogecoin"
+
+- code: ETH
+  decimalDigits: 18
+  pattern: "S#,##0.000000000000000000"
+  groupSeparator: ","
+  decimalSeparator: "."
+  iso: false
+  deprecated: false
+  country: "Digital"
+  unit: "Ether"
+  name: "Ethereum"
+
+- code: LTC
+  decimalDigits: 8
+  pattern: "S#,##0.00000000"
+  groupSeparator: ","
+  decimalSeparator: "."
+  iso: false
+  deprecated: false
+  country: "Digital"
+  unit: "Litecoin"
+  name: "Litecoin"
+
+- code: SOL
+  decimalDigits: 9
+  pattern: "S#,##0.000000000"
+  groupSeparator: ","
+  decimalSeparator: "."
+  iso: false
+  deprecated: false
+  country: "Digital"
+  unit: "Solana"
+  name: "Solana"
+
+- code: USDC
+  decimalDigits: 6
+  pattern: "S#,##0.000000"
+  groupSeparator: ","
+  decimalSeparator: "."
+  iso: false
+  deprecated: false
+  country: "Digital"
+  unit: "USD Coin"
+  name: "USD Coin"
+
+- code: USDT
+  decimalDigits: 6
+  pattern: "S#,##0.000000"
+  groupSeparator: ","
+  decimalSeparator: "."
+  iso: false
+  deprecated: false
+  country: "Digital"
+  unit: "Tether"
+  name: "Tether"
+
+- code: XRP
+  decimalDigits: 6
+  pattern: "S#,##0.000000"
+  groupSeparator: ","
+  decimalSeparator: "."
+  iso: false
+  deprecated: false
+  country: "Digital"
+  unit: "XRP"
+  name: "XRP"
