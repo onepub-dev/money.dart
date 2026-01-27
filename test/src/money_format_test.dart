@@ -50,6 +50,14 @@ void main() {
       expect((-usd20cents).format('S#,##0.00'), equals(r'$-0.20'));
     });
 
+    test('Separate positive and negative patterns', () {
+      final clf = Currency.create('CLF', 2,
+          symbol: 'UF', pattern: 'S#,##0.00;S-#,##0.00');
+      final amount = Money.fromIntWithCurrency(1234, clf);
+      expect(amount.toString(), equals('UF12.34'));
+      expect((-amount).toString(), equals('UF-12.34'));
+    });
+
     test('Trailing Negative', () {
       expect((-usd10d25).format('#-'), equals('10-'));
       expect((-usd10d25).format('#.#-'), equals('10.2-'));
@@ -125,6 +133,19 @@ void main() {
       expect(eurolarge.format('###,000.000'), equals('100g000d000'));
       expect(euroSmall.format('##.###'), equals('10d999'));
       expect(euroSmall.format('##'), equals('10'));
+    });
+
+    test('Non-breaking space in pattern', () {
+      const nbsp = '\u00A0';
+      final test =
+          Currency.create('NBSP', 2, symbol: '€', pattern: 'S$nbsp#,##0.00');
+      final amount = Money.fromIntWithCurrency(123, test);
+      expect(amount.toString(), equals('€${nbsp}1.23'));
+
+      final trailing =
+          Currency.create('NBSP2', 2, symbol: '€', pattern: '#,##0.00${nbsp}S');
+      final amount2 = Money.fromIntWithCurrency(123, trailing);
+      expect(amount2.toString(), equals('1.23$nbsp€'));
     });
 
     test('decimal separator as slash', () {

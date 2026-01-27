@@ -34,13 +34,36 @@ class PatternDecoder implements MoneyDecoder<String> {
 
   @override
   MoneyData decode(String monetaryValue) {
+    final patterns = _splitPattern(pattern);
+    if (patterns.length == 1) {
+      return _decodeWithPattern(monetaryValue, patterns.first);
+    }
+
+    final preferNegative = monetaryValue.contains('-');
+    final ordered = preferNegative
+        ? [patterns[1], patterns[0]]
+        : [patterns[0], patterns[1]];
+
+    MoneyParseException? lastError;
+    for (final candidate in ordered) {
+      try {
+        return _decodeWithPattern(monetaryValue, candidate);
+      } on MoneyParseException catch (e) {
+        lastError = e;
+      }
+    }
+
+    throw lastError!;
+  }
+
+  MoneyData _decodeWithPattern(String monetaryValue, String localPattern) {
     var majorUnits = BigInt.zero;
 
     var minorUnits = BigInt.zero;
 
     final isoCode = currency.isoCode;
 
-    var compressedPattern = compressDigits(pattern);
+    var compressedPattern = compressDigits(localPattern);
 
     compressedPattern = compressWhitespace(compressedPattern);
 
@@ -56,7 +79,10 @@ class PatternDecoder implements MoneyDecoder<String> {
 
     var valueForQueue = compressedMonetaryValue;
 
-    if (valueForQueue.isNotEmpty &&
+    final hasExplicitSign =
+        localPattern.contains('-') || localPattern.contains('+');
+    if (!hasExplicitSign &&
+        valueForQueue.isNotEmpty &&
         (valueForQueue[0] == '-' || valueForQueue[0] == '+')) {
       isNegative = valueForQueue[0] == '-';
 
@@ -113,7 +139,7 @@ class PatternDecoder implements MoneyDecoder<String> {
           final char = valueQueue.peek();
 
           if (char != isoCode[codeIndex]) {
-            if (!isNumeric(char) && !isSymbol(char)) {
+            if (!isNumeric(char) && !_isSymbolForPattern(char, localPattern)) {
               throw MoneyParseException.fromValue(
                   compressedPattern: compressedPattern,
                   patternIndex: i,
@@ -167,6 +193,35 @@ class PatternDecoder implements MoneyDecoder<String> {
         case ' ':
           break;
 
+        case '-':
+          if (valueQueue.isNotEmpty && valueQueue.peek() == '-') {
+            valueQueue.takeOne();
+            isNegative = true;
+          } else {
+            throw MoneyParseException.fromValue(
+                compressedPattern: compressedPattern,
+                patternIndex: i,
+                compressedValue: compressedMonetaryValue,
+                monetaryIndex: valueQueue.index,
+                monetaryValue: monetaryValue);
+          }
+
+        case '+':
+          if (valueQueue.isNotEmpty &&
+              (valueQueue.peek() == '-' || valueQueue.peek() == '+')) {
+            final char = valueQueue.takeOne();
+            if (char == '-') {
+              isNegative = true;
+            }
+          } else {
+            throw MoneyParseException.fromValue(
+                compressedPattern: compressedPattern,
+                patternIndex: i,
+                compressedValue: compressedMonetaryValue,
+                monetaryIndex: valueQueue.index,
+                monetaryValue: monetaryValue);
+          }
+
         default:
           throw MoneyParseException(
               'Invalid character "${compressedPattern[i]}" found in pattern.');
@@ -190,6 +245,21 @@ class PatternDecoder implements MoneyDecoder<String> {
         currency);
 
     return result;
+  }
+
+  List<String> _splitPattern(String pattern) {
+    final parts = pattern.split(';');
+    if (parts.length > 2) {
+      throw MoneyParseException(
+          'The pattern contained more than one ";" separator.');
+    }
+    if (parts.length == 2) {
+      if (parts[0].isEmpty || parts[1].isEmpty) {
+        throw MoneyParseException(
+            'The pattern must include both positive and negative sections.');
+      }
+    }
+    return parts;
   }
 
   ///
@@ -274,10 +344,26 @@ class PatternDecoder implements MoneyDecoder<String> {
     return true;
   }
 
+  /// true if [value] is composed only of the currency symbol characters and
+  /// the pattern contains an `S` symbol placeholder.
   bool isSymbol(String value) {
     /// If the pattern doesn't contain an S
     /// then the value may not have a symbol.
     if (!pattern.contains('S')) {
+      return false;
+    }
+    for (final char in value.codeUnits) {
+      if (!currency.symbol.codeUnits.contains(char)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /// true if [value] is composed only of the currency symbol characters and
+  /// the provided [localPattern] contains an `S` symbol placeholder.
+  bool _isSymbolForPattern(String value, String localPattern) {
+    if (!localPattern.contains('S')) {
       return false;
     }
     for (final char in value.codeUnits) {

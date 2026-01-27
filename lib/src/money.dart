@@ -285,6 +285,8 @@ class Money implements Comparable<Money> {
   /// if no pattern is supplied the the default pattern of the
   /// currency indicated by the [isoCode]. The S and C characters
   /// in the pattern are optional.
+  /// If the pattern contains ';' then it is treated as
+  /// 'positivePattern;negativePattern'.
   ///
   /// See [format] for details on how to construct a [pattern].
   ///
@@ -325,6 +327,8 @@ class Money implements Comparable<Money> {
   /// if no pattern is supplied the the default pattern of the
   /// currency indicated by the [currency]. The S and C characters
   /// in the pattern are optional.
+  /// If the pattern contains ';' then it is treated as
+  /// 'positivePattern;negativePattern'.
   ///
   /// See [format] for details on how to construct a pattern.
   ///
@@ -460,6 +464,9 @@ class Money implements Comparable<Money> {
   ///   * '+' indicates the location to display the '-' character if the amount
   ///       is -ve or a '+' if the
   ///       amount is +ve.
+  ///   * ';' separates positive and negative patterns, e.g.
+  ///       'S#,##0.00;S-#,##0.00'. The first section is used for +ve values,
+  ///       the second for -ve values.
   ///
   /// In addition:
   ///   – Currency placeholders (S or C) may appear only as a contiguous prefix

@@ -84,7 +84,8 @@ Each `Currency` defines:
 - **ISO code** — e.g. `USD`, `EUR`, `JPY`  
 - **decimalDigits** — number of minor-unit digits (e.g. 2 for cents)  
 - **symbol** — e.g. `$`, `€`, `¥`  
-- **pattern** — default output pattern (e.g. `S#,##0.00`)  
+- **pattern** — default output pattern (e.g. `S#,##0.00` or
+  `S#,##0.00;S-#,##0.00`)  
 - **groupSeparator** / **decimalSeparator** — display separators  
 - Optional metadata: `name`, `unit`, `country`
 
@@ -344,6 +345,7 @@ When formatting, these are replaced by the currency’s actual separators.
 | `,`    | Group separator                |
 | `+`    | Always display +/- sign        |
 | `-`    | Display - sign if negative     |
+| `;`    | Separate positive/negative patterns |
 
 ```dart
 final parsed = usd.parse(r'$10.00');
@@ -352,6 +354,15 @@ print(parsed.format('SCCC 0.00')); // $USD 10.00
 final parsedEur = eur.parse(r'$10.00');
 // The decimal separator is based on the currency, not the pattern.
 print(parsedEur.format('SCCC 0.00+')); // €EUR 10,00+
+
+// Separate positive/negative patterns.
+final clf = Currency.create('CLF', 2,
+  symbol: 'UF',
+  pattern: 'S#,##0.00;S-#,##0.00',
+);
+final value = Money.fromIntWithCurrency(1234, clf);
+print(value.toString());    // UF12.34
+print((-value).toString()); // UF-12.34
 ```
 
 ---

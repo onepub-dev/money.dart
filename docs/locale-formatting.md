@@ -227,6 +227,8 @@ print(price.format(locale: const Locale('en', 'US'))); // $1,234.56
 print(price.format(locale: const Locale('de', 'DE'))); // 1.234,56 $
 // Legacy pattern still works:
 print(price.format(pattern: 'S#,##0.00')); // $1,234.56
+// Patterns can include separate positive/negative sections:
+print(price.format(pattern: 'S#,##0.00;S-#,##0.00')); // $1,234.56
 ```
 
 ### Money.toString

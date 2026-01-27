@@ -5,6 +5,7 @@
  */
 import 'package:fixed/fixed.dart';
 import 'package:money2/src/common_currencies.g.dart';
+import 'package:money2/src/currency.dart';
 import 'package:money2/src/exceptions.dart';
 import 'package:money2/src/money.dart';
 import 'package:money2/src/pattern_decoder.dart';
@@ -125,5 +126,67 @@ void main() {
     final euro = CommonCurrencies().euro;
     final money = Money.parseWithCurrency('1.000', CommonCurrencies().euro);
     expect(money.format(euro.pattern), '1.000,00€');
+  });
+
+  test('explicit sign patterns', () {
+    final usd = CommonCurrencies().usd;
+
+    final leadingPlus = PatternDecoder(usd, 'S+#,##0.00');
+    expect(leadingPlus.decode(r'$+10.25').amount, equals(Fixed.parse('10.25')));
+    expect(
+        leadingPlus.decode(r'$-10.25').amount, equals(Fixed.parse('-10.25')));
+    expect(() => leadingPlus.decode(r'$10.25'),
+        throwsA(isA<MoneyParseException>()));
+
+    final trailingPlus = PatternDecoder(usd, 'S#,##0.00+');
+    expect(
+        trailingPlus.decode(r'$10.25+').amount, equals(Fixed.parse('10.25')));
+    expect(
+        trailingPlus.decode(r'$10.25-').amount, equals(Fixed.parse('-10.25')));
+  });
+
+  test('separate positive/negative patterns', () {
+    final usd = CommonCurrencies().usd;
+    final decoder = PatternDecoder(usd, 'S#,##0.00;S-#,##0.00');
+    expect(decoder.decode(r'$10.25').amount, equals(Fixed.parse('10.25')));
+    expect(decoder.decode(r'$-10.25').amount, equals(Fixed.parse('-10.25')));
+  });
+
+  test('invalid pattern sections', () {
+    final usd = CommonCurrencies().usd;
+    final decoder = PatternDecoder(usd, 'S#,##0.00;S-#,##0.00;S#,##0.00');
+    expect(
+        () => decoder.decode(r'$10.25'), throwsA(isA<MoneyParseException>()));
+  });
+
+  test('non-breaking space in pattern', () {
+    const nbsp = '\u00A0';
+    final eur = Currency.create('EUR', 2, symbol: '€');
+
+    const leadingPattern = 'S$nbsp#,##0.00';
+    expect(
+        Money.parseWithCurrency('€ 1.23', eur, pattern: leadingPattern).amount,
+        equals(Fixed.parse('1.23')));
+    expect(
+        Money.parseWithCurrency('€${nbsp}1.23', eur, pattern: leadingPattern)
+            .amount,
+        equals(Fixed.parse('1.23')));
+
+    const trailingPattern = '#,##0.00${nbsp}S';
+    expect(
+        Money.parseWithCurrency('1.23 €', eur, pattern: trailingPattern).amount,
+        equals(Fixed.parse('1.23')));
+    expect(
+        Money.parseWithCurrency('1.23$nbsp€', eur, pattern: trailingPattern)
+            .amount,
+        equals(Fixed.parse('1.23')));
+
+    const codePattern = 'CCC$nbsp#,##0.00';
+    expect(Money.parse('USD 1.23', isoCode: 'USD', pattern: codePattern).amount,
+        equals(Fixed.parse('1.23')));
+    expect(
+        Money.parse('USD${nbsp}1.23', isoCode: 'USD', pattern: codePattern)
+            .amount,
+        equals(Fixed.parse('1.23')));
   });
 }

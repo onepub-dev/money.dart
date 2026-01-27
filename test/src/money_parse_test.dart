@@ -14,6 +14,9 @@ void main() {
       groupSeparator: '.',
       decimalSeparator: ',',
       pattern: '0,00 S');
+  final clf = Currency.create('CLF', 2,
+      symbol: 'UF', pattern: 'S#,##0.00;S-#,##0.00');
+  Currencies().register(clf);
   // final long = Currency.create('LONG', 2);
 
   // final Money usd10d25 = Money.fromInt(1025, usd);
@@ -45,6 +48,17 @@ void main() {
           equals(Money.fromInt(-1025, isoCode: 'USD')));
       expect(Money.parse('-1,000.25', isoCode: 'USD', pattern: '#.#'),
           equals(Money.fromInt(-100025, isoCode: 'USD')));
+    });
+
+    test('Separate positive and negative patterns', () {
+      expect(
+          Money.parse('UF12.34',
+              isoCode: 'CLF', pattern: 'S#,##0.00;S-#,##0.00'),
+          equals(Money.fromInt(1234, isoCode: 'CLF')));
+      expect(
+          Money.parse('UF-12.34',
+              isoCode: 'CLF', pattern: 'S#,##0.00;S-#,##0.00'),
+          equals(Money.fromInt(-1234, isoCode: 'CLF')));
     });
 
     test('Inverted Decimal Separator with pattern', () {
@@ -179,6 +193,13 @@ void main() {
           equals(Money.fromInt(100025, isoCode: 'EUR')));
       expect(euro.parse('1.000,25', pattern: '#,###.00'),
           equals(Money.fromInt(100025, isoCode: 'EUR')));
+    });
+
+    test('Separate positive and negative patterns', () {
+      expect(clf.parse('UF12.34'),
+          equals(Money.fromInt(1234, isoCode: 'CLF')));
+      expect(clf.parse('UF-12.34'),
+          equals(Money.fromInt(-1234, isoCode: 'CLF')));
     });
   });
 

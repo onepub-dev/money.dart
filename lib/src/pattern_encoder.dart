@@ -57,6 +57,13 @@ class PatternEncoder implements MoneyEncoder<String> {
 
   @override
   String encode(MoneyData data) {
+    final patterns = _splitPattern(pattern);
+    final localPattern = data.amount.isNegative && patterns.length == 2
+        ? patterns[1]
+        : patterns[0];
+
+    pattern = localPattern;
+
     final regex = RegExp(RegExp.escape(patternDecimalSeparator));
     final decimalSeparators = regex.allMatches(pattern);
     if (decimalSeparators.length > 1) {
@@ -97,6 +104,21 @@ A pattern may only have a single decimal separator $patternDecimalSeparator''');
     }
 
     return result;
+  }
+
+  List<String> _splitPattern(String pattern) {
+    final parts = pattern.split(';');
+    if (parts.length > 2) {
+      throw IllegalPatternException(
+          'The pattern contained more than one ";" separator.');
+    }
+    if (parts.length == 2) {
+      if (parts[0].isEmpty || parts[1].isEmpty) {
+        throw IllegalPatternException(
+            'The pattern must include both positive and negative sections.');
+      }
+    }
+    return parts;
   }
 
   /// Process integer component

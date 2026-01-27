@@ -36,7 +36,9 @@
 /// * isoCode - the currency isoCode. e.g. USD
 /// * symbol - the currency symbol. e.g. '$'. It should be noted that not
 ///    every currency has a symbol.
-/// * pattern - a pattern used to control the display format.
+/// * pattern - a pattern used to control the display format. It can include
+///   separate positive/negative sections using ';'
+///   (e.g. 'S#,##0.00;S-#,##0.00').
 /// * precision - the number of decimal places assumed when a minor unit value
 ///      (e.g. cents) is passed.
 /// * decimal separator - the character that separates the fraction part
