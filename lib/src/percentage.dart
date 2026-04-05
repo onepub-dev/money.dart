@@ -8,7 +8,7 @@ import '../money2.dart';
 /// Percentage is described as a decimal [Fixed]
 /// so 20% is expressed as 20.0
 class Percentage extends Fixed {
-  static final Percentage zero = Percentage(0, decimalDigits: 3);
+  static final Percentage zero =  Percentage(0, decimalDigits: 3);
 
   static final Percentage ten = Percentage(100, decimalDigits: 3);
 
