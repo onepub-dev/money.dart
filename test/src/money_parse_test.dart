@@ -14,14 +14,94 @@ void main() {
       groupSeparator: '.',
       decimalSeparator: ',',
       pattern: '0,00 S');
-  final clf = Currency.create('CLF', 2,
-      symbol: 'UF', pattern: 'S#,##0.00;S-#,##0.00');
+  final clf =
+      Currency.create('CLF', 2, symbol: 'UF', pattern: 'S#,##0.00;S-#,##0.00');
   Currencies().register(clf);
   // final long = Currency.create('LONG', 2);
 
   // final Money usd10d25 = Money.fromInt(1025, usd);
   // final Money usd10 = Money.fromInt(1000, usd);
   // final Money long1000d90 = Money.fromInt(100090, long);
+
+  group('Complete monetary input', () {
+    test('currency symbols do not participate in separator or sign inference',
+        () {
+      final punctuation = Currency.create('PUN', 2, symbol: 'A.B,');
+      expect(punctuation.parse('A.B,1,234.56').minorUnits, BigInt.from(123456));
+      expect(punctuation.parse('1,234.56A.B,', pattern: '#.##S').minorUnits,
+          BigInt.from(123456));
+      final signedSymbol = Currency.create('SGN', 2, symbol: r'-$');
+      expect(signedSymbol.parse(r'-$1.25').minorUnits, BigInt.from(125));
+      expect(signedSymbol.parse(r'-$-1.25').minorUnits, BigInt.from(-125));
+    });
+
+    test('custom tokens, optional markers, signs and truncation', () {
+      final custom = Currency.create('XYZ', 2,
+          symbol: r'XYZ$', groupSeparator: '__', decimalSeparator: '::');
+      expect(
+          custom.parse(r'XYZ$ -1__234::567').minorUnits, BigInt.from(-123456));
+      expect(custom.parse('1__234::567').minorUnits, BigInt.from(123456));
+      expect(custom.parse(r'XYZ$1::23-', pattern: 'S#.##+').minorUnits,
+          BigInt.from(-123));
+      expect(
+          custom.parse('1::23', pattern: '#.##S').minorUnits, BigInt.from(123));
+      expect(custom.parse('::5').minorUnits, BigInt.from(50));
+      expect(Currency.create('WHOLE', 0).parse('1.9').minorUnits, BigInt.one);
+      for (final value in [
+        '1____234::56',
+        '1::2::3',
+        '1__',
+        '1::',
+        r'XYZ$',
+        '--1',
+        '+-1'
+      ]) {
+        expect(() => custom.parse(value), throwsA(isA<MoneyParseException>()));
+      }
+    });
+
+    final parsers = <String, Money Function(String)>{
+      'Money.parse': (value) =>
+          Money.parse(value, isoCode: 'USD', pattern: '#.##'),
+      'Currency.parse': (value) => usd.parse(value, pattern: '#.##'),
+    };
+
+    for (final entry in parsers.entries) {
+      group(entry.key, () {
+        test('preserves ordinary grouped and ungrouped amounts', () {
+          // Grouping is accepted even when '#.##' omits a grouping token.
+          for (final value in ['1,234.56', '1234.56']) {
+            expect(entry.value(value).minorUnits, equals(BigInt.from(123456)));
+          }
+          expect(entry.value('-1,234.56').minorUnits,
+              equals(BigInt.from(-123456)));
+        });
+
+        // The baseline decoder can consume a numeric prefix or no digits.
+        // Its separator heuristic also turns '1,234.56,' into 123 minor units.
+        // These inputs must fail, not silently yield a different amount.
+        for (final value in [
+          '1,234.56,',
+          '1.00garbage',
+          '1e3',
+          'abc',
+          '+',
+          '-',
+          '1,,234.56',
+          '1.2.3',
+          '1.',
+          '1,',
+          '.',
+          '   ',
+        ]) {
+          test('rejects "$value"', () {
+            expect(
+                () => entry.value(value), throwsA(isA<MoneyParseException>()));
+          });
+        }
+      });
+    }
+  });
 
   group('Money.parse', () {
     test('Default Currency Pattern', () {
@@ -196,10 +276,9 @@ void main() {
     });
 
     test('Separate positive and negative patterns', () {
-      expect(clf.parse('UF12.34'),
-          equals(Money.fromInt(1234, isoCode: 'CLF')));
-      expect(clf.parse('UF-12.34'),
-          equals(Money.fromInt(-1234, isoCode: 'CLF')));
+      expect(clf.parse('UF12.34'), equals(Money.fromInt(1234, isoCode: 'CLF')));
+      expect(
+          clf.parse('UF-12.34'), equals(Money.fromInt(-1234, isoCode: 'CLF')));
     });
   });
 

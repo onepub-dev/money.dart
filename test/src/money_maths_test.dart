@@ -72,4 +72,20 @@ void main() {
     expect(result.amount, equals(Fixed.fromInt(314, decimalDigits: 0)));
     expect(result.decimalDigits, equals(2));
   });
+
+  test('dividedBy uses represented values when decimal scales differ', () {
+    final cents = Money.fromInt(100, isoCode: 'USD', decimalDigits: 2);
+    final mills = Money.fromInt(1000, isoCode: 'USD', decimalDigits: 3);
+
+    // Both represent USD 1. The baseline divides raw minor units instead.
+    expect(cents.dividedBy(cents), equals(1.0));
+    expect(cents.dividedBy(mills), equals(1.0));
+    expect(mills.dividedBy(cents), equals(1.0));
+    expect((-mills).dividedBy(cents), equals(-1.0));
+    final zero = Money.fromInt(0, isoCode: 'USD');
+    expect(cents.dividedBy(zero), double.infinity);
+    expect(zero.dividedBy(zero).isNaN, isTrue);
+    expect(() => cents.dividedBy(Money.fromInt(100, isoCode: 'EUR')),
+        throwsArgumentError);
+  });
 }

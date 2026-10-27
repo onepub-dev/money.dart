@@ -4,6 +4,7 @@
  * Written by Brett Sutton <bsutton@onepub.dev>, Jan 2022
  */
 import '../../money2.dart';
+import '../util.dart';
 
 typedef CurrencyIsoCode = String;
 
@@ -62,7 +63,10 @@ class ExchangeRate {
   ExchangeRate.fromFixedWithCurrency(this.exchangeRate,
       {required this.fromCurrency,
       required this.toCurrency,
-      this.toDecimalDigits});
+      this.toDecimalDigits}) {
+    checkDecimalDigits(exchangeRate.decimalDigits);
+    _checkTargetPrecision();
+  }
 
   /// Create an exchange rate from an integer holding minor units
   /// to the provided number of [decimalDigits].
@@ -95,8 +99,10 @@ class ExchangeRate {
       required this.fromCurrency,
       required this.toCurrency,
       this.toDecimalDigits})
-      : exchangeRate =
-            Fixed.fromInt(exchangeRateMinorUnits, decimalDigits: decimalDigits);
+      : exchangeRate = Fixed.fromInt(exchangeRateMinorUnits,
+            decimalDigits: checkDecimalDigits(decimalDigits)) {
+    _checkTargetPrecision();
+  }
 
   /// Create an exchange rate from an integer or decimal holding major units
   ///
@@ -126,7 +132,7 @@ class ExchangeRate {
       ExchangeRate.fromFixed(
         Fixed.fromBigInt(
           BigInt.parse(json['minorUnits'] as String),
-          decimalDigits: json['decimals'] as int,
+          decimalDigits: checkDecimalDigits(json['decimals'] as int),
         ),
         fromIsoCode: json['fromIsoCode'] as String,
         toIsoCode: json['toIsoCode'] as String,
@@ -147,7 +153,9 @@ class ExchangeRate {
     required this.toCurrency,
     this.toDecimalDigits,
   }) {
-    exchangeRate = Fixed.fromNum(rateAsNum, decimalDigits: decimalDigits);
+    _checkTargetPrecision();
+    exchangeRate = Fixed.fromNum(rateAsNum,
+        decimalDigits: checkDecimalDigits(decimalDigits));
   }
 
   /// Create an exchange rate from an BigInt holding minor units
@@ -174,8 +182,15 @@ class ExchangeRate {
     required this.toCurrency,
     this.toDecimalDigits,
   }) {
-    exchangeRate =
-        Fixed.fromBigInt(exchangeRateMinorUnits, decimalDigits: decimalDigits);
+    _checkTargetPrecision();
+    exchangeRate = Fixed.fromBigInt(exchangeRateMinorUnits,
+        decimalDigits: checkDecimalDigits(decimalDigits));
+  }
+
+  void _checkTargetPrecision() {
+    if (toDecimalDigits != null) {
+      checkDecimalDigits(toDecimalDigits!);
+    }
   }
 
   /// Apply the exchange rate to [amount] and return
@@ -189,9 +204,8 @@ class ExchangeRate {
           expected: fromCurrency.isoCode, actual: amount.currency.isoCode);
     }
 
-    /// convertedUnits now has this.decimalDigits + exchangeRate.decimalDigits
-    /// decimal digits.
-    final convertedUnits = amount.amount * exchangeRate;
+    final convertedUnits = multiplyAndRescale(amount.amount, exchangeRate,
+        toDecimalDigits ?? toCurrency.decimalDigits);
 
     return Money.fromFixed(convertedUnits,
         isoCode: toCurrency.isoCode,
@@ -207,13 +221,19 @@ class ExchangeRate {
           expected: toCurrency.isoCode, actual: amount.currency.isoCode);
     }
 
+    final targetDigits =
+        checkDecimalDigits(toDecimalDigits ?? toCurrency.decimalDigits);
+    checkDecimalDigits(amount.amount.decimalDigits);
+    checkDecimalDigits(exchangeRate.decimalDigits);
+
+    final convertedUnits = amount.amount *
+        Fixed.fromNum(1, decimalDigits: targetDigits) /
+        exchangeRate;
+    // Bounded inputs can leave an internal scale above the public limit.
+    // Preserve the division precision, then round before constructing Money.
     return Money.fromFixedWithCurrency(
-        amount.amount *
-            Fixed.fromNum(1,
-                decimalDigits: toDecimalDigits ?? toCurrency.decimalDigits) /
-            exchangeRate,
-        fromCurrency,
-        decimalDigits: toDecimalDigits ?? toCurrency.decimalDigits);
+        convertedUnits.copyWith(decimalDigits: targetDigits), fromCurrency,
+        decimalDigits: targetDigits);
   }
 
   static Currency _findCurrency(String isoCode) {
@@ -237,7 +257,7 @@ class ExchangeRate {
   /// The JSON representation can be used to recreate this [ExchangeRate]
   /// instance using the [ExchangeRate.fromJson] factory.
   Map<String, dynamic> toJson() => {
-        'minorUnits': '${exchangeRate.minorUnits.toInt()}',
+        'minorUnits': exchangeRate.minorUnits.toString(),
         'decimals': exchangeRate.decimalDigits,
         'fromIsoCode': fromCurrency.isoCode,
         'toIsoCode': toCurrency.isoCode,

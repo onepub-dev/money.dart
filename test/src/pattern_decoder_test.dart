@@ -84,6 +84,22 @@ void main() {
     expect(moneyData.amount.minorUnits.toInt(), equals(100000000));
   });
 
+  test('CCC consumes the complete custom currency code', () {
+    final currency = Currency.create('MONEY', 2);
+    for (final prefix in [true, false]) {
+      final decoder =
+          PatternDecoder(currency, prefix ? 'CCC 0.00' : '0.00 CCC');
+      String amount(String code) => prefix ? '$code 1.25' : '1.25 $code';
+
+      expect(decoder.decode(amount('MONEY')).amount, Fixed.parse('1.25'));
+      expect(decoder.decode(amount('')).amount, Fixed.parse('1.25'));
+      for (final code in ['M', 'MO', 'MON', 'MONE', 'MONEX', 'MONEYX']) {
+        expect(() => decoder.decode(amount(code)),
+            throwsA(isA<MoneyParseException>()));
+      }
+    }
+  });
+
   test('Optional isoCode and Symbol', () {
     final btc = CommonCurrencies().btc;
     final btcDecoder = PatternDecoder(btc, 'CCCS#.#');

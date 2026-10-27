@@ -3,6 +3,29 @@ import 'package:test/test.dart';
 
 void main() {
   group('Money.tryParse', () {
+    test('preserves an ordinary grouped amount', () {
+      final parsed =
+          Money.tryParse('1,234.56', isoCode: 'USD', pattern: '#.##');
+      expect(parsed, isNotNull);
+      expect(parsed!.minorUnits, equals(BigInt.from(123456)));
+    });
+
+    for (final value in [
+      '1,234.56,',
+      '1.00garbage',
+      '1e3',
+      'abc',
+      '+',
+      '-',
+      '1,,234.56',
+      '1.2.3',
+    ]) {
+      test('returns null for malformed complete input "$value"', () {
+        expect(Money.tryParse(value, isoCode: 'USD', pattern: '#.##'),
+            isNull);
+      });
+    }
+
     test('Default Currency Pattern', () {
       expect(Money.tryParse(r'$10.25', isoCode: 'USD'),
           equals(Money.fromInt(1025, isoCode: 'USD')));

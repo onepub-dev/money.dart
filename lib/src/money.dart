@@ -22,6 +22,7 @@ import 'money_data.dart';
 import 'pattern_decoder.dart';
 import 'pattern_encoder.dart';
 import 'percentage.dart';
+import 'util.dart';
 
 /// Allows you to store, print and perform mathematically operations on money
 /// whilst maintaining precision.
@@ -136,7 +137,8 @@ class Money implements Comparable<Money> {
           {int? decimalDigits}) =>
       Money._from(
           Fixed.fromNum(amount,
-              decimalDigits: decimalDigits ?? currency.decimalDigits),
+              decimalDigits:
+                  checkDecimalDigits(decimalDigits ?? currency.decimalDigits)),
           currency);
 
   /// ******************************************
@@ -185,7 +187,8 @@ class Money implements Comparable<Money> {
           {int? decimalDigits}) =>
       Money._from(
           Fixed.fromBigInt(minorUnits,
-              decimalDigits: decimalDigits ?? currency.decimalDigits),
+              decimalDigits:
+                  checkDecimalDigits(decimalDigits ?? currency.decimalDigits)),
           currency);
 
   /// ******************************************
@@ -220,7 +223,8 @@ class Money implements Comparable<Money> {
           {int? decimalDigits}) =>
       Money._from(
           Fixed.fromInt(minorUnits,
-              decimalDigits: decimalDigits ?? currency.decimalDigits),
+              decimalDigits:
+                  checkDecimalDigits(decimalDigits ?? currency.decimalDigits)),
           currency);
 
   /// Creates a Money from a [Fixed] [amount].
@@ -245,11 +249,14 @@ class Money implements Comparable<Money> {
   /// The [amount]'s decimal digits are adjusted to match the
   /// currency selected via [currency].
   factory Money.fromFixedWithCurrency(Fixed amount, Currency currency,
-          {int? decimalDigits}) =>
-      Money._from(
-          amount.copyWith(
-              decimalDigits: decimalDigits ?? currency.decimalDigits),
-          currency);
+      {int? decimalDigits}) {
+    checkDecimalDigits(amount.decimalDigits);
+    return Money._from(
+        amount.copyWith(
+            decimalDigits:
+                checkDecimalDigits(decimalDigits ?? currency.decimalDigits)),
+        currency);
+  }
 
   /// Creates a Money from a [Decimal] [amount].
   ///
@@ -272,7 +279,8 @@ class Money implements Comparable<Money> {
           {int? decimalDigits}) =>
       Money._from(
           Fixed.fromDecimal(amount,
-              decimalDigits: decimalDigits ?? currency.decimalDigits),
+              decimalDigits:
+                  checkDecimalDigits(decimalDigits ?? currency.decimalDigits)),
           currency);
 
   /// ******************************************
@@ -353,8 +361,9 @@ class Money implements Comparable<Money> {
       final data = decoder.decode(amount);
 
       return Money._from(
-          data.amount
-              .copyWith(decimalDigits: decimalDigits ?? currency.decimalDigits),
+          data.amount.copyWith(
+              decimalDigits:
+                  checkDecimalDigits(decimalDigits ?? currency.decimalDigits)),
           currency);
     } catch (e) {
       throw MoneyParseException(e.toString());
@@ -387,6 +396,7 @@ class Money implements Comparable<Money> {
   /// If you pass an [isoCode] and it is invalid then a
   /// [UnknownCurrencyException] is thrown.
   Money copyWith({Fixed? amount, String? isoCode, int? decimalDigits}) {
+    checkDecimalDigits((amount ?? this.amount).decimalDigits);
     Currency? currency = this.currency;
     if (isoCode != null) {
       currency = Currencies().find(isoCode);
@@ -396,7 +406,8 @@ class Money implements Comparable<Money> {
     }
     return Money._from(
         (amount ?? this.amount).copyWith(
-            decimalDigits: decimalDigits ?? this.amount.decimalDigits),
+            decimalDigits:
+                checkDecimalDigits(decimalDigits ?? this.amount.decimalDigits)),
         currency);
   }
 
@@ -548,9 +559,7 @@ class Money implements Comparable<Money> {
   static Money decoding<T>(T value, MoneyDecoder<T> decoder) {
     final data = decoder.decode(value);
 
-    return Money._from(
-        data.amount.copyWith(decimalDigits: data.currency.decimalDigits),
-        data.currency);
+    return Money.fromFixedWithCurrency(data.amount, data.currency);
   }
 
   /// Encodes a [Money] instance as a `<T>`.
@@ -744,7 +753,10 @@ class Money implements Comparable<Money> {
 
   Money multiplyByNum(num multiplier, [int? decimalDigits = 16]) =>
       _withAmount(amount
-          .multiply(multiplier, decimalDigits: decimalDigits)
+          .multiply(multiplier,
+              decimalDigits: decimalDigits == null
+                  ? null
+                  : checkDecimalDigits(decimalDigits))
           .copyWith(decimalDigits: decimalDigits));
 
   /// Returns [Money] divided by [divisor], using schoolbook rounding.
@@ -770,17 +782,25 @@ class Money implements Comparable<Money> {
   /// Divides this by [divisor] and returns the result as a double
   double dividedBy(Money divisor) {
     _preconditionThatCurrencyTheSameFor(divisor);
-    return minorUnits.toDouble() / divisor.minorUnits.toDouble();
+    final scale = max(decimalDigits, divisor.decimalDigits);
+    final numerator = minorUnits * BigInt.from(10).pow(scale - decimalDigits);
+    final denominator =
+        divisor.minorUnits * BigInt.from(10).pow(scale - divisor.decimalDigits);
+    return numerator / denominator;
   }
 
-  Money multiplyByFixed(Fixed multiplier) =>
-      Money.fromFixedWithCurrency(amount * multiplier, currency);
+  Money multiplyByFixed(Fixed multiplier) => Money.fromFixedWithCurrency(
+      multiplyAndRescale(amount, multiplier, currency.decimalDigits), currency);
 
-  Money divideByFixed(Fixed divisor) =>
-      Money.fromFixedWithCurrency(amount / divisor, currency);
+  Money divideByFixed(Fixed divisor) {
+    checkDecimalDigits(divisor.decimalDigits);
+    return Money.fromFixedWithCurrency(amount / divisor, currency);
+  }
 
-  Money modulusFixed(Fixed other) =>
-      Money.fromFixedWithCurrency(amount % other, currency);
+  Money modulusFixed(Fixed other) {
+    checkDecimalDigits(other.decimalDigits);
+    return Money.fromFixedWithCurrency(amount % other, currency);
+  }
 
   /* ************************************************************************ */
 

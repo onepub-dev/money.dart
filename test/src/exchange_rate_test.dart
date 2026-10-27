@@ -78,6 +78,40 @@ void main() {
     });
 
     group('JSON serialization', () {
+      group('20-decimal BigInt rate', () {
+        const minorUnits = '123456789012345678901';
+        final rate = ExchangeRate.fromBigInt(BigInt.parse(minorUnits),
+            decimalDigits: 20, fromIsoCode: 'AUD', toIsoCode: 'USD');
+        final expected = <String, dynamic>{
+          'minorUnits': minorUnits,
+          'decimals': 20,
+          'fromIsoCode': 'AUD',
+          'toIsoCode': 'USD',
+          'toDecimals': null,
+        };
+
+        test('serializes every minor-unit digit without narrowing to int', () {
+          // The baseline toJson narrows this BigInt through toInt().
+          expect(rate.toJson(), equals(expected));
+        });
+
+        test('deserializes every minor-unit digit and the original scale', () {
+          final decoded = ExchangeRate.fromJson(expected);
+          expect(decoded.exchangeRate.minorUnits,
+              equals(BigInt.parse(minorUnits)));
+          expect(decoded.exchangeRate.decimalDigits, equals(20));
+        });
+
+        test('preserves the exact rate through a JSON string round trip', () {
+          final decoded = ExchangeRate.fromJson(
+              jsonDecode(jsonEncode(rate)) as Map<String, dynamic>);
+          expect(decoded.exchangeRate.minorUnits,
+              equals(BigInt.parse(minorUnits)));
+          expect(decoded.exchangeRate.decimalDigits, equals(20));
+          expect(decoded.toJson(), equals(expected));
+        });
+      });
+
       final exchangeRate = ExchangeRate.fromNum(
         0.75312,
         decimalDigits: 5,
