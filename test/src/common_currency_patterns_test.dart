@@ -7,7 +7,6 @@
 import 'package:money2/money2.dart';
 import 'package:test/test.dart';
 
-
 void main() {
   /// Tests that each common currency can format a Money instance
   group('common currency patterns', () {

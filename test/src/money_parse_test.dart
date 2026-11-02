@@ -14,8 +14,8 @@ void main() {
       groupSeparator: '.',
       decimalSeparator: ',',
       pattern: '0,00 S');
-  final clf = Currency.create('CLF', 2,
-      symbol: 'UF', pattern: 'S#,##0.00;S-#,##0.00');
+  final clf =
+      Currency.create('CLF', 2, symbol: 'UF', pattern: 'S#,##0.00;S-#,##0.00');
   Currencies().register(clf);
   // final long = Currency.create('LONG', 2);
 
@@ -196,10 +196,9 @@ void main() {
     });
 
     test('Separate positive and negative patterns', () {
-      expect(clf.parse('UF12.34'),
-          equals(Money.fromInt(1234, isoCode: 'CLF')));
-      expect(clf.parse('UF-12.34'),
-          equals(Money.fromInt(-1234, isoCode: 'CLF')));
+      expect(clf.parse('UF12.34'), equals(Money.fromInt(1234, isoCode: 'CLF')));
+      expect(
+          clf.parse('UF-12.34'), equals(Money.fromInt(-1234, isoCode: 'CLF')));
     });
   });
 
