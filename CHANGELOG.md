@@ -1,3 +1,9 @@
+# 6.3.1
+- Harden monetary parsing to reject malformed or incomplete input. Compatibility: malformed values previously accepted now fail parsing.
+- Bound decimal precision to 0–1000 digits across currencies, money, and exchange rates. Compatibility: decimal precision greater than 1000 is now rejected.
+- Preserve exact exchange-rate minor units when serializing to JSON.
+- Fix `Money.dividedBy` to account for differing decimal scales.
+
 # 6.2.0
 - BREAKING -the currency json format has three new fields, isIso, isDepreated, replacedBy;
 The fromJson method will set isIso to true, isDrerecated to false and replacedBy to null  if they are not present.

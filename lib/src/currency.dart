@@ -8,6 +8,7 @@ import 'package:meta/meta.dart';
 
 import '../money2.dart';
 import 'pattern_decoder.dart';
+import 'util.dart';
 
 /// Allows you to create a [Currency] which is then used to construct
 /// [Money] instances.
@@ -25,6 +26,10 @@ import 'pattern_decoder.dart';
 //@sealed
 @immutable
 class Currency {
+  /// Maximum supported decimal precision. This generous limit bounds the
+  /// exponentiation and padding driven by a small precision field.
+  static const maxDecimalDigits = 1000;
+
   // public api
   // ignore: omit_obvious_property_types
   static const String defaultPattern = 'S#,##0.00';
@@ -186,10 +191,7 @@ class Currency {
       (isoCode == other.isoCode && decimalDigits == other.decimalDigits);
 
   static BigInt _calcDecimalDigitsFactor(int decimalDigits) {
-    if (decimalDigits.isNegative) {
-      throw ArgumentError.value(
-          decimalDigits, 'decimalDigits', 'Must be a non-negative value.');
-    }
+    checkDecimalDigits(decimalDigits);
     return BigInt.from(10).pow(decimalDigits);
   }
 

@@ -1,0 +1,18 @@
+name: Publish package
+on: workflow_dispatch
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub global activate onepub
+      - run: onepub login trusted
+      - run: dart format --output=none --set-exit-if-changed .
+      - run: dart pub get
+      - run: dart analyze
+      - run: dart test
+      - run: dart pub publish --force
