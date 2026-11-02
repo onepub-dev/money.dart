@@ -21,8 +21,7 @@ void main() {
       '1.2.3',
     ]) {
       test('returns null for malformed complete input "$value"', () {
-        expect(Money.tryParse(value, isoCode: 'USD', pattern: '#.##'),
-            isNull);
+        expect(Money.tryParse(value, isoCode: 'USD', pattern: '#.##'), isNull);
       });
     }
 

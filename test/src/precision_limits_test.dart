@@ -64,8 +64,8 @@ void main() {
         toCurrency: eur,
         toDecimalDigits: 2);
     // Dividing 2.0098 and 2.0100 by two gives 1.0049 and the 1.005 tie.
-    for (final entry in {20098: 100, 20100: 101, -20098: -100, -20100: -101}
-        .entries) {
+    for (final entry
+        in {20098: 100, 20100: 101, -20098: -100, -20100: -101}.entries) {
       final amount = Money.fromBigIntWithCurrency(
           BigInt.from(entry.key) * BigInt.from(10).pow(limit - 4), eur,
           decimalDigits: limit);
