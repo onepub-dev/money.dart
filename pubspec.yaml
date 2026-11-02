@@ -10,7 +10,6 @@ description: >
 
 repository: https://github.com/onepub-dev/money.dart
 
-publish_to: https://onepub.dev/api/jbbxpsdavu/
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
