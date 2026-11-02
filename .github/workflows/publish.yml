@@ -11,6 +11,7 @@ jobs:
       - uses: dart-lang/setup-dart@v1
       - run: dart pub global activate onepub
       - run: onepub login trusted
+      - run: dart format --output=none --set-exit-if-changed .
       - run: dart pub get
       - run: dart analyze
       - run: dart test
