@@ -9,6 +9,9 @@ description: >
   (Money.parse('$2010.00') * 10).format('SCC#,##0') -> $US20,100
 
 repository: https://github.com/onepub-dev/money.dart
+
+publish_to: https://onepub.dev/api/jbbxpsdavu/
+
 environment:
   sdk: '>=3.0.0 <4.0.0'
 dependencies:
@@ -30,3 +33,4 @@ platforms:
   macos:
   web:
   windows:
+
