@@ -544,7 +544,6 @@ class Money implements Comparable<Money> {
   /// `<T>` - the type you are decoding from.
   ///
   /// Throws [FormatException] when the passed value contains an invalid format.
-  // ignore: prefer_constructors_over_static_methods
   static Money decoding<T>(T value, MoneyDecoder<T> decoder) {
     final data = decoder.decode(value);
 

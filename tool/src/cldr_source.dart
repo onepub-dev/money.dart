@@ -43,7 +43,7 @@ class CldrData {
       return primary;
     }
     if (locale != 'en') {
-      return _loadNumbers('en');
+      return await _loadNumbers('en');
     }
     return null;
   }
